@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pleroma Travel Agency</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<style>
+	  /* Hero Section Styles */
+  .hero-section {
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    color: white;
+    position: relative;
+  }
+  
+  .parallax-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 0;
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(58, 134, 255, 0.3) 0%, rgba(253, 168, 76, 0.2) 100%);
+    z-index: 1;
+  }
+  
+  .z-index-2 {
+    z-index: 2;
+  }
+  
+  .hero-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    animation: fadeInUp 1s ease;
+  }
+  
+  .hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeInUp 1s ease 0.2s forwards;
+    opacity: 0;
+  }
+  
+  /* CTA Styles */
+  .cta-wrapper {
+    animation: fadeInUp 1s ease 0.4s forwards;
+    opacity: 0;
+  }
+  
+  .cta-text {
+	color: var(--bs-light);
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    animation: pulse 2s infinite;
+  }
+  
+  .btn-cta {
+    background: var(--bs-secondary);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 10px 20px rgba(253, 168, 76, 0.3);
+  }
+  
+  .btn-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(253, 168, 76, 0.4);
+    background: linear-gradient(45deg, #f59e0b, #ffcc00, #d97706);
+  }
+  
+  .btn-cta:active {
+    transform: translateY(1px);
+  }
+  
+  .cta-main-text {
+    display: block;
+    margin-right: 10px;
+  }
+  
+  .cta-sub-text {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 400;
+    opacity: 0.9;
+    margin-right: 10px;
+  }
+  
+  /* Scroll Indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1.5rem;
+    animation: bounce 2s infinite;
+    cursor: pointer;
+    z-index: 3;
+  }
+  
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0) translateX(-50%);
+    }
+    40% {
+      transform: translateY(-20px) translateX(-50%);
+    }
+    60% {
+      transform: translateY(-10px) translateX(-50%);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 600px;
+  }
+  
+  .btn-cta {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+    white-space: normal;
+    line-height: 1.3;
+  }
+  
+  .cta-main-text {
+    display: block;
+    font-size: 1rem;
+    margin-right: 0;
+    margin-bottom: 2px;
+  }
+  
+  .cta-sub-text {
+    display: block;
+    font-size: 0.7rem;
+    margin-right: 0;
+  }
+  
+  .btn-cta i {
+    font-size: 0.9rem;
+    margin-left: 5px !important;
+  }
+}
+  }
+	
+  /* Application Process Styles */
+  .application-process {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .process-card {
+    background-color: white;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+  }
+  
+  .process-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+  }
+  
+  .step-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Outfit', sans-serif;
+  }
+  
+  .process-card h3 {
+    color: var(--bs-dark);
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  
+  .process-card p {
+    color: #4b5563;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 767.98px) {
+    .process-card {
+      text-align: center;
+    }
+    
+    .step-icon {
+      margin-top: 1.5rem !important;
+    }
+  }
+  
+  
+  
+  
+    /* Form Progress Bar Styles */
+  .form-progress {
+    position: relative;
+    margin-bottom: 3rem;
+  }
+  
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  
+  .step-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+    border: 3px solid white;
+  }
+  
+  .step.active .step-circle {
+    background: var(--bs-primary) !important;
+    color: white !important;
+    transform: scale(1.1);
+  }
+  
+  .step.completed .step-circle {
+    background: #8a2be2 !important;
+    color: white !important;
+  }
+  
+  .step-label {
+    font-weight: 500;
+    color: #6c757d;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .step.active .step-label {
+    color: var(--bs-dark);
+    font-weight: 600;
+  }
+  
+  /* Form Step Styles */
+  .form-step {
+    display: none;
+    animation: fadeIn 0.5s ease;
+  }
+  
+  .form-step.active {
+    display: block;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Form Validation Styles */
+  .was-validated .form-control:invalid,
+  .was-validated .form-select:invalid,
+  .was-validated .form-check-input:invalid {
+    border-color: #dc3545;
+  }
+  
+  .was-validated .form-control:valid,
+  .was-validated .form-select:valid {
+    border-color: #28a745;
+  }
+  
+  /* Button Styles */
+  .btn-next, .btn-prev, .btn-submit {
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+  }
+  
+  .btn-next:hover, .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .btn-submit:hover {
+    background: #ffc107 !important;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 767.98px) {
+    .step-circle {
+      width: 40px;
+      height: 40px;
+      font-size: 1rem;
+    }
+    
+    .step-label {
+      font-size: 0.8rem;
+    }
+    
+    .btn-next, .btn-prev, .btn-submit {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
+</style>
+  </head>
+  <body>
+  <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgba(0,0,0,0.3); backdrop-filter: blur(5px);">
+    <div class="container">
+        <a class="navbar-brand" href="#" id="pleroma-logo">
+			<span class="pleroma-logo-text">Pleroma</span>
+			<span class="travel-agency-text">Travel Agency</span>
+		</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="./index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html#jobs">Jobs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html#country">Destinations</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="./index.html#about" id="workingHolidayDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">About</a>
+                    <ul class="dropdown-menu" aria-labelledby="workingHolidayDropdown">
+                        <li><a class="dropdown-item" href="./index.html#about">Company</a></li>
+                        <li><a class="dropdown-item" href="#">Team</a></li>
+                        <li><a class="dropdown-item" href="#">Careers</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="./index.html#contact" class="btn btn-contact ms-lg-3">
+                <i class="bi bi-telephone me-2"></i>Contact Us
+            </a>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Hero Section with Parallax -->
+<section class="hero-section position-relative overflow-hidden">
+  <!-- Parallax Background Image -->
+  <div class="parallax-background" style="background-image: url('https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2560&q=80');"></div>
+   <div class="hero-overlay"></div>
+  
+  <!-- Hero Content -->
+  <div class="container position-relative z-index-2 h-100">
+    <div class="row align-items-center h-100">
+      <div class="col-lg-8 mx-auto text-center">
+        <h1 class="hero-title mb-4">Begin Your Global Career Journey</h1>
+        <p class="hero-subtitle lead mb-5">Discover exciting work opportunities abroad while immersing yourself in new cultures and experiences.</p>
+        
+        <!-- CTA Button -->
+        <div class="cta-wrapper">
+          <h3 class="cta-text mb-4">Ready to Take the First Step?</h3>
+          <button class="btn btn-cta btn-lg" onclick="scrollToForm()">
+            <span class="cta-main-text">Start Your Application Now</span>
+            <span class="cta-sub-text"> (Limited spots available)</span>
+            <i class="bi bi-arrow-right ms-2"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Scrolling Indicator -->
+  <div class="scroll-indicator">
+    <i class="bi bi-chevron-down"></i>
+  </div>
+</section>
+  
+  <!-- Application Process Section -->
+<section class="application-process py-5" style="background-color: #f8f0ff;">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="mb-3">Begin Your Journey</h2>
+      <div class="title-divider mx-auto mb-4" style="height: 3px; width: 80px; background: var(--bs-primary);"></div>
+    <p class="lead" style="max-width: 800px; margin: 0 auto;">
+	Grab your Ghanaian passport and fill out our free application form below. It only takes three minutes to apply!</p>
+	<p class="lead" style="max-width: 800px; margin: 0 auto;">
+	Once you’ve completed the form, sit back and relax. Our team will contact you within 48 hours with the next steps, so keep an eye out for our emails! 
+	After we confirm you are eligible for your program of choice, we’ll email you a link to our online payment page. Once you’ve made the payment, your participation in our program will be official!</p>
+
+	</div>
+	
+<!-- Application Form Section -->
+<section class="application-form py-5 bg-white" id="applicationForm">
+  <div class="container">
+    <!-- Form will be placed here after approval -->
+  </div>
+</section>
+
+
+<!-- Application Form Section -->
+<section class="application-form py-5 bg-white" id="applicationForm">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <!-- Form Progress Bar -->
+        <div class="form-progress mb-5">
+          <div class="progress-steps d-flex justify-content-between position-relative">
+            <!-- Progress Line -->
+            <div class="progress-line position-absolute top-50 start-0 end-0" style="height: 3px; background: #e9ecef; z-index: 1;"></div>
+            <div class="progress-line-active position-absolute top-50 start-0" style="height: 3px; background: var(--bs-primary); z-index: 2; width: 0%;"></div>
+            
+            <!-- Step 1 -->
+            <div class="step active" data-step="1">
+              <div class="step-circle" style="background: var(--bs-primary); color: white; z-index: 3;">
+                <i class="bi bi-person-fill"></i>
+              </div>
+              <div class="step-label mt-2">Personal Info</div>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="step" data-step="2">
+              <div class="step-circle" style="background: #e9ecef; z-index: 3;">
+                <i class="bi bi-file-earmark-text"></i>
+              </div>
+              <div class="step-label mt-2">Program Choice</div>
+            </div>
+            
+            <!-- Step 3 -->
+            <div class="step" data-step="3">
+              <div class="step-circle" style="background: #e9ecef; z-index: 3;">
+                <i class="bi bi-telephone"></i>
+              </div>
+              <div class="step-label mt-2">Emergency Contact</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Multi-step Form -->
+        <form id="jobApplicationForm" class="needs-validation" novalidate>
+          <!-- Step 1: Personal Information -->
+          <div class="form-step active" id="step1">
+            <h3 class="mb-4" style="color: var(--bs-primary);">Personal Information</h3>
+            
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstName" required>
+                <div class="invalid-feedback">Please provide your first name.</div>
+              </div>
+              
+              <div class="col-md-6">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastName" required>
+                <div class="invalid-feedback">Please provide your last name.</div>
+              </div>
+              
+              <div class="col-md-6">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" required>
+                <div class="invalid-feedback">Please provide a valid email.</div>
+              </div>
+              
+              <div class="col-md-6">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" required>
+                <div class="invalid-feedback">Please provide a phone number.</div>
+              </div>
+              
+              <div class="col-md-6">
+                <label for="dob" class="form-label">Date of Birth</label>
+                <input type="date" class="form-control" id="dob" required>
+                <div class="invalid-feedback">Please provide your date of birth.</div>
+              </div>
+              
+              <div class="col-md-6">
+                <label for="nationality" class="form-label">Nationality</label>
+                <select class="form-select" id="nationality" required>
+                  <option value="" selected disabled>Select your nationality</option>
+                  <option value="Ghanaian">Ghanaian</option>
+                  <option value="Nigerian">Nigerian</option>
+                  <option value="Other">Other</option>
+                </select>
+                <div class="invalid-feedback">Please select your nationality.</div>
+              </div>
+              
+              <div class="col-12">
+                <label for="address" class="form-label">Current Address</label>
+                <textarea class="form-control" id="address" rows="2" required></textarea>
+                <div class="invalid-feedback">Please provide your address.</div>
+              </div>
+            </div>
+            
+            <div class="d-flex justify-content-end mt-4">
+              <button type="button" class="btn btn-next" style="background: var(--bs-primary); color: white;" onclick="nextStep(1)">
+                Next <i class="bi bi-arrow-right ms-2"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Step 2: Program Choice & Eligibility -->
+          <div class="form-step" id="step2">
+            <h3 class="mb-4" style="color: #8a2be2;">Program Choice & Eligibility</h3>
+            
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="program" class="form-label">Preferred Program</label>
+                <select class="form-select" id="program" required>
+                  <option value="" selected disabled>Select a program</option>
+                  <option value="Hospitality">Hospitality Internship</option>
+                  <option value="Construction">Construction Training</option>
+                  <option value="Healthcare">Healthcare Placement</option>
+                  <option value="Agriculture">Agricultural Program</option>
+                </select>
+                <div class="invalid-feedback">Please select a program.</div>
+              </div>
+              
+              <div class="col-md-6">
+                <label for="destination" class="form-label">Preferred Destination</label>
+                <select class="form-select" id="destination" required>
+                  <option value="" selected disabled>Select a country</option>
+                  <option value="Canada">Canada</option>
+                  <option value="Australia">Australia</option>
+                  <option value="UK">United Kingdom</option>
+                  <option value="USA">United States</option>
+                </select>
+                <div class="invalid-feedback">Please select a destination.</div>
+              </div>
+              
+              <div class="col-md-6">
+                <label for="experience" class="form-label">Years of Experience</label>
+                <input type="number" class="form-control" id="experience" min="0" required>
+                <div class="invalid-feedback">Please provide your experience.</div>
+              </div>
+              
+              <div class="col-md-6">
+                <label for="education" class="form-label">Highest Education</label>
+                <select class="form-select" id="education" required>
+                  <option value="" selected disabled>Select education level</option>
+                  <option value="High School">High School</option>
+                  <option value="Diploma">Diploma</option>
+                  <option value="Bachelor">Bachelor's Degree</option>
+                  <option value="Master">Master's Degree</option>
+                </select>
+                <div class="invalid-feedback">Please select your education level.</div>
+              </div>
+              
+              <div class="col-12">
+                <label for="skills" class="form-label">Relevant Skills</label>
+                <textarea class="form-control" id="skills" rows="3" placeholder="List your key skills separated by commas" required></textarea>
+                <div class="invalid-feedback">Please list your skills.</div>
+              </div>
+              
+              <div class="col-12">
+                <label for="resume" class="form-label">Upload Resume/CV</label>
+                <input type="file" class="form-control" id="resume" accept=".pdf,.doc,.docx" required>
+                <div class="invalid-feedback">Please upload your resume.</div>
+              </div>
+            </div>
+            
+            <div class="d-flex justify-content-between mt-4">
+              <button type="button" class="btn btn-prev" style="background: #e9ecef;" onclick="prevStep(2)">
+                <i class="bi bi-arrow-left me-2"></i> Previous
+              </button>
+              <button type="button" class="btn btn-next" style="background: #8a2be2; color: white;" onclick="nextStep(2)">
+                Next <i class="bi bi-arrow-right ms-2"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Step 3: Emergency Contact -->
+          <div class="form-step" id="step3">
+            <h3 class="mb-4" style="color: #ffd700;">Emergency Contact</h3>
+            
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="emergencyName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="emergencyName" required>
+                <div class="invalid-feedback">Please provide the full name.</div>
+              </div>
+              
+              <div class="col-md-6">
+                <label for="emergencyRelation" class="form-label">Relationship</label>
+                <input type="text" class="form-control" id="emergencyRelation" required>
+                <div class="invalid-feedback">Please specify your relationship.</div>
+              </div>
+              
+              <div class="col-md-6">
+                <label for="emergencyPhone" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="emergencyPhone" required>
+                <div class="invalid-feedback">Please provide a phone number.</div>
+              </div>
+              
+              <div class="col-md-6">
+                <label for="emergencyEmail" class="form-label">Email (Optional)</label>
+                <input type="email" class="form-control" id="emergencyEmail">
+              </div>
+              
+              <div class="col-12">
+                <label for="emergencyAddress" class="form-label">Full Address</label>
+                <textarea class="form-control" id="emergencyAddress" rows="2" required></textarea>
+                <div class="invalid-feedback">Please provide the full address.</div>
+              </div>
+              
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="consent" required>
+                  <label class="form-check-label" for="consent">
+                    I certify that all information provided is accurate and complete.
+                  </label>
+                  <div class="invalid-feedback">You must agree before submitting.</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="d-flex justify-content-between mt-4">
+              <button type="button" class="btn btn-prev" style="background: #e9ecef;" onclick="prevStep(3)">
+                <i class="bi bi-arrow-left me-2"></i> Previous
+              </button>
+              <button type="submit" class="btn btn-submit" style="background: #ffd700; color: #000;">
+                Submit Application <i class="bi bi-send ms-2"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>PLEROMA Travel&Work</h5>
+                    <p>Helping professionals find verified international job opportunities since 2015.</p>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="./index.html" class="text-white">Home</a></li>
+                        <li><a href="#jobs" class="text-white">Jobs</a></li>
+                        <li><a href="#country" class="text-white">Destinations</a></li>
+                        <li><a href="#about" class="text-white">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Support</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">FAQ</a></li>
+                        <li><a href="#" class="text-white">Contact</a></li>
+                        <li><a href="#" class="text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-geo-alt me-2"></i> Sowutoum, Accra, Ghana</li>
+                        <li><i class="bi bi-telephone me-2"></i> +233 (0)558009078</li>
+                        <li><i class="bi bi-envelope me-2"></i> pleromatravel@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+                       <div class="text-center">
+                <p class="mb-0">&copy; 2023 Pleroma Travel.
+				<span style="font-size: smaller">version 1.0   
+				Made by 
+				<a href="https://fexadigital.com" 
+					target="_blank" 
+					style="color: #FF6B35;"
+					data-bs-toggle="tooltip" 
+					data-bs-placement="top"
+					title="Developed by Samuel at Fexa Digital">
+					Fexa Digital Solutions
+					</a>. All Rights Reserved.
+					</span>
+				</p>
+            </div>
+        </div>
+    </footer>
+		<div class="whatsapp-chatbot">
+  <a href="https://wa.me/233558009078" target="_blank" class="pulse" title="Chat with us on WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat">
+  </a>
+</div>
+	
+	<!-- Bootstrap JS -->
+	<script>
+  // Form Navigation
+  function nextStep(currentStep) {
+    const form = document.getElementById('jobApplicationForm');
+    if (!form.checkValidity()) {
+      form.classList.add('was-validated');
+      return;
+    }
+    
+    document.getElementById(`step${currentStep}`).classList.remove('active');
+    document.getElementById(`step${currentStep + 1}`).classList.add('active');
+    
+    // Update progress bar
+    document.querySelector(`.step[data-step="${currentStep}"]`).classList.remove('active');
+    document.querySelector(`.step[data-step="${currentStep}"]`).classList.add('completed');
+    document.querySelector(`.step[data-step="${currentStep + 1}"]`).classList.add('active');
+    
+    // Update progress line
+    const progressLine = document.querySelector('.progress-line-active');
+    progressLine.style.width = `${(currentStep / 3) * 100}%`;
+    
+    // Scroll to top of form
+    document.getElementById('applicationForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  
+  function prevStep(currentStep) {
+    document.getElementById(`step${currentStep}`).classList.remove('active');
+    document.getElementById(`step${currentStep - 1}`).classList.add('active');
+    
+    // Update progress bar
+    document.querySelector(`.step[data-step="${currentStep}"]`).classList.remove('active');
+    document.querySelector(`.step[data-step="${currentStep - 1}"]`).classList.add('active');
+    document.querySelector(`.step[data-step="${currentStep - 1}"]`).classList.remove('completed');
+    
+    // Update progress line
+    const progressLine = document.querySelector('.progress-line-active');
+    progressLine.style.width = `${((currentStep - 2) / 3) * 100}%`;
+  }
+  
+  // Form Submission
+  document.getElementById('jobApplicationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Here you would typically send the form data to your server
+    alert('Application submitted successfully!');
+    
+    // Reset form
+    this.reset();
+    document.querySelectorAll('.form-step').forEach(step => step.classList.remove('active'));
+    document.getElementById('step1').classList.add('active');
+    document.querySelectorAll('.step').forEach(step => {
+      step.classList.remove('active', 'completed');
+    });
+    document.querySelector('.step[data-step="1"]').classList.add('active');
+    document.querySelector('.progress-line-active').style.width = '0%';
+    this.classList.remove('was-validated');
+  });
+  
+  // Scroll to form from previous section
+  function scrollToForm() {
+    document.getElementById('applicationForm').scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
+
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

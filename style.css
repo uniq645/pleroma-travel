@@ -1,0 +1,322 @@
+/* === Brand Font Imports === */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+/* === Bootstrap 5 CSS Variable Overrides === */
+:root {
+  /* Brand Colors */
+  --bs-primary: #3a86ff;      /* Blue */
+  --bs-secondary: #fda84c;    /* Soft Orange */
+  --bs-info: #f8f9ff;         /* Soft Blue */
+  --bs-light: #fefefe;
+  --bs-dark: #1e293b;
+  
+  /* Typography */
+  --bs-body-font-family: 'Inter', system-ui, sans-serif;
+  --bs-body-font-size: 1rem;
+  --bs-body-color: #2d2d2d;
+  --bs-heading-color: #fda84c;
+
+  /* Border Radius */
+  --bs-border-radius: 0.5rem;
+
+  /* Spacing (you can use these as utilities later if needed) */
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+}
+
+/* === Global Element Styling === */
+
+body {
+  font-family: var(--bs-body-font-family);
+  font-size: var(--bs-body-font-size);
+  color: var(--bs-body-color);
+  background-color: #f9fafb;
+  line-height: 1.6;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+  color: var(--bs-heading-color);
+  font-weight: 600;
+}
+
+a {
+  color: var(--bs-primary);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+button, .btn {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  border-radius: var(--bs-border-radius);
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+  color: #fff;
+}
+.btn-primary:hover {
+  background-color: #d97706;
+  border-color: #d97706;
+}
+
+.btn-secondary {
+  background-color: var(--bs-secondary);
+  border-color: var(--bs-secondary);
+  color: #fff;
+}
+.btn-secondary:hover {
+  background-color: #2563eb;
+  border-color: #2563eb;
+}
+
+/* === Forms === */
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  border-radius: var(--bs-border-radius);
+  border: 1px solid #e5e7eb;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--bs-primary);
+  outline: none;
+  box-shadow: 0 0 0 0.25rem rgba(245, 158, 11, 0.25);
+}
+
+/* === Custom Utilities (Optional) === */
+.bg-soft-blue {
+  background-color: #eff6ff;
+}
+.bg-soft-orange {
+  background-color: #fff7ed;
+}
+.text-muted {
+  color: #6b7280 !important;
+}
+
+
+.top-info-bar {
+  background-color: var(--bs-light);
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.875rem;
+  color: #6b7280;
+  
+}
+
+.top-info-bar a {
+  color: var(--bs-secondary);
+  font-weight: 500;
+}
+
+.top-info-bar a:hover {
+  color: var(--bs-primary);
+}
+
+/* Responsive font sizing for top bar */
+@media (max-width: 576px) {
+  .top-info-bar {
+    font-size: 0.85rem;
+  }
+}
+
+
+    /* Navbar Link Hover Effects */
+    .navbar-dark .navbar-nav .nav-link {
+        color: rgba(255, 255, 255, 0.85);
+        position: relative;
+        padding: 0.5rem 1rem;
+        transition: all 0.3s ease;
+    }
+    
+    .navbar-dark .navbar-nav .nav-link:hover,
+    .navbar-dark .navbar-nav .nav-link:focus,
+    .navbar-dark .navbar-nav .nav-link.active {
+        color: var(--bs-primary) !important;
+    }
+    
+    .navbar-dark .navbar-nav .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--bs-primary);
+        transition: width 0.3s ease;
+    }
+    
+    .navbar-dark .navbar-nav .nav-link:hover::after,
+    .navbar-dark .navbar-nav .nav-link.active::after {
+        width: calc(100% - 2rem);
+    }
+    
+    /* Dropdown Menu Styling */
+    .dropdown-menu {
+        border: none;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .dropdown-item {
+        padding: 0.5rem 1.5rem;
+        transition: all 0.2s ease;
+    }
+    
+    .dropdown-item:hover {
+        background-color: var(--bs-secondary);
+        color: white !important;
+    }
+    
+    /* Contact Button Styling */
+    .btn-contact {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+        border-radius: 50px;
+        padding: 0.5rem 1.5rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-contact:hover {
+        background-color: var(--bs-secondary);
+        border-color: var(--bs-secondary);
+        color: white;
+        transform: translateY(-2px);
+    }
+    
+    /* Mobile Menu Adjustments */
+    @media (max-width: 991.98px) {
+        .navbar-collapse {
+            padding: 1rem 0;
+            background-color: rgba(0,0,0,0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 0 0 10px 10px;
+        }
+        
+        .navbar-nav {
+            margin-bottom: 1rem;
+        }
+        
+        .nav-link {
+            padding: 0.75rem 1rem !important;
+        }
+        
+        .btn-contact {
+            width: 100%;
+            text-align: center;
+            margin-left: 0 !important;
+        }
+    }
+
+#pleroma-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Outfit', sans-serif; /* Primary Font */
+    text-transform: none; /* Keep text as it is */
+    color: var(--bs-dark); /* Default color for fallback */
+    text-align: center;
+}
+
+.pleroma-logo-text {
+    font-size: 2.5rem; /* Larger size for 'Pleroma' */
+    font-weight: 700; /* Bold weight for prominence */
+    background: linear-gradient(45deg, #f59e0b, #ffcc00, #d97706); /* Golden gradient */
+    background-clip: text; /* Ensures gradient is applied to text */
+    -webkit-background-clip: text; /* Safari fix */
+    color: transparent; /* Hides original text color, applying the gradient */
+    letter-spacing: 3px; /* Increased spacing for modern, airy feel */
+    line-height: 1.2; /* Adjust line height for a clean look */
+}
+
+.travel-agency-text {
+    font-size: 1.2rem; /* Slightly smaller for 'Travel Agency' */
+    font-weight: 500; /* Medium weight for subtle contrast */
+    color: #3b82f6; /* Soft Blue color for secondary text */
+    letter-spacing: 1.5px; /* Slightly spaced out for a sophisticated touch */
+    margin-top: 0.1rem; /* Reduced space between the brand name and tagline */
+    text-transform: uppercase; /* Optional: Uppercase for a clean, professional touch */
+}
+
+
+  .whatsapp-chatbot {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    transition: all 0.3s ease;
+  }
+  
+  .whatsapp-chatbot a {
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+    text-align: center;
+    line-height: 60px;
+    transition: all 0.3s ease;
+  }
+  
+  .whatsapp-chatbot a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+  }
+  
+  .whatsapp-chatbot img {
+    width: 36px;
+    height: 36px;
+    vertical-align: middle;
+  }
+  
+  /* Pulse animation */
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+  }
+  
+  .whatsapp-chatbot .pulse {
+    animation: pulse 2s infinite;
+    border-radius: 50%;
+  }
+  
+  @media (max-width: 768px) {
+    .whatsapp-chatbot {
+      bottom: 20px;
+      right: 20px;
+    }
+    
+    .whatsapp-chatbot a {
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+    }
+    
+    .whatsapp-chatbot img {
+      width: 30px;
+      height: 30px;
+    }
+  }
