@@ -1,0 +1,160 @@
+/* === Brand Font Imports === */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+/* Base styles */
+.navbar {
+    font-family: 'Inter', sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background-color: #1a1a2e;
+    border-bottom: 2px solid #DAA520;
+}
+
+/* Logo and branding */
+#pleroma-logo {
+    display: flex;
+    align-items: center;
+    font-family: 'Outfit', sans-serif;
+}
+
+#pleroma-logo img {
+    height: 50px;
+    margin-right: 0.5rem;
+}
+
+.logo-text-stack {
+    display: flex;
+    flex-direction: column;
+}
+
+.pleroma-logo-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #f59e0b, #ffcc00, #d97706);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: 1px;
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+.travel-agency-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #3b82f6;
+    letter-spacing: 1.5px;
+    margin-top: 0.1rem;
+    text-transform: uppercase;
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+/* Navigation links */
+.nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    position: relative;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.nav-link:hover,
+.nav-link:focus,
+.nav-link.active {
+    color: #6A0DAD !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #6A0DAD;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: calc(100% - 2rem);
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background-color: #1a1a2e;
+}
+
+.dropdown-item {
+    padding: 0.5rem 1.5rem;
+    transition: all 0.2s ease;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.dropdown-item:hover {
+    background-color: #008080;
+    color: white !important;
+}
+
+/* Contact button */
+.btn-contact {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 50px;
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-contact:hover {
+    background-color: #008080;
+    border-color: #008080;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Mobile menu */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        padding: 1rem 0;
+        background-color: rgba(0,0,0,0.7);
+        backdrop-filter: blur(10px);
+        border-radius: 0 0 10px 10px;
+    }
+    
+    .navbar-nav {
+        margin-bottom: 1rem;
+    }
+    
+    .nav-link {
+        padding: 0.75rem 1rem !important;
+    }
+    
+    .btn-contact {
+        width: 100%;
+        text-align: center;
+        margin-left: 0 !important;
+    }
+}
+
+/* Container adjustment */
+.container {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
