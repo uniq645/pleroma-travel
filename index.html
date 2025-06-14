@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pleroma - Work Abroad the Right Way</title>
+    <title>Pleroma Travel Consult</title>
     <!-- Bootstrap 5 CSS and Icons-->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
@@ -48,7 +48,7 @@
         /* Parallax Hero Section */
         .hero-section {
             height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./images/index-hero.jpg') no-repeat center center;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./images/index-hero.avif') no-repeat center center;
             background-size: cover;
             background-attachment: fixed;
             display: flex;
@@ -90,7 +90,7 @@
         
         /* CTA Button */
         .cta-btn {
-            background-color: var(--bs-primary);
+            background-color: var(--bs-secondary);
             color: white;
             padding: 1rem 2.5rem;
             border-radius: 50px;
@@ -227,7 +227,7 @@
         
         /* Final CTA */
         .final-cta {
-            background: linear-gradient(135deg, var(--bs-primary), var(--bs-secondary));
+            background: linear-gradient(135deg, var(--bs-secondary), #e99a40);
             color: white;
             padding: 5rem 0;
             position: relative;
@@ -297,7 +297,7 @@
             top: 0;
             width: 70px;
             height: 70px;
-            background: var(--bs-primary);
+            background: var(--bs-secondary);
             color: white;
             border-radius: 50%;
             display: flex;
@@ -357,21 +357,34 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgba(0,0,0,0.3); backdrop-filter: blur(5px);">
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark border-b-2 border-[#f7f4f6]">
     <div class="container">
-        <a class="navbar-brand" href="index.html" id="pleroma-logo">
-			<span class="pleroma-logo-text">Pleroma</span>
-			<span class="travel-agency-text">Travel Agency</span>
-		</a>
+        <a class="navbar-brand" href="#" id="pleroma-logo">
+            <img 
+                src="./images/ptc_logo.png" 
+                alt="Pleroma Travel Consult" 
+                height="50" 
+                class="d-inline-block me-2"
+            >
+            <div class="logo-text-stack">
+                <span class="pleroma-logo-text">Pleroma</span>
+                <span class="travel-agency-text">Travel Consult</span>
+            </div>
+        </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <button 
+            class="navbar-toggler" 
+            type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav"
+        >
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="./index.html">Home</a>
+                    <a class="nav-link active" href="#">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#jobs">Jobs</a>
@@ -380,11 +393,19 @@
                     <a class="nav-link" href="#country">Destinations</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#about" id="workingHolidayDropdown" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">About</a>
+                    <a 
+                        class="nav-link dropdown-toggle" 
+                        href="./about.html" 
+                        id="workingHolidayDropdown" 
+                        role="button" 
+                        data-bs-toggle="dropdown" 
+                        aria-expanded="false"
+                    >
+                        About
+                    </a>
                     <ul class="dropdown-menu" aria-labelledby="workingHolidayDropdown">
-                        <li><a class="dropdown-item" href="#about">Company</a></li>
-                        <li><a class="dropdown-item" href="#">Team</a></li>
+                        <li><a class="dropdown-item" href="./about.html">Company</a></li>
+                        <li><a class="dropdown-item" href="./about.html#">Team</a></li>
                         <li><a class="dropdown-item" href="#">Careers</a></li>
                     </ul>
                 </li>
@@ -397,10 +418,11 @@
 </nav>
 
 
+
     <!-- Hero Section -->
     <section class="hero-section text-center">
         <div class="container hero-content floating">
-            <h1 class="mb-4">Work Abroad the Right Way</h1>
+            <h1 class="mb-4" style="color: #ffa735;">Work Abroad the Right Way</h1>
             <p class="lead mb-5">Get Access to Verified jobs, trusted support, and seamless relocation to your dream destination</p>
 			<a href="./apply.html">
             <button class="cta-btn">Start Your Journey <i class="bi bi-arrow-right ms-2"></i></button></a>
@@ -426,7 +448,7 @@
             </div>
             <div class="text-nowrap" style="font-size: 0.8rem;">
                 <span class="text-muted">Based on </span>
-                <span class="fw-semibold" style="color: #4285F4;">25 reviews</span>
+                <span class="fw-semibold" style="color: #843ef5;">25 reviews</span>
             </div>
         </div>
     </div>
@@ -438,7 +460,7 @@
 <section class="why-plero py-5" id="about">
   <div class="container">
     <div class="text-center mb-5">
-      <h2 class="mb-3" style="var(--bs-primary)">Why Travel With Pleroma</h2>
+      <h2 class="mb-3">Why Travel With Pleroma</h2>
       <div class="title-divider mx-auto mb-3" style="height: 3px; width: 80px; background: var(--bs-primary);"></div>
       <p class="lead mb-4">Experience the difference with our comprehensive work-travel programs</p>
     </div>
@@ -561,7 +583,7 @@
     width: 60px;
     height: 60px;
     min-width: 60px;
-    background-color: var(--bs-primary);
+    background-color: var(--bs-secondary);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -655,7 +677,7 @@
                     <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Team working together" class="img-fluid img-card">
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
-                    <h2 class="section-title">Who We Are</h2>
+                    <h2 class="section-title" style="color: #3a86ff;">Who We Are</h2>
                     <p class="lead">At Pleroma Travel Agency, we provide enriching packages that offer fellow Ghanaians the chance to travel and work abroad.</p>
                     <p>We are passionate about helping you obtain personal and professional growth through work abroad experiences. Our team coordinates every aspect of the work and travel process for Ghanaians across the country, from the moment you decide to leave, throughout your stay, until you return home.</p>
                     <p>We provide safe, enriching and beneficial experiences that will remain with you for a lifetime.</p>
@@ -839,7 +861,7 @@
 <section class="popular-programs py-5">
   <div class="container">
     <!-- Blue divider line -->
-    <hr class="section-divider" style="border-top: 3px solid var(--bs-primary); opacity: 1; margin: 0 auto 3rem; max-width: 200px;">
+    <hr class="section-divider" style="border-top: 3px solid var(--bs-accent); opacity: 1; margin: 0 auto 3rem; max-width: 200px;">
     
     <!-- Flyer image placeholder -->
     <div class="text-center mb-5">
@@ -857,7 +879,7 @@
       <!-- Program 1 -->
       <div class="col-md-6 col-lg-4">
         <div class="program-card h-100">
-          <div class="program-image" style="background-image: url('https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');">
+          <div class="program-image" style="background-image: url('./images/reception.avif');">
             <div class="image-overlay"></div>
           </div>
           <div class="program-content p-4">
@@ -883,7 +905,7 @@
       <!-- Program 2 -->
       <div class="col-md-6 col-lg-4">
         <div class="program-card h-100">
-          <div class="program-image" style="background-image: url('https://images.unsplash.com/photo-1581093450021-4a7360e9a7e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');">
+          <div class="program-image" style="background-image: url('./images/teach.jpg');">
             <div class="image-overlay"></div>
           </div>
           <div class="program-content p-4">
@@ -1027,7 +1049,7 @@
     <!-- How It Works Section -->
     <section class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center mb-5">How Pleroma Travel Works</h2>
+            <h2 class="text-center mb-5" style="color: #3a86ff;">How Pleroma Travel Works</h2>
             <div class="row">
                 <div class="col-lg-6">
                     <div class="step-item">
@@ -1064,7 +1086,7 @@
     <!-- Testimonials Section -->
     <section class="py-5">
         <div class="container">
-            <h2 class="text-center mb-5">Success Stories</h2>
+            <h2 class="text-center mb-5" style="color: var(--bs-accent);">Success Stories</h2>
             <div class="row">
                 <div class="col-md-4">
                     <div class="testimonial-card">
@@ -1072,7 +1094,7 @@
                         <div class="testimonial-author">
                             <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="John D.">
                             <div>
-                                <h5>John D.</h5>
+                                <h5 style="color: var(--bs-accent);">John D.</h5>
                                 <p>Construction Worker, Canada</p>
                             </div>
                         </div>
@@ -1084,7 +1106,7 @@
                         <div class="testimonial-author">
                             <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="Sarah M.">
                             <div>
-                                <h5>Sarah M.</h5>
+                                <h5 style="color: var(--bs-accent);">Sarah M.</h5>
                                 <p>Caregiver, Germany</p>
                             </div>
                         </div>
@@ -1095,7 +1117,7 @@
                         <div class="quote">The job I got in Australia was exactly as described. Plero's verification process is solid.</div>
                         <div class="testimonial-author">
                             <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="Kofi M.">                            <div>
-                                <h5>Michael T.</h5>
+                                <h5 style="color: var(--bs-accent);">Michael T.</h5>
                                 <p>Hotel Manager, Australia</p>
                             </div>
                         </div>
@@ -1270,7 +1292,7 @@
         <div class="container text-center">
             <h2 class="text-white">Ready for Your International Career?</h2>
             <p class="lead text-white mb-5">Join thousands who've successfully relocated with our support</p>
-            <button class="cta-btn btn-lg">Book a Free Consultation</button>
+            <button class="cta-btn btn-lg" style="background-color: #5480df;">Book a Free Consultation</button>
         </div>
     </section>
 
@@ -1279,8 +1301,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4">
-                    <h5>PLEROMA Travel & Work Abroad</h5>
-                    <p>Helping professionals find verified international job opportunities since 2023.</p>
+                    <h5 style="color: #ffa735;">PLEROMA Travel Consult</h5>
+                    <p>Helping individuals find verified international job opportunities since 2023.</p>
                     <div class="social-icons">
                         <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
                         <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
@@ -1289,7 +1311,7 @@
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6 mb-4">
-                    <h5>Quick Links</h5>
+                    <h5 style="color: #ffa735;">Quick Links</h5>
                     <ul class="list-unstyled">
                         <li><a href="./index.html" class="text-white">Home</a></li>
                         <li><a href="#jobs" class="text-white">Jobs</a></li>
@@ -1298,7 +1320,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <h5>Support</h5>
+                    <h5 style="color: #ffa735;">Support</h5>
                     <ul class="list-unstyled">
                         <li><a href="#" class="text-white">FAQ</a></li>
                         <li><a href="#" class="text-white">Contact</a></li>
@@ -1307,7 +1329,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-3 mb-4">
-                    <h5>Contact Us</h5>
+                    <h5 style="color: #ffa735;">Contact Us</h5>
                     <ul class="list-unstyled">
                         <li><i class="bi bi-geo-alt me-2"></i> Sowutoum, Accra, Ghana</li>
                         <li><i class="bi bi-telephone me-2"></i> +233 (0)558009078</li>
@@ -1322,7 +1344,7 @@
 				Made by 
 				<a href="https://fexadigital.com" 
 					target="_blank" 
-					style="color: #FF6B35;"
+					style="color: #ff7f35f5;"
 					data-bs-toggle="tooltip" 
 					data-bs-placement="top"
 					title="Developed by Samuel at Fexa Digital">
