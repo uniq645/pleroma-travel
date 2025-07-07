@@ -1046,43 +1046,132 @@
   }
 </style>
 
+    <!-- How It Works Section - Horizontal Cards -->
+<section class="how-it-works py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="mb-3">Your Journey to Working Abroad</h2>
+            <div class="title-divider mx-auto mb-3" style="height: 3px; width: 80px; background: linear-gradient(90deg, #3a86ff, #843ef5);"></div>
+            <p class="lead">We guide you through every step of the process</p>
+        </div>
 
-    <!-- How It Works Section -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5" style="color: #3a86ff;">How Pleroma Travel Works</h2>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="step-item">
-                        <div class="step-number">1</div>
-                        <h3>Create Your Profile</h3>
-                        <p>Tell us about your skills, experience, and preferred destinations. We'll match you with suitable opportunities.</p>
+        <div class="row g-4">
+            <!-- Step 1 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="process-card" style="border-top: 4px solid #3a86ff;">
+                    <div class="process-icon" style="background: linear-gradient(135deg, rgba(58,134,255,0.1), rgba(58,134,255,0.2));">
+                        <i class="bi bi-person-plus" style="color: #3a86ff;"></i>
                     </div>
+                    <div class="process-number">01</div>
+                    <h3>Create Profile</h3>
+                    <p>Complete your profile with skills, experience, and preferences.</p>
+					<p><a href="C:\Users\User\Videos\sheets\login\signup.html">Sign in to Portal</a></p>
                 </div>
-                <div class="col-lg-6">
-                    <div class="step-item">
-                        <div class="step-number">2</div>
-                        <h3>Get Matched</h3>
-                        <p>Receive verified job offers that match your profile and preferences.</p>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="process-card" style="border-top: 4px solid #843ef5;">
+                    <div class="process-icon" style="background: linear-gradient(135deg, rgba(132,62,245,0.1), rgba(132,62,245,0.2));">
+                        <i class="bi bi-briefcase" style="color: #843ef5;"></i>
                     </div>
+                    <div class="process-number">02</div>
+                    <h3>Complete your Application</h3>
+                    <p>Fill your form with necessary details </p>
+					<p><a href="./apply.html">Access Your Application Here</a></p>
                 </div>
-                <div class="col-lg-6">
-                    <div class="step-item">
-                        <div class="step-number">3</div>
-                        <h3>Interview & Prepare</h3>
-                        <p>We'll arrange interviews and help with all necessary preparations.</p>
+            </div>
+            
+            <!-- Step 3 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="process-card" style="border-top: 4px solid #ffa735;">
+                    <div class="process-icon" style="background: linear-gradient(135deg, rgba(255,167,53,0.1), rgba(255,167,53,0.2));">
+                        <i class="bi bi-chat-square-text" style="color: #ffa735;"></i>
                     </div>
+                    <div class="process-number">03</div>
+                    <h3>Interview</h3>
+                    <p>We arrange interviews and handle visa processing.</p>
                 </div>
-                <div class="col-lg-6">
-                    <div class="step-item">
-                        <div class="step-number">4</div>
-                        <h3>Relocate & Work</h3>
-                        <p>Our team assists with visas, relocation, and settling into your new role abroad.</p>
+            </div>
+            
+            <!-- Step 4 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="process-card" style="border-top: 4px solid #3a86ff;">
+                    <div class="process-icon" style="background: linear-gradient(135deg, rgba(58,134,255,0.1), rgba(58,134,255,0.2));">
+                        <i class="bi bi-airplane" style="color: #3a86ff;"></i>
                     </div>
+                    <div class="process-number">04</div>
+                    <h3>Relocate</h3>
+                    <p>We assist with necessary requirements for a succesful relocation and settlement at your chosen destination.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<style>
+.process-card {
+    background: white;
+    padding: 30px 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    height: 100%;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.process-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.process-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 30px;
+}
+
+.process-number {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ddd;
+}
+
+.process-card h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.25rem;
+}
+
+.process-card p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .process-card {
+        padding: 25px 20px;
+    }
+    
+    .process-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 25px;
+    }
+}
+</style>
+	
 
     <!-- Testimonials Section -->
     <section class="py-5">
@@ -1132,12 +1221,23 @@
 <section class="contact-map-section py-5 bg-light">
   <div class="container">
     <div class="row g-4 align-items-center">
-      <!-- Left Side - Contact Info -->
+      <!-- Left Side - Compact Contact Info -->
       <div class="col-lg-5" id="contact">
-        <h2 class="mb-4" >Visit Our Office</h2>
-        <p class="mb-4">We're conveniently located <span class="text-orange">near Pentecost University</span> with flexible service options to meet your needs.</p>
+        <h2 class="mb-3">Visit Our Office</h2>
+        <p class="mb-4">To ensure we give you our undivided attention, we recommend scheduling an appointment.</p>
         
         <div class="contact-info">
+          <div class="contact-item d-flex mb-3">
+            <div class="contact-icon me-3">
+              <i class="bi bi-calendar-check" style="color: var(--bs-primary); font-size: 1.25rem;"></i>
+            </div>
+            <div>
+              <h5 class="mb-1">Book an Appointment</h5>
+              <p class="mb-0 text-muted">Schedule a consultation at your convenience for personalized service</p>
+              <a href="./booking.html" class="btn btn-sm btn-primary mt-2">Schedule Now</a>
+            </div>
+          </div>
+          
           <div class="contact-item d-flex mb-3">
             <div class="contact-icon me-3">
               <i class="bi bi-geo-alt-fill" style="color: var(--bs-primary); font-size: 1.25rem;"></i>
@@ -1153,41 +1253,26 @@
               <i class="bi bi-telephone-fill" style="color: var(--bs-primary); font-size: 1.25rem;"></i>
             </div>
             <div>
-			
-              <h5 class="mb-1">Call Us</h5>
-              <a href="tel:+233558009078" 
-					class="text-decoration-none text-muted">
-				+233 558009078
-				</a>
-            </div>
-          </div>
-          
-          <div class="contact-item d-flex mb-3">
-            <div class="contact-icon me-3">
-              <i class="bi bi-envelope-fill" style="color: var(--bs-primary); font-size: 1.25rem;"></i>
-            </div>
-            <div>
-              <h5 class="mb-1">Email Us</h5>
-              <a href="mailto: pleromatravel@gmail.com"  
-					class="text-decoration-none text-muted">
-				pleromatravel@gmail.com
-				</a>
+              <h5 class="mb-1">Direct Assistance</h5>
+              <a href="tel:+233558009078" class="text-decoration-none text-muted">+233 558009078</a>
+              <p class="small text-muted mb-0">Mon-Fri: 8:30AM-5:30PM</p>
             </div>
           </div>
           
           <div class="contact-item d-flex">
             <div class="contact-icon me-3">
-              <i class="bi bi-clock-fill" style="color: var(--bs-primary); font-size: 1.25rem;"></i>
+              <i class="bi bi-envelope-fill" style="color: var(--bs-primary); font-size: 1.25rem;"></i>
             </div>
             <div>
-              <h5 class="mb-1">Working Hours</h5>
-              <p class="mb-0 text-muted">Mon-Fri: 8:30AM - 5:30PM<br>Sat: 9AM - 2PM</p>
+              <h5 class="mb-1">Email Inquiry</h5>
+              <a href="mailto:pleromatravelconsult@gmail.com" class="text-decoration-none text-muted">pleromatravelconsult@gmail.com</a>
+              <p class="small text-muted mb-0">Typically respond within 24 hours</p>
             </div>
           </div>
         </div>
       </div>
       
-      <!-- Right Side - Google Map -->
+      <!-- Right Side - Google Map (unchanged) -->
       <div class="col-lg-7">
         <div class="map-container rounded-3 overflow-hidden shadow-sm" style="height: 400px;">
           <iframe 
@@ -1206,7 +1291,7 @@
 </section>
 
 <style>
-  /* Contact & Map Section Styles */
+  /* Updated Contact Section Styles */
   .contact-map-section {
     border-top: 1px solid rgba(0,0,0,0.05);
     border-bottom: 1px solid rgba(0,0,0,0.05);
@@ -1220,7 +1305,7 @@
   
   .contact-info {
     background: white;
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: var(--bs-border-radius);
     box-shadow: 0 5px 15px rgba(0,0,0,0.03);
   }
@@ -1229,6 +1314,11 @@
     padding: 1rem;
     transition: all 0.3s ease;
     border-radius: var(--bs-border-radius);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  
+  .contact-item:last-child {
+    border-bottom: none;
   }
   
   .contact-item:hover {
@@ -1243,24 +1333,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  .contact-item h5 {
+    color: var(--bs-dark);
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .btn-primary {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
   }
   
   .map-container {
     border: 1px solid rgba(0,0,0,0.1);
     position: relative;
-  }
-  
-  .map-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(58,134,255,0.1) 0%, rgba(253,168,76,0.05) 100%);
-    pointer-events: none;
-    z-index: 1;
-    mix-blend-mode: soft-light;
   }
   
   /* Responsive adjustments */
@@ -1276,15 +1365,17 @@
   
   @media (max-width: 767.98px) {
     .contact-info {
-      padding: 1.5rem;
-    }
-    
-    .map-container {
-      height: 300px !important;
+      padding: 1.25rem;
     }
     
     .contact-item {
       padding: 0.75rem;
+    }
+    
+    .contact-icon {
+      width: 36px;
+      height: 36px;
+      font-size: 1rem;
     }
   }
 </style>
@@ -1293,8 +1384,10 @@
         <div class="container text-center">
             <h2 class="text-white">Ready for Your International Career?</h2>
             <p class="lead text-white mb-5">Join thousands who've successfully relocated with our support</p>
-            <button class="cta-btn btn-lg" style="background-color: #5480df;">Book a Free Consultation</button>
-        </div>
+            <a href="./booking.html">
+			<button class="cta-btn btn-lg" style="background-color: #5480df;">Book a Free Consultation</button>
+			</a>
+		</div>
     </section>
 
     <!-- Footer -->
@@ -1323,10 +1416,10 @@
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h5 style="color: #ffa735;">Support</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">FAQ</a></li>
-                        <li><a href="#" class="text-white">Contact</a></li>
-                        <li><a href="#" class="text-white">Privacy Policy</a></li>
-                        <li><a href="#" class="text-white">Terms of Service</a></li>
+                        <li><a href="./booking.html#faq" class="text-white">FAQ</a></li>
+                        <li><a href="./index.html#contact" class="text-white">Contact</a></li>
+                        <li><a href="./terms-privacy.html" class="text-white">Privacy Policy</a></li>
+                        <li><a href="./terms-privacy.html" class="text-white">Terms of Service</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 mb-4">
@@ -1334,7 +1427,7 @@
                     <ul class="list-unstyled">
                         <li><i class="bi bi-geo-alt me-2"></i> Sowutoum, Accra, Ghana</li>
                         <li><i class="bi bi-telephone me-2"></i> +233 (0)558009078</li>
-                        <li><i class="bi bi-envelope me-2"></i> pleromatravel@gmail.com</li>
+                        <li><i class="bi bi-envelope me-2"></i> pleromatravelconsult@gmail.com</li>
                     </ul>
                 </div>
             </div>
