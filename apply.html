@@ -355,6 +355,123 @@
       font-size: 0.9rem;
     }
   }
+
+  /* Flip Card Styles */
+  .flip-card-container, .flip-card-container-right {
+    perspective: 1000px;
+    height: 100%;
+    min-height: 400px;
+    margin-bottom: 30px;
+  }
+
+  .flip-card-front, .flip-card-back,
+  .flip-card-front-right, .flip-card-back-right {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    background-color: white;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    padding: 20px;
+  }
+
+  .flip-card-back, .flip-card-back-right {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-container.flipped .flip-card-front {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-container.flipped .flip-card-back {
+    transform: rotateY(0deg);
+  }
+
+  .flip-card-container-right.flipped .flip-card-front-right {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-container-right.flipped .flip-card-back-right {
+    transform: rotateY(0deg);
+  }
+
+  /* Application Lock Styles */
+  .application-lock {
+    border: 2px dashed #e9ecef;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .lock-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #dc3545;
+  }
+
+  /* Button Styles */
+  .btn-primary {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: #3a71df;
+    border-color: #3a71df;
+  }
+
+  .btn-success {
+    background-color: var(--bs-success);
+    border-color: var(--bs-success);
+  }
+
+  /* Payment & Application Section */
+  .payment-application {
+    background-color: #f8f0ff;
+    padding-top: 60px;
+    padding-bottom: 10px;
+  }
+
+/* Confirmation Overlay Styles */
+.confirmation-overlay {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  display: flex !important;
+}
+
+.confirmation-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Form Validation Styles */
+.was-validated .form-control:invalid {
+  border-color: #dc3545;
+  background-image: none;
+}
+
+.was-validated .form-control:valid {
+  border-color: #28a745;
+}
+
+.invalid-feedback {
+  display: none;
+}
+
+.was-validated .form-control:invalid ~ .invalid-feedback {
+  display: block;
+}
+
+  /* Footer Fixes */
+  footer {
+    margin-top: 0;
+  }
 </style>
   </head>
   <body>
@@ -459,178 +576,241 @@
       <h2 class="mb-3">Begin Your Journey</h2>
       <div class="title-divider mx-auto mb-4" style="height: 3px; width: 80px; background: var(--bs-primary);"></div>
     <p class="lead" style="max-width: 800px; margin: 0 auto;">
-	Grab your Ghanaian passport and fill out our free application form below. It only takes three minutes to apply!</p>
+	Grab your Ghanaian passport and fill out the application form below. It only takes upto 5 minutes to apply! 
+	That is if you have gathered all required information</p>
 	<p class="lead" style="max-width: 800px; margin: 0 auto;">
-	Once you’ve completed the form, sit back and relax. Our team will contact you within 48 hours with the next steps, so keep an eye out for our emails! 
-	After we confirm you are eligible for your program of choice, we’ll email you a link to our online payment page. Once you’ve made the payment, your participation in our program will be official!</p>
-	</div>
+	Once you’ve made the payment, your participation in our program will be official!
+	You will also gain access to our portal to track your application's progress, and recevie relavant tips and news towards
+	visa acquisition and travel roadmap.
+	</p>
 	
-	<!-- Application Options Section -->
-<section class="application-options py-5 bg-white" id="applicationOptions">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-10 text-center mb-3" id="apply">
-        <h2 class="mb-3">Choose Your Application Method</h2>
-        <div class="title-divider mx-auto mb-4" style="height: 3px; width: 80px; background: var(--bs-primary);"></div>
-        <p class="lead">Select the application method that works best for you</p>
+	</div>
+</section>
+<!-- Payment & Application Section -->
+<section class="payment-application py-5" style="background-color: #f8f0ff;">
+  <div class="container" id="apply">
+    <div class="row g-4 align-items-stretch">
+      <!-- Left Side - Payment Card (Flippable) -->
+<!-- Left Side - Payment Card (Flippable) -->
+<div class="col-lg-6">
+  <div class="flip-card-container position-relative h-100">
+    <!-- Front of Card -->
+    <div class="flip-card-front h-100">
+      <div class="payment-card h-100 d-flex flex-column justify-content-center align-items-center p-4">
+        <i class="bi bi-credit-card-2-front" style="font-size: 3rem; color: var(--bs-primary);"></i>
+        <h3 class="my-3 text-center">Complete Your Payment</h3>
+        <p class="mb-4 text-center">Click the button below to enter your payment details and secure your application</p>
+        <button class="btn btn-primary flip-trigger px-4 py-2">
+          <i class="bi bi-arrow-repeat me-2"></i> Enter Payment Details
+        </button>
+        <div class="payment-security mt-4 text-center">
+          <i class="bi bi-shield-lock me-2"></i>
+          <span class="small">Secure payment processing</span>
+        </div>
       </div>
     </div>
     
-    <div class="row g-4">
-      <!-- Offline Application Option -->
-      <div class="col-md-6">
-        <div class="card h-100 border-0 shadow-sm">
-          <div class="card-body p-4 text-center">
-            <div class="icon-wrapper mb-4">
-              <i class="bi bi-file-earmark-pdf-fill" style="font-size: 3rem; color: var(--bs-primary);"></i>
-            </div>
-            <h3 class="mb-3">Offline Application</h3>
-            <p class="mb-4">Download our application form, fill it out at your convenience, and submit it to any of our offices.</p>
-            <a href="#" class="btn btn-primary mb-3" onclick="downloadForm()">
-              <i class="bi bi-download me-2"></i> Download Application Form
-            </a>
-            <div class="offline-instructions mt-4 text-start">
-              <h5 class="mb-3">Submission Instructions:</h5>
-              <ol class="ps-3">
-                <li>Download and print the application form</li>
-                <li>Fill out all required fields completely</li>
-                <li>Attach any required documents</li>
-                <li>Submit to any of our offices listed below</li>
-              </ol>
-              <div class="office-locations mt-4">
-                <h5>Our Offices:</h5>
-                <ul class="list-unstyled">
-                  <li><i class="bi bi-geo-alt-fill me-2"></i> Main Office: Sowutoum, Accra, Ghana</li>
-                  <li><i class="bi bi-geo-alt-fill me-2"></i> Branch Office: Kumasi, Ghana</li>
-                  <li><i class="bi bi-geo-alt-fill me-2"></i> Branch Office: Takoradi, Ghana</li>
-                </ul>
+    <!-- Back of Card - Payment Form -->
+    <div class="flip-card-back h-100 position-absolute top-0 start-0 w-100">
+      <div class="payment-form-wrapper h-100 d-flex flex-column justify-content-center p-4">
+        <h3 class="mb-4 text-center">Make Payment</h3>
+        <form id="paymentForm" novalidate>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="email" placeholder="Your email" required>
+            <div class="invalid-feedback">Please enter a valid email address</div>
+          </div>
+          <div class="mb-3">
+            <label for="amount" class="form-label">Amount (GHS)</label>
+            <input type="number" class="form-control" id="amount" placeholder="Amount in GHS" min="1" required>
+            <div class="invalid-feedback">Please enter an amount greater than 0</div>
+          </div>
+          <div class="d-grid gap-2">
+            <button class="btn btn-primary py-2" id="payNowBtn" type="submit">
+              <i class="bi bi-lock-fill me-2"></i> Pay Now
+            </button>
+          </div>
+          <div class="text-center mt-3">
+            <button class="btn btn-sm btn-outline-secondary flip-trigger px-3" type="button">
+              <i class="bi bi-arrow-left me-1"></i> Back
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Confirmation Overlay -->
+    <div class="confirmation-overlay h-100 w-100 position-absolute top-0 start-0 d-flex flex-column justify-content-center align-items-center p-4" style="background-color: rgba(255,255,255,0.95); z-index: 10; border-radius: 12px;">
+      <div class="text-center" id="statusMessage">
+    <i class="bi bi-check-circle-fill" style="font-size: 3rem; color: var(--bs-success);"></i>
+    <h3 class="my-3">Payment Confirmed!</h3>
+    <p class="mb-4">Your payment of <span id="confirmedAmount" class="fw-bold">GHS 0.00</span> was successful.</p>
+    <p>A confirmation has been sent to <span id="confirmedEmail" class="fw-bold">your@email.com</span></p>
+</div>
+      <button class="btn btn-outline-primary mt-3" id="backToPaymentBtn">
+        <i class="bi bi-arrow-left me-1"></i> Back to Payment
+      </button>
+    </div>
+  </div>
+</div>
+
+      <!-- Right Side - Flippable Application Card -->
+      <div class="col-lg-6">
+        <div class="flip-card-container-right position-relative h-100">
+          <!-- Front of Card (Locked State) -->
+          <div class="flip-card-front-right h-100">
+            <div class="application-lock h-100 d-flex flex-column justify-content-center align-items-center p-4">
+              <div class="lock-icon">
+                <i class="bi bi-lock-fill" style="color: #dc3545;"></i>
+              </div>
+              <h3 class="my-3 text-center">Application Form Locked</h3>
+              <p class="mb-4 text-center">Complete your payment to unlock the application form</p>
+              <div class="application-preview">
+                <img src="https://cdn-icons-png.flaticon.com/512/3601/3601026.png" alt="Application Form" class="img-fluid" style="max-height: 150px; opacity: 0.5; filter: grayscale(100%);">
               </div>
             </div>
           </div>
+          
+          <!-- Back of Card (Unlocked State) -->
+          <div class="flip-card-back-right h-100 position-absolute top-0 start-0 w-100">
+            <div class="application-unlocked h-100 d-flex flex-column justify-content-center align-items-center p-4">
+              <i class="bi bi-file-earmark-check-fill" style="font-size: 3rem; color: var(--bs-success);"></i>
+              <h3 class="my-3 text-center">Application Form Unlocked!</h3>
+              <p class="mb-4 text-center">Your payment has been confirmed. Download your form below.</p>
+              <a href="#" class="btn btn-success btn-lg px-4" id="downloadFormBtn">
+                <i class="bi bi-download me-2"></i> Download Application Form
+              </a>
+              <div class="mt-4 text-center">
+                <p class="small text-muted">Form will be automatically sent to your email</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ <!-- Simplified Payment Methods Section -->
+<div class="payment-methods-section my-5">
+  <div class="container">
+    <div class="payment-methods-wrapper p-3 p-md-4">
+      <h6 class="text-muted text-center mb-4 fw-normal">SECURE PAYMENT METHODS</h6>
+      <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 gap-md-5">
+        <!-- Credit Cards -->
+        <div class="payment-method" title="Credit/Debit Cards">
+          <div class="d-flex gap-3 align-items-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png" 
+                 alt="Visa" height="40">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Mastercard_2019_logo.svg/1200px-Mastercard_2019_logo.svg.png" 
+                 alt="Mastercard" height="40">
+          </div>
+        </div>
+        
+        <!-- MTN Mobile Money -->
+        <div class="payment-method" title="MTN Mobile Money">
+          <img src="./images/mtn.png" alt="MTN MoMo" height="40">
+        </div>
+        
+        <!-- AirtelTigo Money -->
+        <div class="payment-method" title="AirtelTigo Money">
+          <img src="./images/airtel.png" alt="AirtelTigo Money" height="40">
+        </div>
+        
+        <!-- Telecel Cash -->
+        <div class="payment-method" title="Telecel Cash">
+          <img src="./images/telecel.jpg" alt="Telecel Cash" height="40">
         </div>
       </div>
       
-      <!-- Online Application Option -->
-      <div class="col-md-6">
-        <div class="card h-100 border-0 shadow-sm">
-          <div class="card-body p-4">
-            <div class="icon-wrapper mb-4 text-center">
-              <i class="bi bi-laptop-fill" style="font-size: 3rem; color: var(--bs-primary);"></i>
-            </div>
-            <h3 class="mb-3 text-center">Online Application</h3>
-            <p class="mb-4 text-center">Start your application online and create an account to track your progress.</p>
-            
-            <!-- Quick Application Form -->
-            <form id="quickApplicationForm" class="needs-validation" novalidate>
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <label for="quickFirstName" class="form-label">First Name*</label>
-                  <input type="text" class="form-control" id="quickFirstName" required>
-                  <div class="invalid-feedback">Please provide your first name.</div>
-                </div>
-                <div class="col-md-6">
-                  <label for="quickLastName" class="form-label">Last Name*</label>
-                  <input type="text" class="form-control" id="quickLastName" required>
-                  <div class="invalid-feedback">Please provide your last name.</div>
-                </div>
-                <div class="col-12">
-                  <label for="quickEmail" class="form-label">Email*</label>
-                  <input type="email" class="form-control" id="quickEmail" required>
-                  <div class="invalid-feedback">Please provide a valid email.</div>
-                </div>
-                <div class="col-12">
-                  <label for="quickPhone" class="form-label">Phone Number*</label>
-                  <input type="tel" class="form-control" id="quickPhone" required>
-                  <div class="invalid-feedback">Please provide a phone number.</div>
-                </div>
-                <div class="col-12">
-                  <label for="quickPassword" class="form-label">Create Password*</label>
-                  <input type="password" class="form-control" id="quickPassword" required>
-                  <div class="invalid-feedback">Please create a password.</div>
-                </div>
-                <div class="col-12">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="quickConsent" required>
-                    <label class="form-check-label" for="quickConsent">
-                      I agree to the <a href="#">terms and conditions</a>*
-                    </label>
-                    <div class="invalid-feedback">You must agree before submitting.</div>
-                  </div>
-                </div>
-                <div class="col-12 mt-4">
-                  <button type="submit" class="btn btn-primary w-100">
-                    Start Online Application <i class="bi bi-arrow-right ms-2"></i>
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
+      <div class="security-badges mt-4 text-center">
+        <span class="badge bg-light text-success me-2 border border-success">
+          <i class="bi bi-shield-lock me-1"></i> SSL Secure
+        </span>
+        <span class="badge bg-light text-primary border border-primary">
+          <i class="bi bi-credit-card me-1"></i> PCI Compliant
+        </span>
       </div>
     </div>
   </div>
-</section>
-<!-- Temporary Application Notice -->
-<section class="application-form py-5 bg-white" id="applicationForm">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8 text-center">
-        <div class="alert alert-info mb-5">
-          <i class="bi bi-info-circle-fill me-2"></i>
-          <strong>Notice:</strong> Our application system is currently being upgraded.
-        </div>
-        
-        <h2 class="mb-4">Temporary Application Process</h2>
-        <div class="title-divider mx-auto mb-4" style="height: 3px; width: 80px; background: #EA4335;"></div>
-        
-        <div class="card border-0 shadow-sm mb-4">
-          <div class="card-body p-4">
-            <img src="https://www.gstatic.com/images/branding/product/1x/forms_2020q4_48dp.png" alt="Google Forms" class="mb-3" height="48">
-            <h3 class="mb-3">Use Our Google Form</h3>
-            <p class="mb-4">Please use our temporary Google Form while we improve our application system.</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSelnFzVjWnP2aWVXp8f6VDsGMk8h4_eTGZqeqV4Q6hQ4a04nA/viewform?usp=dialog" 
-			target="_blank" class="btn btn-danger btn-lg">
-              <i class="bi bi-arrow-up-right-circle me-2"></i> Access Application Form
-            </a>
-          </div>
-        </div>
-        
-        <div class="text-muted small">
-          <p>We'll automatically transfer all applications received through this form to our new system when it's ready.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
+
+<style>
+.payment-methods-section {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.payment-methods-wrapper {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+}
+
+.payment-method {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.payment-method img {
+  max-height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.security-badges .badge {
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.4rem 0.8rem;
+}
+
+@media (max-width: 768px) {
+  .payment-methods-wrapper {
+    padding: 1.5rem !important;
+  }
+  
+  .payment-method img {
+    max-height: 30px;
+  }
+  
+  .security-badges .badge {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+  }
+}
+</style>
+<!-- End of Payment Methods Section -->
 </section>
 
 <script>
-  // Function to handle form download
-  function downloadForm() {
-    // In a real implementation, this would link to your PDF form
-    alert('Downloading application form...');
-    // window.location.href = '/path/to/application-form.pdf';
-  }
-  
-  // Quick application form submission
-  document.getElementById('quickApplicationForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    if (!this.checkValidity()) {
-      this.classList.add('was-validated');
-      return;
-    }
-    
-    // Here you would typically create an account and redirect to full application
-    alert('Account created successfully! Redirecting to full application...');
-    // window.location.href = '/full-application';
+// Initialize tooltips if using Bootstrap
+if (typeof bootstrap !== 'undefined') {
+  const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
   });
+}
 </script>
-	
+<script>
+// Flip card functionality for left pane
+document.querySelectorAll('.flip-trigger').forEach(button => {
+  button.addEventListener('click', function(e) {
+    e.preventDefault();
+    const container = this.closest('.flip-card-container');
+    container.classList.toggle('flipped');
+  });
+});
 
+// Back to payment button
+document.getElementById('backToPaymentBtn').addEventListener('click', function() {
+  document.querySelector('.confirmation-overlay').classList.remove('active');
+});
 
-
-
-
+// Download form handler
+document.getElementById('downloadFormBtn').addEventListener('click', function(e) {
+  e.preventDefault();
+  alert('Downloading application form...');
+  // In a real implementation, this would trigger the download
+  // window.location.href = '/path/to/application-form.pdf';
+});
+</script>
         <!-- Footer -->
         <footer class="py-5 bg-dark text-white">
           <div class="container">
@@ -657,10 +837,10 @@
                   <div class="col-lg-3 col-md-6 mb-4">
                       <h5 style="color: #ffa735;">Support</h5>
                       <ul class="list-unstyled">
-                          <li><a href="#" class="text-white">FAQ</a></li>
+                          <li><a href="./booking.html" class="text-white">FAQ</a></li>
                           <li><a href="./index.html#contact" class="text-white">Contact</a></li>
-                          <li><a href="#" class="text-white">Privacy Policy</a></li>
-                          <li><a href="#" class="text-white">Terms of Service</a></li>
+                          <li><a href="./terms-privacy.html" class="text-white">Privacy Policy</a></li>
+                          <li><a href="./terms-privacy.html" class="text-white">Terms of Service</a></li>
                       </ul>
                   </div>
                   <div class="col-lg-3 mb-4">
@@ -692,5 +872,189 @@
       </footer>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <script>
+    const GAS_URL = 'https://script.google.com/macros/s/AKfycbwKvZcca9erUDLON34AnhqK8oM0izNXnR-O2Rr0MH-ePf7Jgmx3982KTR9xvyt-L4hF/exec'; // Replace with your GAS web app URL
+    const SHEET_ID = '1PtMuR4M34GUeDsASBXdVyhefbZRcwB4I0EOtwOxVJfs'; // Replace with your sheet ID
+    const PAYMENT_SHEET_NAME = 'Payments'; // Name of your payments sheet
+
+// Form validation and submission
+document.getElementById('paymentForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  
+  const form = this;
+  const emailInput = document.getElementById('email');
+  const amountInput = document.getElementById('amount');
+  const payNowBtn = document.getElementById('payNowBtn');
+ 
+  
+  // Check form validity
+  if (!form.checkValidity()) {
+    form.classList.add('was-validated');
+    return;
+  }
+  
+  // Disable button during processing
+  payNowBtn.disabled = true;
+  payNowBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Processing...';
+  
+  
+  initiatePayment(emailInput.value, amountInput.value);
+});
+
+
+    async function initiatePayment(email, amount) {     
+     try {
+        // Call GAS backend to initiate payment
+        const fd = new FormData();
+        fd.append('action', 'initiatePayment');
+        fd.append('sheetId', SHEET_ID);
+        fd.append('sheetName', PAYMENT_SHEET_NAME);
+        fd.append('email', email);
+        fd.append('amount', amount);
+        
+        const response = await fetch(GAS_URL, {
+          method: 'POST',
+          body: fd
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+          // Open Paystack payment modal
+          const handler = PaystackPop.setup({
+            key: data.publicKey,
+            email: data.email,
+            amount: data.amount,
+            ref: data.reference,
+            currency: 'GHS',
+            callback: function(response) {
+              verifyPayment(response.reference);
+            },
+            onClose: function() {
+              showStatus('Payment window closed. You can try again.', 'info');
+            }
+          });
+          handler.openIframe();
+        } else {
+          showStatus('Error: ' + (data.message || 'Payment initiation failed'), 'error');
+        }
+      } catch (error) {
+        showStatus('Error: ' + error.message, 'error');
+      }
+	// Simulate payment reset (2 seconds)
+	setTimeout(() => {
+	
+    // Reset form and button
+    payNowBtn.disabled = false;
+    payNowBtn.innerHTML = '<i class="bi bi-lock-fill me-2"></i> Pay Now';
+    form.classList.remove('was-validated');
+    form.reset();
+  }, 2000);
+	  
+    }
+    
+    async function verifyPayment(reference) {
+      showStatus('Verifying payment...', 'info');
+      
+      try {
+        const fd = new FormData();
+        fd.append('action', 'verifyPayment');
+        fd.append('sheetId', SHEET_ID);
+        fd.append('sheetName', PAYMENT_SHEET_NAME);
+        fd.append('reference', reference);
+        
+        const response = await fetch(GAS_URL, {
+          method: 'POST',
+          body: fd
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+          showStatus('', 'success');
+          // Here you can redirect to success page or show order details
+          console.log('Payment details:', data.payment);
+        } else {
+          showStatus('Payment verification failed: ' + (data.message || 'Unknown error'), 'error');
+        }
+      } catch (error) {
+        showStatus('Error verifying payment: ' + error.message, 'error');
+      }
+    }
+    
+    function showStatus(message, type) {
+	const statusMessageDiv = document.getElementById('statusMessage');
+    let iconClass = '';
+    let iconColor = '';
+    let title = '';
+    let paragraph1 = '';
+    let paragraph2 = '';
+	
+    switch (type) {
+        case 'success':
+            iconClass = 'bi bi-check-circle-fill';
+            iconColor = 'var(--bs-success)';
+            title = 'Payment Confirmed!';
+            paragraph1 = `Your payment of <span id="confirmedAmount" class="fw-bold">GHS 0.00</span> was successful.`;
+            paragraph2 = `A confirmation has been sent to <span id="confirmedEmail" class="fw-bold">your@email.com</span>`;
+            // Flip right card to show unlocked state
+			document.querySelector('.flip-card-container-right').classList.add('flipped');
+			break;
+        case 'error':
+            iconClass = 'bi bi-x-circle-fill';
+            iconColor = 'var(--bs-danger)';
+            title = 'Error!';
+            paragraph1 = 'An unexpected error occurred.';
+            paragraph2 = message;
+            break;
+        case 'info':
+            iconClass = 'bi bi-info-circle-fill';
+            iconColor = 'var(--bs-info)';
+            title = 'Information';
+            paragraph1 = 'Status';
+            paragraph2 = message || '';
+            break;
+        default:
+            // Default to an empty state or a generic message if type is unknown
+            iconClass = '';
+            iconColor = '';
+            title = '';
+            paragraph1 = '';
+            paragraph2 = '';
+            break;
+    }
+
+    // Construct the new innerHTML
+    statusMessageDiv.innerHTML = `
+        <i class="${iconClass}" style="font-size: 3rem; color: ${iconColor};"></i>
+        <h3 class="my-3">${title}</h3>
+        <p class="mb-4">${paragraph1}</p>
+        <p>${paragraph2}</p>
+    `;
+	    // Show confirmation overlay
+    document.querySelector('.confirmation-overlay').classList.add('active');
+    }
+	
+	// Function to scroll to the element with id="apply"
+function scrollToForm() {
+    // 1. Get a reference to the target element
+    const targetElement = document.getElementById('apply');
+
+    // 2. Check if the element exists
+    if (targetElement) {
+        // 3. Use the scrollIntoView method with smooth behavior
+        targetElement.scrollIntoView({
+            behavior: 'smooth', // This provides the smooth scroll animation
+            block: 'start'      // Aligns the top of the target with the top of the viewport
+            // You can also use 'center', 'end', or 'nearest' for 'block'
+            // For 'inline', you can use 'start', 'center', 'end', or 'nearest' (for horizontal scrolling)
+        });
+    } else {
+        console.warn("Element with ID 'apply' not found. Cannot scroll.");
+    }
+}
+  </script>
   </body>
 </html>
