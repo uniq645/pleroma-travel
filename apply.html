@@ -676,7 +676,6 @@
             <div class="application-unlocked h-100 d-flex flex-column justify-content-center align-items-center p-4">
               <i class="bi bi-file-earmark-check-fill" style="font-size: 3rem; color: var(--bs-success);"></i>
               <h3 class="my-3 text-center">Application Form Unlocked!</h3>
-              <p class="mb-4 text-center">Your payment has been confirmed. Download your form below.</p>
               <a href="#" class="btn btn-success btn-lg px-4" id="downloadFormBtn">
                 <i class="bi bi-download me-2"></i> Download Application Form
               </a>
@@ -997,8 +996,8 @@ document.getElementById('paymentForm').addEventListener('submit', function(e) {
             iconClass = 'bi bi-check-circle-fill';
             iconColor = 'var(--bs-success)';
             title = 'Payment Confirmed!';
-            paragraph1 = `Your payment of <span id="confirmedAmount" class="fw-bold">GHS 0.00</span> was successful.`;
-            paragraph2 = `A confirmation has been sent to <span id="confirmedEmail" class="fw-bold">your@email.com</span>`;
+            paragraph1 = `Your journey begins now.`;
+            paragraph2 = `A confirmation has been sent to your email.</span>`;
             // Flip right card to show unlocked state
 			document.querySelector('.flip-card-container-right').classList.add('flipped');
 			break;
