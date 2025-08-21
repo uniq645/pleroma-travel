@@ -1,361 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apply Now - Pleroma Travel Consult</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-	<link rel="stylesheet" href="style.css">
+    <!-- Bootstrap 5 CSS and Icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 	<link rel="preload" href="./images/apply-hero.jpg" as="image">
 	<style>
-	  /* Hero Section Styles */
-  .hero-section {
-    height: 100vh;
-    min-height: 700px;
-    display: flex;
-    align-items: center;
-    color: white;
-    position: relative;
-  }
-  
-  .parallax-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 120%;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    z-index: 0;
-  }
-  
-  .hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(58, 134, 255, 0.3) 0%, rgba(253, 168, 76, 0.2) 100%);
-    z-index: 1;
-  }
-  
-  .z-index-2 {
-    z-index: 2;
-  }
-  
-  .hero-title {
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: 700;
-    line-height: 1.2;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    animation: fadeInUp 1s ease;
-  }
-  
-  .hero-subtitle {
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    animation: fadeInUp 1s ease 0.2s forwards;
-    opacity: 0;
-  }
-  
-  /* CTA Styles */
-  .cta-wrapper {
-    animation: fadeInUp 1s ease 0.4s forwards;
-    opacity: 0;
-  }
-  
-  .cta-text {
-	color: var(--bs-light);
-    font-size: 1.25rem;
-    font-weight: 500;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-    animation: pulse 2s infinite;
-  }
-  
-  .btn-cta {
-    background: var(--bs-secondary);
-    color: white;
-    border: none;
-    border-radius: 50px;
-    padding: 1rem 2rem;
-    font-weight: 600;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    box-shadow: 0 10px 20px rgba(253, 168, 76, 0.3);
-  }
-  
-  .btn-cta:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(253, 168, 76, 0.4);
-    background-color: #8a2be2;
-  }
-  
-  .btn-cta:active {
-    transform: translateY(1px);
-  }
-  
-  .cta-main-text {
-    display: block;
-    margin-right: 10px;
-  }
-  
-  .cta-sub-text {
-    display: block;
-    font-size: 0.8rem;
-    font-weight: 400;
-    opacity: 0.9;
-    margin-right: 10px;
-  }
-  
-  /* Scroll Indicator */
-  .scroll-indicator {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-size: 1.5rem;
-    animation: bounce 2s infinite;
-    cursor: pointer;
-    z-index: 3;
-  }
-  
-  /* Animations */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-      transform: translateY(0) translateX(-50%);
-    }
-    40% {
-      transform: translateY(-20px) translateX(-50%);
-    }
-    60% {
-      transform: translateY(-10px) translateX(-50%);
-    }
-  }
-  
-  @keyframes pulse {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.05);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-  
-  /* Responsive Adjustments */
-@media (max-width: 768px) {
-  .hero-section {
-    min-height: 600px;
-  }
-  
-  .btn-cta {
-    padding: 0.7rem 1.2rem;
-    font-size: 0.9rem;
-    white-space: normal;
-    line-height: 1.3;
-  }
-  
-  .cta-main-text {
-    display: block;
-    font-size: 1rem;
-    margin-right: 0;
-    margin-bottom: 2px;
-  }
-  
-  .cta-sub-text {
-    display: block;
-    font-size: 0.7rem;
-    margin-right: 0;
-  }
-  
-  .btn-cta i {
-    font-size: 0.9rem;
-    margin-left: 5px !important;
-  }
-}
-  
-	
-  /* Application Process Styles */
-  .application-process {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .process-card {
-    background-color: white;
-    border: 1px solid rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-  }
-  
-  .process-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
-  }
-  
-  .step-number {
-    font-size: 1.5rem;
-    font-weight: 700;
-    font-family: 'Outfit', sans-serif;
-  }
-  
-  .process-card h3 {
-    color: var(--bs-dark);
-    font-size: 1.25rem;
-    font-weight: 600;
-  }
-  
-  .process-card p {
-    color: #4b5563;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 767.98px) {
-    .process-card {
-      text-align: center;
-    }
-    
-    .step-icon {
-      margin-top: 1.5rem !important;
-    }
-  }
-  
-  
-  
-  
-    /* Form Progress Bar Styles */
-  .form-progress {
-    position: relative;
-    margin-bottom: 3rem;
-  }
-  
-  .step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-  }
-  
-  .step-circle {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-    transition: all 0.3s ease;
-    border: 3px solid white;
-  }
-  
-  .step.active .step-circle {
-    background: var(--bs-primary) !important;
-    color: white !important;
-    transform: scale(1.1);
-  }
-  
-  .step.completed .step-circle {
-    background: #8a2be2 !important;
-    color: white !important;
-  }
-  
-  .step-label {
-    font-weight: 500;
-    color: #6c757d;
-    text-align: center;
-    transition: all 0.3s ease;
-  }
-  
-  .step.active .step-label {
-    color: var(--bs-dark);
-    font-weight: 600;
-  }
-  
-  /* Form Step Styles */
-  .form-step {
-    display: none;
-    animation: fadeIn 0.5s ease;
-  }
-  
-  .form-step.active {
-    display: block;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  /* Form Validation Styles */
-  .was-validated .form-control:invalid,
-  .was-validated .form-select:invalid,
-  .was-validated .form-check-input:invalid {
-    border-color: #dc3545;
-  }
-  
-  .was-validated .form-control:valid,
-  .was-validated .form-select:valid {
-    border-color: #28a745;
-  }
-  
-  /* Button Styles */
-  .btn-next, .btn-prev, .btn-submit {
-    padding: 0.75rem 1.5rem;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    border: none;
-  }
-  
-  .btn-next:hover, .btn-submit:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  }
-  
-  .btn-submit:hover {
-    background: #ffc107 !important;
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 767.98px) {
-    .step-circle {
-      width: 40px;
-      height: 40px;
-      font-size: 1rem;
-    }
-    
-    .step-label {
-      font-size: 0.8rem;
-    }
-    
-    .btn-next, .btn-prev, .btn-submit {
-      padding: 0.5rem 1rem;
-      font-size: 0.9rem;
-    }
-  }
-
+        :root {
+            --primary-blue: #2563eb;
+            --primary-orange: #f97316;
+            --primary-violet: #7c3aed;
+            --secondary-blue: #1e40af;
+            --light-orange: #ffedd5;
+            --light-violet: #ede9fe;
+            --dark-gray: #1f2937;
+            --medium-gray: #6b7280;
+            --light-gray: #f3f4f6;
+            --bs-primary: #ba6bf1;
+            --bs-accent: #DAA520;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #36454F;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            padding: 120px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1499678329028-101435549a4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80') no-repeat center center;
+            background-size: cover;
+            color: white;
+        }
+        
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-cta {
+            background: linear-gradient(135deg, var(--bs-primary) 0%, var(--primary-blue) 100%);
+            border: none;
+            color: white;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(186, 107, 241, 0.3);
+        }
+        
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(186, 107, 241, 0.4);
+        }
+        
+        .cta-main-text {
+            font-size: 1.1rem;
+        }
+        
+        .cta-sub-text {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+            40% {transform: translateY(-20px) translateX(-50%);}
+            60% {transform: translateY(-10px) translateX(-50%);}
+        }
+        
+        /* Application Process Section */
+        .application-process {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f8f0ff 0%, #e6f0ff 100%);
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+        }
+        
+        .title-divider {
+            height: 4px;
+            width: 80px;
+            background: linear-gradient(to right, var(--bs-primary), var(--primary-blue));
+            border-radius: 2px;
+            margin: 1.5rem auto;
+        }
+        
+        .process-steps {
+            margin: 3rem 0;
+        }
+        
+        .step-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--bs-primary);
+        }
+        
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--bs-primary);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .step-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+        }
+        
+        .service-note {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid var(--primary-orange);
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-btn.whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .contact-btn.phone {
+            background: var(--primary-blue);
+            color: white;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .step-card {
+                margin-bottom: 1.5rem;
+            }
+        }
+		
   /* Flip Card Styles */
   .flip-card-container, .flip-card-container-right {
     perspective: 1000px;
@@ -472,120 +330,167 @@
   footer {
     margin-top: 0;
   }
-</style>
-  </head>
-  <body>
-  <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark border-b-2 border-[#f7f4f6]">
-  <div class="container">
-      <a class="navbar-brand" href="./index.html" id="pleroma-logo">
-          <img 
-              src="./images/ptc_logo.png" 
-              alt="Pleroma Travel Consult" 
-              height="50" 
-              class="d-inline-block me-2"
-          >
-          <div class="logo-text-stack">
-              <span class="pleroma-logo-text">Pleroma</span>
-              <span class="travel-agency-text">Travel Consult</span>
-          </div>
-      </a>
 
-      <button 
-          class="navbar-toggler" 
-          type="button" 
-          data-bs-toggle="collapse" 
-          data-bs-target="#navbarNav"
-      >
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                  <a class="nav-link active" href="./index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="./index.html#jobs">Jobs</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="./index.html#country">Destinations</a>
-              </li>
-              <li class="nav-item dropdown">
-                  <a 
-                      class="nav-link dropdown-toggle" 
-                      href="./about.html" 
-                      id="workingHolidayDropdown" 
-                      role="button" 
-                      data-bs-toggle="dropdown" 
-                      aria-expanded="false"
-                  >
-                      About
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="workingHolidayDropdown">
-                      <li><a class="dropdown-item" href="./about.html#company">Company</a></li>
-                      <li><a class="dropdown-item" href="./about.html#team">Team</a></li>
-                      <li><a class="dropdown-item" href="#">Careers</a></li>
-                  </ul>
-              </li>
-          </ul>
-          <a href="./index.html#contact" class="btn btn-contact ms-lg-3">
-              <i class="bi bi-telephone me-2"></i>Contact Us
-          </a>
-      </div>
-  </div>
+  /* New CSS for the mobile close button from business-support.html */
+  .mobile-close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      border: none;
+      background: transparent;
+      color: #000000;
+      font-size: 2rem;
+      font-weight: 300;
+      z-index: 1051;
+      display: none;
+      visibility: hidden;
+  }
+  
+  .mobile-close-btn:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+  }
+
+  /* Show the close button when the mobile menu is open */
+  body.mobile-nav-open .mobile-close-btn {
+      display: block;
+      visibility: visible;
+  }
+    </style>
+</head>
+<body>
+  <!-- Navigation -->
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="./index.html" id="pleroma-logo">
+            <img src="./images/ptc_logo.png" alt="Pleroma Travel Consult" height="50" class="d-inline-block me-2">
+            <div class="logo-text-stack d-none d-lg-flex">
+                <span class="travel-agency-text">PLEROMA</span>
+                <span class="travel-agency-text">Travel Consult</span>
+            </div>
+        </a>
+
+        <button class="navbar-toggler d-lg-none" type="button" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="travelDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Travel
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="travelDropdown">
+                        <li><a class="dropdown-item" href="#">Study Abroad</a></li>
+                        <li><a class="dropdown-item" href="#">Work Permit</a></li>
+                        <li><a class="dropdown-item" href="#">Tourist (Visit) Visa</a></li>
+                        <li><a class="dropdown-item" href="#">Schengen Visa</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Passport Acquisition</a></li>
+                        <li><a class="dropdown-item" href="#">Birth Certificate</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html#country">Destinations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html#how-it-works">How It Works</a>
+                </li>
+                 <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="./business-support.html" id="businessDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Business Support
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="businessDropdown">
+                        <li><a class="dropdown-item" href="./business-support.html#registration">Business Registration</a></li>
+                        <li><a class="dropdown-item" href="./business-support.html#consultation">Business Consultation</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html#about">About Us</a>
+                </li>
+                <li class="nav-item d-lg-none mt-3">
+                    <a href="#contact" class="btn btn-contact w-100">Contact Us</a>
+                </li>
+            </ul>
+            <a href="#contact" class="btn btn-contact ms-lg-3 d-none d-lg-inline-flex">
+                <i class="bi bi-telephone me-2"></i>Contact Us
+            </a>
+        </div>
+    </div>
 </nav>
 
 
-
-<!-- Hero Section with Parallax -->
-<section class="hero-section position-relative overflow-hidden">
-  <!-- Parallax Background Image -->
-  <div class="parallax-background" style="background-image: url('./images/apply-hero.jpg');"></div>
-   <div class="hero-overlay"></div>
-  
-  <!-- Hero Content -->
-  <div class="container position-relative z-index-2 h-100">
-    <div class="row align-items-center h-100">
-      <div class="col-lg-8 mx-auto text-center">
-        <h1 class="hero-title mb-4" style="color: var(--bs-accent);">Begin Your Global Career Journey</h1>
-        <p class="hero-subtitle lead mb-5">Discover exciting work opportunities abroad while immersing yourself in new cultures and experiences.</p>
-        
-        <!-- CTA Button -->
-        <div class="cta-wrapper">
-          <h3 class="cta-text mb-4">Ready to Take the First Step?</h3>
-          <button class="btn btn-cta btn-lg" onclick="scrollToForm()">
-            <span class="cta-main-text">Start Your Application Now</span>
-            <span class="cta-sub-text"> (Limited spots available)</span>
-            <i class="bi bi-arrow-right ms-2"></i>
-          </button>
+    <!-- Hero Section with Parallax -->
+    <section class="hero-section position-relative overflow-hidden">
+        <!-- Hero Content -->
+        <div class="container position-relative z-index-2 h-100">
+            <div class="row align-items-center h-100">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="hero-title mb-4">Begin Your Global Journey</h1>
+                    <p class="hero-subtitle lead mb-5">Discover exciting travel opportunities abroad while immersing yourself in new cultures and experiences.</p>
+                    
+                    <!-- CTA Button -->
+                    <div class="cta-wrapper">
+                        <h3 class="cta-text mb-4">Ready to Take the First Step?</h3>
+                        <a href="#application-process" class="btn btn-cta btn-lg">
+                            <span class="cta-main-text">Start Your Application Now</span>
+                            <span class="cta-sub-text"> (Limited spots available)</span>
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Scrolling Indicator -->
-  <div class="scroll-indicator">
-    <a href="#apply"><i class="bi bi-chevron-down"></i></a>
-  </div>
-</section>
-  
-  <!-- Application Process Section -->
-<section class="application-process py-5" style="background-color: #f8f0ff;">
-  <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="mb-3">Begin Your Journey</h2>
-      <div class="title-divider mx-auto mb-4" style="height: 3px; width: 80px; background: var(--bs-primary);"></div>
-    <p class="lead" style="max-width: 800px; margin: 0 auto;">
-	Grab your Ghanaian passport and fill out the application form below. It only takes upto 5 minutes to apply! 
-	That is if you have gathered all required information</p>
-	<p class="lead" style="max-width: 800px; margin: 0 auto;">
-	Once you’ve made the payment, your participation in our program will be official!
-	You will also gain access to our portal to track your application's progress, and recevie relavant tips and news towards
-	visa acquisition and travel roadmap.
-	</p>
-	
-	</div>
-</section>
+        
+        <!-- Scrolling Indicator -->
+        <div class="scroll-indicator">
+            <a href="#application-process" style="color: white;"><i class="bi bi-chevron-down"></i></a>
+        </div>
+    </section>
+    
+    <!-- Application Process Section -->
+    <section id="application-process" class="application-process py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Begin Your Travel Journey</h2>
+                <div class="title-divider"></div>
+                <p class="lead">
+                    This page is dedicated to travel visa applications. For other services like business registration or consultation, 
+                    please contact us directly via our company line.
+                </p>
+            </div>
+            
+            <div class="row process-steps">
+                <div class="col-md-4 mb-4">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Free Consultation</h3>
+                        <p>Call us directly or use our WhatsApp line to discuss your travel goals and determine the best visa options for your needs.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Document Review & Preparation</h3>
+                        <p>Share your documents for eligibility assessment and receive personalized recommendations for your application.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Application Process</h3>
+                        <p>Purchase the appropriate application form and begin your journey with our guidance every step of the way.</p>
+                    </div>
+                </div>
+            </div>
+<div class="text-center mt-5">
+    <p class="mb-3"><strong>Have your Ghanaian passport ready and fill out the appropriate application form.</strong></p>
+    <p>The process typically takes about 5 minutes if you have all required information prepared.</p>
+    <p>Once you've completed your payment, your application process will be officially started!</p>
+</div>
+			
 <!-- Payment & Application Section -->
 <section class="payment-application py-5" style="background-color: #f8f0ff;">
   <div class="container" id="apply">
@@ -810,8 +715,33 @@ document.getElementById('downloadFormBtn').addEventListener('click', function(e)
   // window.location.href = '/path/to/application-form.pdf';
 });
 </script>
-        <!-- Footer -->
-        <footer class="py-5 bg-dark text-white">
+            
+            <div class="service-note">
+                <h3 class="mb-3">Need Assistance?</h3>
+                <p>
+                    You can book an appointment to get expert help during the application process. 
+                    For simple enquiries, contact us directly via phone or WhatsApp. For other services 
+                    like business registration, study abroad, or work permits, please reach out to us for 
+                    personalized assistance.
+                </p>
+                
+                <div class="contact-methods">
+                    <a href="https://wa.me/233558009078" target="_blank" class="contact-btn whatsapp">
+                        <i class="bi bi-whatsapp me-2"></i> WhatsApp Us
+                    </a>
+                    <a href="tel:+233558009078" class="contact-btn phone">
+                        <i class="bi bi-telephone me-2"></i> Call Us
+                    </a>
+                    <a href="./booking.html" class="contact-btn" style="background: var(--bs-primary); color: white;">
+                        <i class="bi bi-calendar-event me-2"></i> Book Appointment
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   	<!-- Footer -->
+        <footer class="py-5 bg-dark text-white" id="contact">
           <div class="container">
               <div class="row">
                   <div class="col-lg-4 mb-4">
@@ -870,14 +800,78 @@ document.getElementById('downloadFormBtn').addEventListener('click', function(e)
           </div>
       </footer>
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://js.paystack.co/v1/inline.js"></script>
-  <script>
-    const GAS_URL = 'https://script.google.com/macros/s/AKfycbwKvZcca9erUDLON34AnhqK8oM0izNXnR-O2Rr0MH-ePf7Jgmx3982KTR9xvyt-L4hF/exec'; // Replace with your GAS web app URL
-    const SHEET_ID = '1PtMuR4M34GUeDsASBXdVyhefbZRcwB4I0EOtwOxVJfs'; // Replace with your sheet ID
-    const PAYMENT_SHEET_NAME = 'Payments'; // Name of your payments sheet
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+               behavior: 'smooth',
+               block: 'start'
+            });
+           }
+          });
+        });
+ </script>
 
-// Form validation and submission
+<!-- Navbar and Page Scripts -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const navbar = document.getElementById('mainNav');
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.getElementById('navbarNav');
+    const body = document.body;
+
+    // --- Navbar Scroll Effect ---
+    const handleScroll = () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    };
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check on page load
+
+    // --- Mobile Navigation Toggle ---
+    const closeButton = document.createElement('button');
+    closeButton.className = 'mobile-close-btn';
+    closeButton.innerHTML = '&times;';
+    closeButton.setAttribute('aria-label', 'Close menu');
+    navbarCollapse.appendChild(closeButton);
+
+    const openNav = () => {
+        navbarCollapse.classList.add('show');
+        body.classList.add('mobile-nav-open');
+    };
+
+    const closeNav = () => {
+        navbarCollapse.classList.remove('show');
+        body.classList.remove('mobile-nav-open');
+    };
+
+    navbarToggler.addEventListener('click', openNav);
+    closeButton.addEventListener('click', closeNav);
+
+    // Close mobile nav when a link is clicked
+    document.querySelectorAll('#navbarNav .nav-link, #navbarNav .btn-contact, #navbarNav .dropdown-item').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth < 992 && !link.classList.contains('dropdown-toggle')) {
+                closeNav();
+            }
+        });
+    });
+});
+
+// --- Payment Form and Application Logic ---
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbwKvZcca9erUDLON34AnhqK8oM0izNXnR-O2Rr0MH-ePf7Jgmx3982KTR9xvyt-L4hF/exec';
+const SHEET_ID = '1PtMuR4M34GUeDsASBXdVyhefbZRcwB4I0EOtwOxVJfs';
+const PAYMENT_SHEET_NAME = 'Payments';
+
 document.getElementById('paymentForm').addEventListener('submit', function(e) {
   e.preventDefault();
   e.stopPropagation();
@@ -887,120 +881,116 @@ document.getElementById('paymentForm').addEventListener('submit', function(e) {
   const amountInput = document.getElementById('amount');
   const payNowBtn = document.getElementById('payNowBtn');
  
-  
-  // Check form validity
   if (!form.checkValidity()) {
     form.classList.add('was-validated');
     return;
   }
   
-  // Disable button during processing
   payNowBtn.disabled = true;
   payNowBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Processing...';
-  
   
   initiatePayment(emailInput.value, amountInput.value);
 });
 
+function getRef() {
+  const timestamp = Date.now();
+  const random = Math.floor(Math.random() * 1000);
+  return `PTC${timestamp}_${random}`.slice(0, 50);
+}
 
-    async function initiatePayment(email, amount) {     
-     try {
-        // Call GAS backend to initiate payment
-        const fd = new FormData();
-        fd.append('action', 'initiatePayment');
-        fd.append('sheetId', SHEET_ID);
-        fd.append('sheetName', PAYMENT_SHEET_NAME);
-        fd.append('email', email);
-        fd.append('amount', amount);
-        
-        const response = await fetch(GAS_URL, {
-          method: 'POST',
-          body: fd
-        });
-        
-        const data = await response.json();
-        
-        if (data.success) {
-          // Open Paystack payment modal
-          const handler = PaystackPop.setup({
-            key: data.publicKey,
-            email: data.email,
-            amount: data.amount,
-            ref: data.reference,
-            currency: 'GHS',
-            callback: function(response) {
-              verifyPayment(response.reference);
-            },
-            onClose: function() {
-              showStatus('Payment window closed. You can try again.', 'info');
-            }
-          });
-          handler.openIframe();
-        } else {
-          showStatus('Error: ' + (data.message || 'Payment initiation failed'), 'error');
+const appendTrans = async (transLog) => {
+  try {
+    const fd = new FormData();
+    fd.append('action', 'append');
+    fd.append('sheetId', SHEET_ID);
+    fd.append('sheetName', PAYMENT_SHEET_NAME);
+    fd.append('valuesArray', JSON.stringify([transLog]));
+
+    const response = await fetch(GAS_URL, {
+      method: 'POST',
+      body: fd
+    });
+    
+    const result = await response.json();
+    console.log('Append result:', result);
+    return result;
+  } catch (error) {
+    console.error('Append failed:', error);
+    return { success: false, message: error.message };
+  }
+};
+
+async function initiatePayment(email, amount) {     
+ try {
+    let payRef = getRef();
+      const handler = PaystackPop.setup({
+        key: "pk_test_15b4ae133a0c1412d23e7b84147de6c2dd621471",
+        email: email,
+        amount: Math.round(amount * 100),
+        ref: payRef,
+        currency: 'GHS',
+        callback: function(response) {
+          verifyPayment(response, email, amount);
+        },
+        onClose: function() {
+          showStatus('Payment window closed. You can try again.', 'info');
         }
-      } catch (error) {
-        showStatus('Error: ' + error.message, 'error');
-      }
-	// Simulate payment reset (2 seconds)
-	setTimeout(() => {
-	
-    // Reset form and button
+      });
+      handler.openIframe();
+  } catch (error) {
+    showStatus('Error: ' + error.message, 'error');
+  }
+
+setTimeout(() => {
+    const payNowBtn = document.getElementById('payNowBtn');
     payNowBtn.disabled = false;
     payNowBtn.innerHTML = '<i class="bi bi-lock-fill me-2"></i> Pay Now';
-    form.classList.remove('was-validated');
-    form.reset();
+    document.getElementById('paymentForm').classList.remove('was-validated');
+    document.getElementById('paymentForm').reset();
   }, 2000);
-	  
-    }
+}
+
+async function verifyPayment(response, email, amount) {
+  showStatus('Verifying payment...', 'info');
+  console.log(response);
+  try {
+      const transLog = {
+        Reference: response.reference,
+        Email: email,
+        "Amount (GHS)": amount,
+        Status: "Verified",
+        "Created At": new Date().toISOString(),
+        Metadata: JSON.stringify({
+            plan: "Travel-Application",
+            status: response.message,
+            paystack_data: response
+        })
+    };
     
-    async function verifyPayment(reference) {
-      showStatus('Verifying payment...', 'info');
-      
-      try {
-        const fd = new FormData();
-        fd.append('action', 'verifyPayment');
-        fd.append('sheetId', SHEET_ID);
-        fd.append('sheetName', PAYMENT_SHEET_NAME);
-        fd.append('reference', reference);
-        
-        const response = await fetch(GAS_URL, {
-          method: 'POST',
-          body: fd
-        });
-        
-        const data = await response.json();
-        
-        if (data.success) {
-          showStatus('', 'success');
-          // Here you can redirect to success page or show order details
-          console.log('Payment details:', data.payment);
-        } else {
-          showStatus('Payment verification failed: ' + (data.message || 'Unknown error'), 'error');
-        }
-      } catch (error) {
-        showStatus('Error verifying payment: ' + error.message, 'error');
-      }
+    if (response.status === "success") {
+        appendTrans(transLog);
+      showStatus('', 'success');
+    } else {
+      showStatus('Payment verification failed');
     }
+  } catch (error) {
+    showStatus('Error verifying payment: ' + error.message, 'error');
+  }
+}
+
+function showStatus(message, type) {
+    const statusMessageDiv = document.getElementById('statusMessage');
+    let iconClass = '', iconColor = '', title = '', paragraph1 = '', paragraph2 = '';
     
-    function showStatus(message, type) {
-	const statusMessageDiv = document.getElementById('statusMessage');
-    let iconClass = '';
-    let iconColor = '';
-    let title = '';
-    let paragraph1 = '';
-    let paragraph2 = '';
-	
     switch (type) {
         case 'success':
             iconClass = 'bi bi-check-circle-fill';
             iconColor = 'var(--bs-success)';
             title = 'Payment Confirmed!';
             paragraph1 = `Your journey begins now.`;
-            paragraph2 = `A confirmation has been sent to your email.</span>`;
-            // Flip right card to show unlocked state
-			document.querySelector('.flip-card-container-right').classList.add('flipped');
-			break;
+            paragraph2 = `A confirmation has been sent to your email.`;
+            document.querySelector('.flip-card-container-right').classList.add('flipped');
+            break;
         case 'error':
             iconClass = 'bi bi-x-circle-fill';
             iconColor = 'var(--bs-danger)';
@@ -1016,44 +1006,29 @@ document.getElementById('paymentForm').addEventListener('submit', function(e) {
             paragraph2 = message || '';
             break;
         default:
-            // Default to an empty state or a generic message if type is unknown
-            iconClass = '';
-            iconColor = '';
-            title = '';
-            paragraph1 = '';
-            paragraph2 = '';
             break;
     }
 
-    // Construct the new innerHTML
     statusMessageDiv.innerHTML = `
         <i class="${iconClass}" style="font-size: 3rem; color: ${iconColor};"></i>
         <h3 class="my-3">${title}</h3>
         <p class="mb-4">${paragraph1}</p>
         <p>${paragraph2}</p>
     `;
-	    // Show confirmation overlay
     document.querySelector('.confirmation-overlay').classList.add('active');
-    }
-	
-	// Function to scroll to the element with id="apply"
-function scrollToForm() {
-    // 1. Get a reference to the target element
-    const targetElement = document.getElementById('apply');
+}
 
-    // 2. Check if the element exists
+function scrollToForm() {
+    const targetElement = document.getElementById('apply');
     if (targetElement) {
-        // 3. Use the scrollIntoView method with smooth behavior
         targetElement.scrollIntoView({
-            behavior: 'smooth', // This provides the smooth scroll animation
-            block: 'start'      // Aligns the top of the target with the top of the viewport
-            // You can also use 'center', 'end', or 'nearest' for 'block'
-            // For 'inline', you can use 'start', 'center', 'end', or 'nearest' (for horizontal scrolling)
+            behavior: 'smooth',
+            block: 'start'
         });
     } else {
-        console.warn("Element with ID 'apply' not found. Cannot scroll.");
+        console.warn("Element with ID 'apply' not found.");
     }
 }
   </script>
-  </body>
+</body>
 </html>
