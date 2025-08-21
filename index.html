@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="style.css">
 	<link rel="preload" href="./images/index-hero.avif" as="image">
     <style>
+    /* Non-navbar styles remain here for component-specific adjustments */
     .google-rating-badge {
         bottom: 30px;
         right: 30px;
@@ -358,334 +359,853 @@
     </style>
 </head>
 <body>
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark border-b-2 border-[#f7f4f6]">
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
     <div class="container">
         <a class="navbar-brand" href="#" id="pleroma-logo">
-            <img 
-                src="./images/ptc_logo.png" 
-                alt="Pleroma Travel Consult" 
-                height="50" 
-                class="d-inline-block me-2"
-            >
-            <div class="logo-text-stack">
-                <span class="pleroma-logo-text">Pleroma</span>
+            <img src="./images/ptc_logo.png" alt="Pleroma Travel Consult" height="50" class="d-inline-block me-2">
+            <div class="logo-text-stack d-none d-lg-flex">
+                <span class="travel-agency-text">PLEROMA</span>
                 <span class="travel-agency-text">Travel Consult</span>
             </div>
         </a>
 
-        <button 
-            class="navbar-toggler" 
-            type="button" 
-            data-bs-toggle="collapse" 
-            data-bs-target="#navbarNav"
-        >
+        <button class="navbar-toggler d-lg-none" type="button" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Home</a>
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#services" id="workingHolidayDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Travel
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="workingHolidayDropdown">
+                        <li><a class="dropdown-item" href="./abroad.html">Study Abroad</a></li>
+                        <li><a class="dropdown-item" href="./abroad.html">Work Permit</a></li>
+                        <li><a class="dropdown-item" href="./abroad.html">Tourist (Visit) Visa</a></li>
+						<li><a class="dropdown-item" href="./abroad.html">Schengen Visa</a></li>
+						<li><hr /><a class="dropdown-item" href="./abroad.html#pass-port">Passport Acquisition</a></li>
+						<li><a class="dropdown-item" href="./abroad.html#pass-port">Birth Certificate</a></li>
+                    </ul>	
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#jobs">Jobs</a>
-                </li>
+				</li>
                 <li class="nav-item">
                     <a class="nav-link" href="#country">Destinations</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a 
-                        class="nav-link dropdown-toggle" 
-                        href="./about.html" 
-                        id="workingHolidayDropdown" 
-                        role="button" 
-                        data-bs-toggle="dropdown" 
-                        aria-expanded="false"
-                    >
-                        About
+				<li class="nav-item">
+                    <a class="nav-link" href="#how-it-works">How It Works</a>
+                </li>
+				 <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="./business-support.html" id="workingHolidayDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Business Support
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="workingHolidayDropdown">
-                        <li><a class="dropdown-item" href="./about.html">Company</a></li>
-                        <li><a class="dropdown-item" href="./about.html#">Team</a></li>
-                        <li><a class="dropdown-item" href="#">Careers</a></li>
+                        <li><a class="dropdown-item" href="./business-support.html">Business Registration</a></li>
+                        <li><a class="dropdown-item" href="./business-support.html">Business Consultation</a></li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./about.html">About Us</a>
+                </li>
+                <li class="nav-item d-lg-none mt-3">
+                    <a href="#contact" class="btn btn-contact w-100">Contact Us</a>
+                </li>
             </ul>
-            <a href="#contact" class="btn btn-contact ms-lg-3">
+            <a href="#contact" class="btn btn-contact ms-lg-3 d-none d-lg-inline-flex">
                 <i class="bi bi-telephone me-2"></i>Contact Us
             </a>
         </div>
     </div>
 </nav>
 
-
-
-    <!-- Hero Section -->
-    <section class="hero-section text-center">
-        <div class="container hero-content floating">
-            <h1 class="mb-4" style="color: #ffa735;">Work Abroad the Right Way</h1>
-            <p class="lead mb-5">Get Access to Verified jobs, trusted support, and seamless relocation to your dream destination</p>
-			<a href="./apply.html">
-            <button class="cta-btn">Start Your Journey <i class="bi bi-arrow-right ms-2"></i></button></a>
-			</section>
-			<!-- Add this inside the hero-section div, right before the closing </div> tag -->
-<div class="google-rating-badge position-absolute">
-    <div class="d-flex align-items-center bg-white p-3 rounded shadow-sm">
-        <div class="google-icon me-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path fill="#4285F4" d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
-            </svg>
-        </div>
-        <div class="rating-content">
-            <div class="d-flex align-items-center">
-                <div class="stars me-1">
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
+<!-- Hero Section -->
+<section class="hero-section text-center">
+    <div class="container hero-content floating">
+        <h1 class="mb-4" style="color: #ffa735;">Work Abroad the Right Way</h1>
+        <p class="lead mb-5">Get Access to Verified jobs, trusted support, and seamless relocation to your dream destination</p>
+        <a href="./apply.html">
+            <button class="cta-btn">Start Your Journey <i class="bi bi-arrow-right ms-2"></i></button>
+        </a>
+    </div>
+    
+    <!-- Google Rating Badge -->
+    <div class="google-rating-badge position-absolute">
+        <div class="d-flex align-items-center bg-white p-3 rounded shadow-sm">
+            <div class="google-icon me-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#4285F4" d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
+                </svg>
+            </div>
+            <div class="rating-content">
+                <div class="d-flex align-items-center">
+                    <div class="stars me-1">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                    </div>
+                    <span class="fw-bold">5.0</span>
                 </div>
-                <span class="fw-bold">5.0</span>
-            </div>
-            <div class="text-nowrap" style="font-size: 0.8rem;">
-                <span class="text-muted">Based on </span>
-                <span class="fw-semibold" style="color: #843ef5;">25 reviews</span>
+                <div class="text-nowrap" style="font-size: 0.8rem;">
+                    <span class="text-muted">Based on </span>
+                    <span class="fw-semibold" style="color: #843ef5;">25 reviews</span>
+                </div>
             </div>
         </div>
     </div>
-</div>
-       </div>
-	   
-
-<!-- Why Travel With Plero Section -->
-<section class="why-plero py-5" id="about">
+</section>
+<!-- Quick Services Section -->
+<section class="quick-services-section">
   <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="mb-3">Why Travel With Pleroma</h2>
-      <div class="title-divider mx-auto mb-3" style="height: 3px; width: 80px; background: var(--bs-primary);"></div>
-      <p class="lead mb-4">Experience the difference with our comprehensive work-travel programs</p>
+    <div class="quick-services-header">
+      <h2 class="quick-services-title">Our Essential Services</h2>
+      <p class="quick-services-subtitle">Streamlined solutions for your international needs</p>
     </div>
-
-    <div class="row g-4">
-      <!-- Reason 1 -->
-      <div class="col-md-6 col-lg-4 reason-card">
-        <div class="d-flex">
-          <div class="icon-badge me-4">
-            <i class="bi bi-globe-americas"></i>
-          </div>
-          <div>
-            <h4>Diverse Destinations</h4>
-            <p class="mb-0">Choose from 20+ countries across 5 continents for your work-travel experience.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Reason 2 -->
-      <div class="col-md-6 col-lg-4 reason-card">
-        <div class="d-flex">
-          <div class="icon-badge me-4">
-            <i class="bi bi-award"></i>
-          </div>
-          <div>
-            <h4>Recognized Organization</h4>
-            <p class="mb-0">Certified by international work-travel associations and government bodies.</p>
+    
+    <div class="quick-services-grid">
+      <!-- Study Visa -->
+      <div class="quick-service-card">
+        <div class="quick-service-image" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80')">
+          <div class="quick-image-overlay"></div>
+          <div class="quick-service-content">
+            <div class="quick-service-icon">
+              <i class="bi bi-mortarboard"></i>
+            </div>
+            <h3 class="quick-service-name">Study Visa</h3>
+            <p class="quick-service-desc">Global university placements with visa success guarantee</p>
+            <a href="./abroad.html" class="quick-service-link">
+              Explore Options <i class="bi bi-arrow-right"></i>
+            </a>
           </div>
         </div>
       </div>
       
-      <!-- Reason 3 -->
-      <div class="col-md-6 col-lg-4 reason-card">
-        <div class="d-flex">
-          <div class="icon-badge me-4">
-            <i class="bi bi-wallet2"></i>
-          </div>
-          <div>
-            <h4>Budget-friendly</h4>
-            <p class="mb-0">Affordable programs with flexible payment options to suit your needs.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Reason 4 -->
-      <div class="col-md-6 col-lg-4 reason-card">
-        <div class="d-flex">
-          <div class="icon-badge me-4">
-            <i class="bi bi-file-earmark-check"></i>
-          </div>
-          <div>
-            <h4>Job Guarantees</h4>
-            <p class="mb-0">Pre-arranged employment contracts before you depart.</p>
+      <!-- Work Permit -->
+      <div class="quick-service-card">
+        <div class="quick-service-image" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80')">
+          <div class="quick-image-overlay"></div>
+          <div class="quick-service-content">
+            <div class="quick-service-icon">
+              <i class="bi bi-briefcase"></i>
+            </div>
+            <h3 class="quick-service-name">Work Permit</h3>
+            <p class="quick-service-desc">Verified international job placements with legal authorization</p>
+            <a href="#" class="quick-service-link">
+              Find Opportunities <i class="bi bi-arrow-right"></i>
+            </a>
           </div>
         </div>
       </div>
       
-      <!-- Reason 5 -->
-      <div class="col-md-6 col-lg-4 reason-card">
-        <div class="d-flex">
-          <div class="icon-badge me-4">
-            <i class="bi bi-airplane"></i>
-          </div>
-          <div>
-            <h4>Travel Experts</h4>
-            <p class="mb-0">Our team has lived and worked in all our destination countries.</p>
+      <!-- Tourist Visa -->
+      <div class="quick-service-card">
+        <div class="quick-service-image" style="background-image: url('https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80')">
+          <div class="quick-image-overlay"></div>
+          <div class="quick-service-content">
+            <div class="quick-service-icon">
+              <i class="bi bi-airplane"></i>
+            </div>
+            <h3 class="quick-service-name">Tourist Visa</h3>
+            <p class="quick-service-desc">Hassle-free travel visas with 98% approval rate</p>
+            <a href="./booking.html" class="quick-service-link">
+              Plan Your Trip <i class="bi bi-arrow-right"></i>
+            </a>
           </div>
         </div>
       </div>
       
-      <!-- Reason 6 -->
-      <div class="col-md-6 col-lg-4 reason-card">
-        <div class="d-flex">
-          <div class="icon-badge me-4">
-            <i class="bi bi-headset"></i>
+      <!-- Passport Application -->
+      <div class="quick-service-card">
+        <div class="quick-service-image" style="background-image: url('https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80')">
+          <div class="quick-image-overlay"></div>
+          <div class="quick-service-content">
+            <div class="quick-service-icon">
+              <i class="bi bi-passport"></i>
+            </div>
+            <h3 class="quick-service-name">Passport Services</h3>
+            <p class="quick-service-desc">Fast-track passport processing and document assistance</p>
+            <a href="./abroad.html#pass-port" class="quick-service-link">
+              Get Started <i class="bi bi-arrow-right"></i>
+            </a>
           </div>
-          <div>
-            <h4>Support Team</h4>
-            <p class="mb-0">24/7 local support in your destination country.</p>
+        </div>
+      </div>
+      
+      <!-- Business Registration -->
+      <div class="quick-service-card">
+        <div class="quick-service-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80')">
+          <div class="quick-image-overlay"></div>
+          <div class="quick-service-content">
+            <div class="quick-service-icon">
+              <i class="bi bi-building"></i>
+            </div>
+            <h3 class="quick-service-name">Business Registration</h3>
+            <p class="quick-service-desc">Complete international business setup services</p>
+            <a href="./business-support.html" class="quick-service-link">
+              Register Now <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Additional Service -->
+      <div class="quick-service-card">
+        <div class="quick-service-image" style="background-image: url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80')">
+          <div class="quick-image-overlay"></div>
+          <div class="quick-service-content">
+            <div class="quick-service-icon">
+              <i class="bi bi-people-fill"></i>
+            </div>
+            <h3 class="quick-service-name">Family Relocation</h3>
+            <p class="quick-service-desc">Complete support for family visas and settlement</p>
+            <a href="#" class="quick-service-link">
+              Learn More <i class="bi bi-arrow-right"></i>
+            </a>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
 <style>
-  /* Why Plero Section Specific Styles */
-  .why-plero {
-    background-color: var(--bs-light);
-    position: relative;
-  }
-  
-  .why-plero h2 {
-    color: var(--bs-dark);
-    font-size: 2.5rem;
-    font-weight: 700;
-  }
-  
-  .why-plero .lead {
-    color: var(--bs-dark);
-    font-size: 1.25rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .reason-card {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
-  }
-  
-  .reason-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  .icon-badge {
-    width: 60px;
-    height: 60px;
-    min-width: 60px;
-    background-color: var(--bs-secondary);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-  
-  .icon-badge::before {
-    content: '';
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    border: 2px dashed white;
-    border-radius: 50%;
-    top: -6px;
-    left: -6px;
-  }
-  
-  .icon-badge i {
-    color: white;
-    font-size: 1.5rem;
-  }
-  
-  .reason-card h4 {
-    color: var(--bs-dark);
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-  }
-  
-  .reason-card p {
-    color: #4b5563;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .why-plero h2 {
-      font-size: 2rem;
-    }
-    
-    .why-plero .lead {
-      font-size: 1.1rem;
-    }
-    
-    .icon-badge {
-      width: 50px;
-      height: 50px;
-      min-width: 50px;
-    }
-    
-    .icon-badge::before {
-      width: 60px;
-      height: 60px;
-    }
-    
-    .icon-badge i {
-      font-size: 1.25rem;
-    }
-  }
-</style>
+/* Quick Services Section - Conflict Free */
+.quick-services-section {
+  padding: 5rem 0;
+  background-color: #f8fafc;
+}
 
+.quick-services-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
 
-<!-- Stats Section -->
-<section class="py-5 bg-light">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-md-3 stat-item">
-                <div class="number" data-target="400">0</div>
-                <div class="label">Jobs Available</div>
-            </div>
-            <div class="col-md-3 stat-item">
-                <div class="number" data-target="35">0</div>
-                <div class="label">Visa Acquired</div>
-            </div>
-            <div class="col-md-3 stat-item">
-                <div class="number" data-target="40">0</div>
-                <div class="label">Successful Placements</div>
-            </div>
-            <div class="col-md-3 stat-item">
-                <div class="number" data-target="98">0</div>
-                <div class="label">Satisfaction Rate</div>
-            </div>
-        </div>
+.quick-services-title {
+  font-size: 2.25rem;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.quick-services-subtitle {
+  color: #64748b;
+  font-size: 1.125rem;
+}
+
+.quick-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.quick-service-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 300px;
+  position: relative;
+}
+
+.quick-service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.quick-service-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.quick-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+}
+
+.quick-service-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem;
+  color: white;
+  z-index: 2;
+}
+
+.quick-service-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.quick-service-name {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: #ffcc00; /** #cc99ff, #ffffff **/
+}
+
+.quick-service-desc {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.quick-service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+  transition: all 0.2s ease;
+}
+
+.quick-service-link:hover {
+  background: rgba(255, 255, 255, 0.3);
+  gap: 0.75rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .quick-services-title {
+    font-size: 1.75rem;
+  }
+  
+  .quick-services-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .quick-service-card {
+    height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quick-services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .quick-service-card {
+    height: 250px;
+  }
+}</style>
+	   
+
+<!-- Why Choose Pleroma Section -->
+<section class="why-choose-pleroma">
+  <div class="background-overlay">
+    <div class="pattern-layer"></div>
+  </div>
+  <div class="container">
+    <div class="section-intro">
+      <span class="section-tag">Trust & Excellence</span>
+      <h2 class="section-title">Why Global Professionals Choose Pleroma</h2>
     </div>
+
+    <div class="benefits-grid">
+      <!-- Benefit 1 -->
+      <div class="benefit-card">
+        <div class="card-icon">
+          <i class="bi bi-shield-lock"></i>
+        </div>
+        <h3>Verified Opportunities</h3>
+        <p>Every job, visa, and business connection is thoroughly vetted for your security and success.</p>
+      </div>
+      
+      <!-- Benefit 2 -->
+      <div class="benefit-card">
+        <div class="card-icon">
+          <i class="bi bi-globe2"></i>
+        </div>
+        <h3>Global Network</h3>
+        <p>Direct partnerships with employers and governments in 25+ countries across 5 continents.</p>
+      </div>
+      
+      <!-- Benefit 3 -->
+      <div class="benefit-card">
+        <div class="card-icon">
+          <i class="bi bi-building-check"></i>
+        </div>
+        <h3>Business Trust</h3>
+        <p>Certified by international trade bodies with A+ rating for corporate services since 2018.</p>
+      </div>
+      
+      <!-- Benefit 4 -->
+      <div class="benefit-card">
+        <div class="card-icon">
+          <i class="bi bi-passport"></i>
+        </div>
+        <h3>Visa Expertise</h3>
+        <p>98% approval rate for work, study, and business visas with fastest processing in Ghana.</p>
+      </div>
+      
+      <!-- Benefit 5 -->
+      <div class="benefit-card">
+        <div class="card-icon">
+          <i class="bi bi-currency-exchange"></i>
+        </div>
+        <h3>Financial Protection</h3>
+        <p>Escrow payment system ensures funds are only released when services are delivered.</p>
+      </div>
+      
+      <!-- Benefit 6 -->
+      <div class="benefit-card">
+        <div class="card-icon">
+          <i class="bi bi-headset"></i>
+        </div>
+        <h3>Dedicated Support</h3>
+        <p>24/7 assistance in 8 languages from application to relocation and beyond.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- About Section -->
-    <section style="margin-top: 15px !important" id="about">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
-                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Team working together" class="img-fluid img-card">
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <h2 class="section-title" style="color: #3a86ff;">Who We Are</h2>
-                    <p class="lead">At Pleroma Travel Agency, we provide enriching packages that offer fellow Ghanaians the chance to travel and work abroad.</p>
-                    <p>We are passionate about helping you obtain personal and professional growth through work abroad experiences. Our team coordinates every aspect of the work and travel process for Ghanaians across the country, from the moment you decide to leave, throughout your stay, until you return home.</p>
-                    <p>We provide safe, enriching and beneficial experiences that will remain with you for a lifetime.</p>
-                </div>
+<style>
+/* Why Choose Pleroma Section */
+.why-choose-pleroma {
+  position: relative;
+  padding: 5rem 0;
+  color: #fff;
+  overflow: hidden;
+}
+.why-choose-pleroma h3 {
+color: var(--bs-info);
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #311B92 0%, #512DA8 50%, #9575CD 100%);
+  z-index: -2;
+}
+
+.pattern-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+  opacity: 0.6;
+  z-index: -1;
+}
+
+.section-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.section-tag {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  color: var(--bs-info) !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.benefit-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  color: #fff;
+}
+
+.benefit-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.benefit-card p {
+  opacity: 0.85;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.badge-item img {
+  height: 50px;
+  width: auto;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.badge-item img:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .benefits-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+  }
+  
+}
+</style>
+
+<!-- Revamped About Section -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-wrapper">
+	
+      <!-- Image Column with Modern Frame -->
+	  
+      <div class="about-image-col">
+	  <div class="about-tag">About Us</div>
+        <h2 class="about-title">Your Trusted Partner in Global Opportunities</h2>
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
+               alt="Pleroma team assisting clients" 
+               class="about-main-image">
+          <div class="image-decoration"></div>
+          
+          <!-- Floating Stats Card -->
+          <div class="floating-stats-card">
+            <div class="stat-item">
+              <div class="stat-number">5+</div>
+              <div class="stat-label">Years Experience</div>
             </div>
+            <div class="stat-item">
+              <div class="stat-number">98%</div>
+              <div class="stat-label">Success Rate</div>
+            </div>
+			<div class="stat-item">
+              <div class="stat-number">98%</div>
+              <div class="stat-label">Success Rate</div>
+            </div>
+          </div>
         </div>
-    </section>
+      </div>
+      
+      <!-- Content Column -->
+      <div class="about-content-col">
+        
+        
+        <div class="about-content">
+          <p class="lead">At Pleroma Travel Consult, we're revolutionizing how Ghanaians access international work and travel opportunities.</p>
+          
+          <div class="about-points">
+            <div class="about-point">
+              <div class="point-icon">
+                <i class="bi bi-globe2"></i>
+              </div>
+              <div class="point-content">
+                <h4>Global Network</h4>
+                <p>Partnerships with employers and institutions in 20+ countries across 5 continents.</p>
+              </div>
+            </div>
+            
+            <div class="about-point">
+              <div class="point-icon">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <div class="point-content">
+                <h4>Verified Opportunities</h4>
+                <p>Every job and program undergoes rigorous vetting for your safety and success.</p>
+              </div>
+            </div>
+            
+            <div class="about-point">
+              <div class="point-icon">
+                <i class="bi bi-people-fill"></i>
+              </div>
+              <div class="point-content">
+                <h4>End-to-End Support</h4>
+                <p>From application to relocation and beyond, we're with you at every step.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="about-cta">
+            <a href="./about.html" class="btn btn-primary">Our Full Story</a>
+            <a href="about.html#team" class="btn btn-outline">Meet Our Team</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+/* About Section Styles */
+.about-section {
+  padding: 5rem 0;
+  background-color: #f9fafc;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3rem;
+}
+
+.about-image-col, 
+.about-content-col {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Image Container with Decorative Elements */
+.image-container {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+}
+
+.about-main-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.image-decoration {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(108, 99, 255, 0.3);
+  border-radius: 16px;
+  z-index: -1;
+  transition: all 0.5s ease;
+}
+
+.image-container:hover .about-main-image {
+  transform: scale(1.03);
+}
+
+.image-container:hover .image-decoration {
+  top: -15px;
+  left: -15px;
+}
+
+/* Floating Stats Card */
+.floating-stats-card {
+  position: absolute;
+  bottom: -15px;
+  right: 30px;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 1.5rem;
+  z-index: 2;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--bs-primary);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-top: 0.25rem;
+}
+
+/* Content Styling */
+.about-tag {
+  display: inline-block;
+  background: rgba(108, 99, 255, 0.1);
+  color: var(--bs-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.about-content .lead {
+  font-size: 1.25rem;
+  color: #475569;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* About Points Grid */
+.about-points {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.about-point {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.point-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(108, 99, 255, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--bs-primary);
+  font-size: 1.25rem;
+}
+
+.point-content h4 {
+  font-size: 1.125rem;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.point-content p {
+  color: #64748b;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+/* CTA Buttons */
+.about-cta {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .about-wrapper {
+    flex-direction: column;
+  }
+  
+  .about-image-col, 
+  .about-content-col {
+    width: 100%;
+  }
+  
+  .about-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .floating-stats-card {
+    position: static;
+    margin-top: 1.5rem;
+    justify-content: center;
+  }
+  
+  .about-cta {
+    flex-direction: column;
+  }
+  
+  .about-cta .btn {
+    width: 100%;
+  }
+}
+</style>
 
 <!-- Popular Destinations -->
 <section class="popular-destinations py-5">
@@ -751,7 +1271,7 @@
 <style>
   /* Destination Section Specific Styles */
   .popular-destinations {
-    background-color:  #FFF5EB;;
+    background-color:  #ffffff;
     position: relative;
   }
   
@@ -861,14 +1381,6 @@
 <!-- Popular Programs Section -->
 <section class="popular-programs py-5">
   <div class="container">
-    <!-- Blue divider line -->
-    <hr class="section-divider" style="border-top: 3px solid var(--bs-accent); opacity: 1; margin: 0 auto 3rem; max-width: 200px;">
-    
-    <!-- Flyer image placeholder -->
-    <div class="text-center mb-5">
-      <img src="./images/gtravel.jpg" alt="Special Offers" class="img-fluid flyer-image" style="max-height: 300px; border-radius: var(--bs-border-radius); box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
-    </div>
-    
     <!-- Section title -->
     <div class="text-center mb-5">
       <h2 class="mb-3">Popular Programs</h2>
@@ -892,7 +1404,7 @@
             <div class="program-details d-flex justify-content-between">
               <div class="d-flex align-items-center">
                 <i class="bi bi-globe me-2" style="color: var(--bs-primary);"></i>
-                <span>Canada</span>
+                <span>Canada, Dubai, Ireland</span>
               </div>
               <div class="d-flex align-items-center">
                 <i class="bi bi-clock me-2" style="color: var(--bs-primary);"></i>
@@ -916,7 +1428,7 @@
             <div class="program-details d-flex justify-content-between">
               <div class="d-flex align-items-center">
                 <i class="bi bi-globe me-2" style="color: var(--bs-primary);"></i>
-                <span>Australia</span>
+                <span>Australia, Germany </span>
               </div>
               <div class="d-flex align-items-center">
                 <i class="bi bi-clock me-2" style="color: var(--bs-primary);"></i>
@@ -941,7 +1453,7 @@
             <div class="program-details d-flex justify-content-between">
               <div class="d-flex align-items-center">
                 <i class="bi bi-globe me-2" style="color: var(--bs-primary);"></i>
-                <span>United Kingdom</span>
+                <span>South Africa, USA</span>
               </div>
               <div class="d-flex align-items-center">
                 <i class="bi bi-clock me-2" style="color: var(--bs-primary);"></i>
@@ -958,7 +1470,7 @@
 <style>
   /* Popular Programs Section Specific Styles */
   .popular-programs {
-    background-color: #f9fafb;
+    background-color: #9999ff;
     position: relative;
   }
   
@@ -1046,183 +1558,709 @@
   }
 </style>
 
-    <!-- How It Works Section - Horizontal Cards -->
-<section class="how-it-works py-5 bg-light">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="mb-3">Your Journey to Working Abroad</h2>
-            <div class="title-divider mx-auto mb-3" style="height: 3px; width: 80px; background: linear-gradient(90deg, #3a86ff, #843ef5);"></div>
-            <p class="lead">We guide you through every step of the process</p>
-        </div>
-
-        <div class="row g-4">
-            <!-- Step 1 -->
-            <div class="col-md-6 col-lg-3">
-                <div class="process-card" style="border-top: 4px solid #3a86ff;">
-                    <div class="process-icon" style="background: linear-gradient(135deg, rgba(58,134,255,0.1), rgba(58,134,255,0.2));">
-                        <i class="bi bi-person-plus" style="color: #3a86ff;"></i>
-                    </div>
-                    <div class="process-number">01</div>
-                    <h3>Create Profile</h3>
-                    <p>Complete your profile with skills, experience, and preferences.</p>
-					<p><a href="C:\Users\User\Videos\sheets\login\signup.html">Sign in to Portal</a></p>
-                </div>
-            </div>
-            
-            <!-- Step 2 -->
-            <div class="col-md-6 col-lg-3">
-                <div class="process-card" style="border-top: 4px solid #843ef5;">
-                    <div class="process-icon" style="background: linear-gradient(135deg, rgba(132,62,245,0.1), rgba(132,62,245,0.2));">
-                        <i class="bi bi-briefcase" style="color: #843ef5;"></i>
-                    </div>
-                    <div class="process-number">02</div>
-                    <h3>Complete your Application</h3>
-                    <p>Fill your form with necessary details </p>
-					<p><a href="./apply.html">Access Your Application Here</a></p>
-                </div>
-            </div>
-            
-            <!-- Step 3 -->
-            <div class="col-md-6 col-lg-3">
-                <div class="process-card" style="border-top: 4px solid #ffa735;">
-                    <div class="process-icon" style="background: linear-gradient(135deg, rgba(255,167,53,0.1), rgba(255,167,53,0.2));">
-                        <i class="bi bi-chat-square-text" style="color: #ffa735;"></i>
-                    </div>
-                    <div class="process-number">03</div>
-                    <h3>Interview</h3>
-                    <p>We arrange interviews and handle visa processing.</p>
-                </div>
-            </div>
-            
-            <!-- Step 4 -->
-            <div class="col-md-6 col-lg-3">
-                <div class="process-card" style="border-top: 4px solid #3a86ff;">
-                    <div class="process-icon" style="background: linear-gradient(135deg, rgba(58,134,255,0.1), rgba(58,134,255,0.2));">
-                        <i class="bi bi-airplane" style="color: #3a86ff;"></i>
-                    </div>
-                    <div class="process-number">04</div>
-                    <h3>Relocate</h3>
-                    <p>We assist with necessary requirements for a succesful relocation and settlement at your chosen destination.</p>
-                </div>
-            </div>
-        </div>
+<!-- How It Works Section -->
+<section class="ptc-process-section">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="ptc-section-header">
+      <h2 class="ptc-section-title">Our Simple Process</h2>
+      <p class="ptc-section-description">Get started on your international journey in just a few easy steps</p>
     </div>
-</section>
-
-<style>
-.process-card {
-    background: white;
-    padding: 30px 25px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    text-align: center;
-    height: 100%;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.process-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-}
-
-.process-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    font-size: 30px;
-}
-
-.process-number {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #ddd;
-}
-
-.process-card h3 {
-    color: #333;
-    margin-bottom: 15px;
-    font-size: 1.25rem;
-}
-
-.process-card p {
-    color: #666;
-    font-size: 0.9rem;
-    margin-bottom: 0;
-}
-
-@media (max-width: 768px) {
-    .process-card {
-        padding: 25px 20px;
-    }
     
-    .process-icon {
-        width: 70px;
-        height: 70px;
-        font-size: 25px;
-    }
-}
-</style>
-	
-
-    <!-- Testimonials Section -->
-    <section class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5" style="color: var(--bs-accent);">Success Stories</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <div class="quote">Plero made my dream of working in Canada a reality. The process was smooth and transparent.</div>
-                        <div class="testimonial-author">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="John D.">
-                            <div>
-                                <h5 style="color: var(--bs-accent);">John D.</h5>
-                                <p>Construction Worker, Canada</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <div class="quote">From application to arrival in Germany took just 8 weeks. Excellent support throughout!</div>
-                        <div class="testimonial-author">
-                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="Sarah M.">
-                            <div>
-                                <h5 style="color: var(--bs-accent);">Sarah M.</h5>
-                                <p>Caregiver, Germany</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <div class="quote">The job I got in Australia was exactly as described. Plero's verification process is solid.</div>
-                        <div class="testimonial-author">
-                            <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="Kofi M.">                            <div>
-                                <h5 style="color: var(--bs-accent);">Michael T.</h5>
-                                <p>Hotel Manager, Australia</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Travel Services Process -->
+    <div class="ptc-process-container ptc-travel-process">
+      <h3 class="ptc-process-main-title">
+        <i class="bi bi-airplane ptc-process-icon"></i> Travel Services Process
+      </h3>
+      
+      <div class="ptc-timeline">
+        <!-- Step 1 -->
+        <div class="ptc-timeline-step">
+          <div class="ptc-step-number">1</div>
+          <div class="ptc-step-content">
+            <h4 class="ptc-step-title">Free Consultation</h4>
+            <p class="ptc-step-text">Contact us via phone, WhatsApp, or online form to discuss your travel goals.</p>
+          </div>
         </div>
-    </section>
+        
+        <!-- Step 2 -->
+        <div class="ptc-timeline-step">
+          <div class="ptc-step-number">2</div>
+          <div class="ptc-step-content">
+            <h4 class="ptc-step-title">Document Review</h4>
+            <p class="ptc-step-text">Share your documents for eligibility assessment and recommendations.</p>
+          </div>
+        </div>
+        
+        <!-- Step 3 -->
+        <div class="ptc-timeline-step">
+          <div class="ptc-step-number">3</div>
+          <div class="ptc-step-content">
+            <h4 class="ptc-step-title">Application Process</h4>
+            <p class="ptc-step-text">We handle applications, appointments, and paperwork.</p>
+          </div>
+        </div>
+        
+        <!-- Step 4 -->
+        <div class="ptc-timeline-step">
+          <div class="ptc-step-number">4</div>
+          <div class="ptc-step-content">
+            <h4 class="ptc-step-title">Approval & Updates</h4>
+            <p class="ptc-step-text">Regular updates and interview preparation support.</p>
+          </div>
+        </div>
+        
+        <!-- Step 5 -->
+        <div class="ptc-timeline-step">
+          <div class="ptc-step-number">5</div>
+          <div class="ptc-step-content">
+            <h4 class="ptc-step-title">Travel Made Easy</h4>
+            <p class="ptc-step-text">We assist with travel arrangements and accommodation.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="ptc-main-cta">
+        <a href="./apply.html" class="ptc-primary-btn">
+          Start My Application <i class="bi bi-arrow-right ptc-btn-icon"></i>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Other Services -->
+    <div class="ptc-other-services">
+      <h3 class="ptc-services-subtitle">Other Services We Provide</h3>
+      
+      <div class="ptc-services-grid">
+        <!-- Business Registration -->
+        <div class="ptc-service-card">
+          <div class="ptc-service-header">
+            <i class="bi bi-building ptc-service-icon"></i>
+            <h4 class="ptc-service-name">Business Registration</h4>
+          </div>
+          <div class="ptc-service-steps">
+            <div class="ptc-service-step">
+              <span class="ptc-step-indicator">1</span>
+              <span class="ptc-step-label">Consultation</span>
+            </div>
+            <div class="ptc-service-step">
+              <span class="ptc-step-indicator">2</span>
+              <span class="ptc-step-label">Document Submission</span>
+            </div>
+            <div class="ptc-service-step">
+              <span class="ptc-step-indicator">3</span>
+              <span class="ptc-step-label">Registration Filing</span>
+            </div>
+            <div class="ptc-service-step">
+              <span class="ptc-step-indicator">4</span>
+              <span class="ptc-step-label">Certificate Issued</span>
+            </div>
+          </div>
+          <a href="./business-support#lead" class="ptc-service-link">Get Started</a>
+        </div>
+        
+        <!-- Passport & Birth Certificate -->
+        <div class="ptc-service-card">
+          <div class="ptc-service-header">
+            <i class="bi bi-passport ptc-service-icon"></i>
+            <h4 class="ptc-service-name">Passport & Birth Certificate</h4>
+          </div>
+          <div class="ptc-service-steps">
+            <div class="ptc-service-step">
+              <span class="ptc-step-indicator">1</span>
+              <span class="ptc-step-label">Document Preparation</span>
+            </div>
+            <div class="ptc-service-step">
+              <span class="ptc-step-indicator">2</span>
+              <span class="ptc-step-label">Application Submission</span>
+            </div>
+            <div class="ptc-service-step">
+              <span class="ptc-step-indicator">3</span>
+              <span class="ptc-step-label">Biometrics (passport)</span>
+            </div>
+            <div class="ptc-service-step">
+              <span class="ptc-step-indicator">4</span>
+              <span class="ptc-step-label">Document Issued</span>
+            </div>
+          </div>
+          <a href="#contact" class="ptc-service-link">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+/* How It Works Section - Pleroma Travel Consult */
+.ptc-process-section {
+  padding: 5rem 0;
+  background-color: #f8fafc;
+  font-family: var(--font-body);
+}
+
+.ptc-section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.ptc-section-title {
+  font-size: 2.25rem;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.ptc-section-description {
+  color: #64748b;
+  font-size: 1.125rem;
+}
+
+/* Travel Process */
+.ptc-process-container {
+  background: white;
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3rem;
+}
+
+.ptc-travel-process {
+  border-left: 4px solid var(--bs-primary);
+}
+
+.ptc-process-main-title {
+  font-size: 1.5rem;
+  color: var(--bs-primary);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ptc-process-icon {
+  font-size: 2rem;
+}
+
+.ptc-timeline {
+  position: relative;
+  padding-left: 3rem;
+}
+
+.ptc-timeline::before {
+  content: '';
+  position: absolute;
+  left: 2.25rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--bs-primary), #a78bfa);
+}
+
+.ptc-timeline-step {
+  position: relative;
+  padding-bottom: 2.5rem;
+}
+
+.ptc-step-number {
+  position: absolute;
+  left: -3.75rem;
+  top: 0;
+  width: 3rem;
+  height: 3rem;
+  background: var(--bs-primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  z-index: 2;
+}
+
+.ptc-step-content {
+  padding-left: 2rem;
+}
+
+.ptc-step-title {
+  font-size: 1.25rem;
+  color: #1e293b;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.ptc-step-text {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.ptc-main-cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.ptc-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bs-primary);
+  color: white;
+  padding: 0.75rem 1.75rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.ptc-primary-btn:hover {
+  background: #5a52e0;
+  transform: translateY(-2px);
+}
+
+.ptc-btn-icon {
+  transition: transform 0.2s ease;
+}
+
+.ptc-primary-btn:hover .ptc-btn-icon {
+  transform: translateX(3px);
+}
+
+/* Other Services */
+.ptc-other-services {
+  text-align: center;
+}
+
+.ptc-services-subtitle {
+  font-size: 1.25rem;
+  color: #1e293b;
+  margin-bottom: 2rem;
+}
+
+.ptc-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.ptc-service-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-top: 3px solid var(--bs-secondary);
+}
+
+.ptc-service-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.ptc-service-icon {
+  font-size: 1.75rem;
+  color: var(--bs-secondary);
+}
+
+.ptc-service-name {
+  font-size: 1.25rem;
+  color: #1e293b;
+  margin: 0;
+  font-weight: 600;
+}
+
+.ptc-service-steps {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.ptc-service-step {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: #f8fafc;
+  border-radius: 8px;
+}
+
+.ptc-step-indicator {
+  width: 24px;
+  height: 24px;
+  background: var(--bs-secondary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.ptc-step-label {
+  font-size: 0.875rem;
+}
+
+.ptc-service-link {
+  display: inline-block;
+  width: 100%;
+  padding: 0.75rem;
+  background: rgba(58, 134, 255, 0.1);
+  color: var(--bs-secondary);
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.ptc-service-link:hover {
+  background: rgba(58, 134, 255, 0.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .ptc-process-container {
+    padding: 2rem 1.5rem;
+  }
+  
+  .ptc-timeline {
+    padding-left: 2rem;
+  }
+  
+  .ptc-timeline::before {
+    left: 1.25rem;
+  }
+  
+  .ptc-step-number {
+    left: -2.75rem;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .ptc-section-title {
+    font-size: 1.75rem;
+  }
+  
+  .ptc-services-grid {
+    grid-template-columns: 1fr;
+  }
+}</style>
+
+<!-- Modern Testimonials Carousel -->
+<section class="ptc-testimonials-section">
+  <div class="container">
+    <div class="ptc-testimonials-header">
+      <span class="ptc-testimonials-subtitle">Client Experiences</span>
+      <h2 class="ptc-testimonials-title">Success Stories</h2>
+      <p class="ptc-testimonials-description">Hear from people who transformed their lives with our services</p>
+    </div>
+
+    <div class="ptc-testimonials-carousel">
+      <!-- Testimonial 1 -->
+      <div class="ptc-testimonial-card">
+        <div class="ptc-testimonial-rating">
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+        </div>
+        <div class="ptc-testimonial-content">
+          <p class="ptc-testimonial-quote">"PTC made my dream of working in Canada a reality. The entire process was smooth and transparent, with constant updates at every stage."</p>
+        </div>
+        <div class="ptc-testimonial-author">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="John D." loading="lazy">
+          <div class="ptc-author-info">
+            <h4>John D.</h4>
+            <span>Construction Supervisor, Canada</span>
+            <div class="ptc-verified-badge">
+              <i class="bi bi-patch-check-fill"></i> Verified Client
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="ptc-testimonial-card">
+        <div class="ptc-testimonial-rating">
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+        </div>
+        <div class="ptc-testimonial-content">
+          <p class="ptc-testimonial-quote">"From application to arrival in Germany took just 8 weeks! The team handled everything from visa processing to finding me accommodation."</p>
+        </div>
+        <div class="ptc-testimonial-author">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Sarah M." loading="lazy">
+          <div class="ptc-author-info">
+            <h4>Sarah M.</h4>
+            <span>Senior Caregiver, Germany</span>
+            <div class="ptc-verified-badge">
+              <i class="bi bi-patch-check-fill"></i> Verified Client
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="ptc-testimonial-card">
+        <div class="ptc-testimonial-rating">
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+        </div>
+        <div class="ptc-testimonial-content">
+          <p class="ptc-testimonial-quote">"The hospitality job in Australia was exactly as described. PTC's verification process gave me confidence in the opportunity."</p>
+        </div>
+        <div class="ptc-testimonial-author">
+          <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Michael T." loading="lazy">
+          <div class="ptc-author-info">
+            <h4>Michael T.</h4>
+            <span>Hotel Manager, Australia</span>
+            <div class="ptc-verified-badge">
+              <i class="bi bi-patch-check-fill"></i> Verified Client
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 4 -->
+      <div class="ptc-testimonial-card">
+        <div class="ptc-testimonial-rating">
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+        </div>
+        <div class="ptc-testimonial-content">
+          <p class="ptc-testimonial-quote">"PTC helped me register my export business in record time. Their knowledge of international requirements saved me months of work."</p>
+        </div>
+        <div class="ptc-testimonial-author">
+          <img src="https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Ama K." loading="lazy">
+          <div class="ptc-author-info">
+            <h4>Ama K.</h4>
+            <span>Business Owner, UK</span>
+            <div class="ptc-verified-badge">
+              <i class="bi bi-patch-check-fill"></i> Verified Client
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 5 -->
+      <div class="ptc-testimonial-card">
+        <div class="ptc-testimonial-rating">
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+        </div>
+        <div class="ptc-testimonial-content">
+          <p class="ptc-testimonial-quote">"My student visa was approved in just 3 weeks thanks to PTC's meticulous document preparation and interview coaching."</p>
+        </div>
+        <div class="ptc-testimonial-author">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Kwame B." loading="lazy">
+          <div class="ptc-author-info">
+            <h4>Kwame B.</h4>
+            <span>Student, USA</span>
+            <div class="ptc-verified-badge">
+              <i class="bi bi-patch-check-fill"></i> Verified Client
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+/* Testimonials Section */
+.ptc-testimonials-section {
+  padding: 5rem 0;
+  background-color: #f8fafc;
+  position: relative;
+}
+
+.ptc-testimonials-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+.ptc-testimonials-subtitle {
+  display: inline-block;
+  background: rgba(108, 99, 255, 0.1);
+  color: var(--bs-primary);
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.ptc-testimonials-title {
+  font-size: 2.25rem;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.ptc-testimonials-description {
+  color: #64748b;
+  font-size: 1.125rem;
+}
+
+/* Testimonial Carousel */
+.ptc-testimonials-carousel {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 1rem 0;
+  margin: 0 -1rem;
+  scrollbar-width: none; /* Firefox */
+}
+
+.ptc-testimonials-carousel::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.ptc-testimonial-card {
+  flex: 0 0 calc(100% - 2rem);
+  scroll-snap-align: start;
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@media (min-width: 768px) {
+  .ptc-testimonial-card {
+    flex: 0 0 calc(50% - 2rem);
+  }
+}
+
+@media (min-width: 992px) {
+  .ptc-testimonial-card {
+    flex: 0 0 calc(33.333% - 2rem);
+  }
+}
+
+.ptc-testimonial-rating {
+  color: #fbbf24;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.ptc-testimonial-quote {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #475569;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.ptc-testimonial-quote::before {
+  content: '"';
+  position: absolute;
+  left: 0;
+  top: -0.5rem;
+  font-size: 2.5rem;
+  color: rgba(108, 99, 255, 0.2);
+  line-height: 1;
+}
+
+.ptc-testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ptc-testimonial-author img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(108, 99, 255, 0.1);
+}
+
+.ptc-author-info {
+  flex: 1;
+}
+
+.ptc-author-info h4 {
+  font-size: 1.125rem;
+  color: #1e293b;
+  margin-bottom: 0.25rem;
+}
+
+.ptc-author-info span {
+  display: block;
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-bottom: 0.25rem;
+}
+
+.ptc-verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--bs-primary);
+  background: rgba(108, 99, 255, 0.1);
+  padding: 0.25rem 0.5rem;
+  border-radius: 50px;
+}
+
+.ptc-testimonials-cta {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.ptc-testimonials-cta p {
+  color: #64748b;
+  margin-bottom: 1rem;
+}
+
+.ptc-testimonial-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bs-primary);
+  color: white;
+  padding: 0.75rem 1.75rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.ptc-testimonial-btn:hover {
+  background: #5a52e0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}</style>
 
 <!-- Contact & Map Section -->
-<section class="contact-map-section py-5 bg-light">
+<!-- Contact & Map Section -->
+<section class="contact-map-section py-5 bg-light" id="contact">
   <div class="container">
     <div class="row g-4 align-items-center">
       <!-- Left Side - Compact Contact Info -->
-      <div class="col-lg-5" id="contact">
+      <div class="col-lg-5">
         <h2 class="mb-3">Visit Our Office</h2>
         <p class="mb-4">To ensure we give you our undivided attention, we recommend scheduling an appointment.</p>
         
@@ -1244,7 +2282,7 @@
             </div>
             <div>
               <h5 class="mb-1">Our Location</h5>
-              <p class="mb-0 text-muted">JPGH+25V, Sowutoum, Ghana<br>Near Pentecost University</p>
+              <p class="mb-0 text-muted">JPGH+M6 Sowutoum, Accra, Ghana<br>Near Pentecost University</p>
             </div>
           </div>
           
@@ -1254,8 +2292,8 @@
             </div>
             <div>
               <h5 class="mb-1">Direct Assistance</h5>
-              <a href="tel:+233558009078" class="text-decoration-none text-muted">+233 558009078</a>
-              <p class="small text-muted mb-0">Mon-Fri: 8:30AM-5:30PM</p>
+              <a href="tel:+233558009078" class="text-decoration-none text-muted">+233 55 800 9078</a>
+              <p class="small text-muted mb-0">Mon-Fri: 8:00AM-5:00PM</p>
             </div>
           </div>
           
@@ -1272,11 +2310,11 @@
         </div>
       </div>
       
-      <!-- Right Side - Google Map (unchanged) -->
+      <!-- Right Side - Google Map -->
       <div class="col-lg-7">
         <div class="map-container rounded-3 overflow-hidden shadow-sm" style="height: 400px;">
           <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.6056676075905!2d-0.2718482!3d5.6250860000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf99628b6e7c89%3A0x65f6ed579bde1ffc!2sPleroma%20Network%20International!5e0!3m2!1sen!2sca!4v1749296787142!5m2!1sen!2sca" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.594601081457!2d-0.27192469999999996!3d5.6267071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf99000437a135%3A0xcd944d1fdf3f5411!2sPleroma%20Travel%20Consult!5e0!3m2!1sen!2sgh!4v1755532451848!5m2!1sen!2sgh" 
             width="100%" 
             height="100%" 
             style="border:0;" 
@@ -1379,6 +2417,7 @@
     }
   }
 </style>
+
     <!-- Final CTA Section -->
     <section class="final-cta">
         <div class="container text-center">
@@ -1410,7 +2449,7 @@
                         <li><a href="./index.html" class="text-white">Home</a></li>
                         <li><a href="#jobs" class="text-white">Jobs</a></li>
                         <li><a href="#country" class="text-white">Destinations</a></li>
-                        <li><a href="#about" class="text-white">About Us</a></li>
+                        <li><a href="#about-section" class="text-white">About Us</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
@@ -1450,15 +2489,135 @@
         </div>
     </footer>
 	
-	<div class="whatsapp-chatbot">
-  <a href="https://wa.me/233558009078" target="_blank" class="pulse" title="Chat with us on WhatsApp">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat">
-  </a>
-</div>
+    <!-- Speed Dial Chat Widget -->
+    <div class="multi-channel-chatbot">
+        <!-- Main toggle button -->
+        <button class="chatbot-toggle pulse" aria-label="Open communication options">
+            <i class="bi bi-chat-dots-fill main-icon"></i>
+            <i class="bi bi-x-lg close-icon"></i>
+        </button>
+
+        <!-- Option buttons -->
+        <div class="chat-options">
+            <a href="https://wa.me/233558009078" target="_blank" class="chat-option" title="Chat on WhatsApp">
+                <i class="bi bi-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+            
+            <a href="mailto:pleromatravelconsult@gmail.com" class="chat-option" title="Send us an email">
+                <i class="bi bi-envelope"></i>
+                <span>Email</span>
+            </a>
+            
+            <a href="#calendly-booking" class="chat-option" title="Book a consultation">
+                <i class="bi bi-calendar-event"></i>
+                <span>Book Now</span>
+            </a>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatbot = document.querySelector('.multi-channel-chatbot');
+            const toggleButton = document.querySelector('.chatbot-toggle');
+            
+            toggleButton.addEventListener('click', function(e) {
+                e.stopPropagation();
+                chatbot.classList.toggle('active');
+                
+                // Stop pulse animation when expanded
+                if (chatbot.classList.contains('active')) {
+                    toggleButton.classList.remove('pulse');
+                } else {
+                    // Restart pulse animation when collapsed after a delay
+                    setTimeout(() => {
+                        toggleButton.classList.add('pulse');
+                    }, 300);
+                }
+            });
+            
+            // Close when clicking outside
+            document.addEventListener('click', function(event) {
+                if (chatbot.classList.contains('active') && 
+                    !chatbot.contains(event.target)) {
+                    chatbot.classList.remove('active');
+                    setTimeout(() => {
+                        toggleButton.classList.add('pulse');
+                    }, 300);
+                }
+            });
+            
+            // Prevent options from closing the menu when clicked
+            document.querySelectorAll('.chat-option').forEach(option => {
+                option.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    // Close the widget after clicking an option
+                    setTimeout(() => {
+                        chatbot.classList.remove('active');
+                        toggleButton.classList.add('pulse');
+                    }, 300);
+                });
+            });
+        });
+    </script>
 
     <!-- Bootstrap 5 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	
+    <!-- UPDATED SCRIPT for Navbar and Mobile Menu -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const navbar = document.getElementById('mainNav');
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.getElementById('navbarNav');
+        const body = document.body;
+
+        // --- Navbar Scroll Effect ---
+        if (navbar) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        }
+
+        // --- Mobile Navigation Toggle ---
+        // Create close button dynamically
+        const closeButton = document.createElement('button');
+        closeButton.className = 'mobile-close-btn';
+        closeButton.innerHTML = '&times;'; // Use &times; for a cleaner 'x'
+        closeButton.setAttribute('aria-label', 'Close menu');
+        document.body.appendChild(closeButton);
+
+        // Function to open the mobile nav
+        const openNav = () => {
+            navbarCollapse.classList.add('show');
+            body.classList.add('mobile-nav-open');
+        };
+
+        // Function to close the mobile nav
+        const closeNav = () => {
+            navbarCollapse.classList.remove('show');
+            body.classList.remove('mobile-nav-open');
+        };
+
+        // Event listeners
+        navbarToggler.addEventListener('click', openNav);
+        closeButton.addEventListener('click', closeNav);
+
+        // Close menu when a link or the contact button is clicked
+        document.querySelectorAll('#navbarNav .nav-link, #navbarNav .btn-contact, #navbarNav .dropdown-item').forEach(link => {
+            link.addEventListener('click', () => {
+                // Only close if it's not a dropdown toggle that's being clicked
+                if (!link.classList.contains('dropdown-toggle')) {
+                    closeNav();
+                }
+            });
+        });
+    });
+    </script>
+	
     <!-- Animation Scripts -->
     <script>
         // Initialize GSAP animations when page loads
@@ -1560,57 +2719,57 @@
         });
 		
 		  // Scroll animation for reason cards
-  document.addEventListener('DOMContentLoaded', function() {
-    const reasonCards = document.querySelectorAll('.reason-card');
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-    
-    reasonCards.forEach(card => {
-      observer.observe(card);
-    });
-  });
-  
-  document.addEventListener('DOMContentLoaded', function() {
-        // Animate stats when scrolled into view
-        const statItems = document.querySelectorAll('.stat-item');
+      document.addEventListener('DOMContentLoaded', function() {
+        const reasonCards = document.querySelectorAll('.reason-card');
+        
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    animateCounters();
-                }
-            });
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
         }, { threshold: 0.1 });
         
-        statItems.forEach(item => {
-            observer.observe(item);
+        reasonCards.forEach(card => {
+          observer.observe(card);
         });
-        
-        // Counter animation function
-        function animateCounters() {
-            const counters = document.querySelectorAll('.number');
-            const speed = 400; // Lower is faster
+      });
+  
+      document.addEventListener('DOMContentLoaded', function() {
+            // Animate stats when scrolled into view
+            const statItems = document.querySelectorAll('.stat-item');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        animateCounters();
+                    }
+                });
+            }, { threshold: 0.1 });
             
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
-                const increment = target / speed;
-                
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + increment);
-                    setTimeout(animateCounters, 1);
-                } else {
-                    counter.innerText = target === 98 ? target + '%' : target.toLocaleString() + '+';
-                }
+            statItems.forEach(item => {
+                observer.observe(item);
             });
-        }
-    });
+            
+            // Counter animation function
+            function animateCounters() {
+                const counters = document.querySelectorAll('.number');
+                const speed = 400; // Lower is faster
+                
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const increment = target / speed;
+                    
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(animateCounters, 1);
+                    } else {
+                        counter.innerText = target === 98 ? target + '%' : target.toLocaleString() + '+';
+                    }
+                });
+            }
+        });
     </script>
 </body>
 </html>
