@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Abroad Services - Pleroma Travel Consult</title>
+    <!-- Bootstrap 5 CSS and Icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+	    :root {
+            --primary-blue: #2563eb;
+            --primary-orange: #f97316;
+            --primary-violet: #7c3aed;
+            --secondary-blue: #1e40af;
+            --light-orange: #ffedd5;
+            --light-violet: #ede9fe;
+            --dark-gray: #1f2937;
+            --medium-gray: #6b7280;
+            --light-gray: #f3f4f6;
+        }
+	
+        /* Add padding to the top of the body to prevent content from being hidden by the fixed navbar */
+        body {
+			font-family: 'Poppins', sans-serif;
+        }
+
+        /* Page-specific styles for Abroad Services */
+        .travel-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1512100356356-de1b84283e18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1075&q=80') no-repeat center center;
+            background-size: cover;
+            padding: 8rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .travel-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.6);
+        }
+        
+        .travel-hero p.lead {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 1rem auto 0;
+            font-weight: 400;
+        }
+
+        .service-icon-grid .card {
+            border: none;
+            background: #f8f9fa;
+            padding: 2rem;
+            text-align: center;
+            border-radius: var(--bs-border-radius);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .service-icon-grid .card:hover {
+            background: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon-grid .icon {
+            font-size: 2.5rem;
+            color: var(--bs-primary);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        
+        .service-icon-grid h5 {
+            font-weight: 600;
+            color: var(--bs-heading-color);
+        }
+
+        .service-detail-section {
+            padding: 5rem 0;
+        }
+        
+        .service-detail-section:nth-child(odd) {
+            background-color: #f8f9fa;
+        }
+        
+        .service-detail-section img {
+            border-radius: var(--bs-border-radius);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .service-detail-section h2 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-detail-section .bi-check-lg {
+            color: var(--bs-secondary);
+            margin-right: 0.5rem;
+        }
+
+        .document-assistance {
+            background-color: var(--bs-dark);
+            color: white;
+        }
+        
+        .document-assistance h2 {
+            color: #ffa735;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--bs-primary), var(--bs-secondary));
+            padding: 5rem 0;
+            color: white;
+        }
+        
+        .cta-section h2 {
+            font-weight: 700;
+        }
+
+        .btn-light-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+        
+        .btn-light-outline:hover {
+            background: white;
+            color: var(--bs-primary);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg fixed-top scrolled" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="./index.html" id="pleroma-logo">
+            <img src="./images/ptc_logo.png" alt="Pleroma Travel Consult" height="50" class="d-inline-block me-2">
+            <div class="logo-text-stack d-none d-lg-flex">
+                <span class="travel-agency-text">PLEROMA</span>
+                <span class="travel-agency-text">Travel Consult</span>
+            </div>
+        </a>
+        <button class="navbar-toggler d-lg-none" type="button" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="./abroad.html" id="travelDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Travel
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="travelDropdown">
+                        <li><a class="dropdown-item" href="#study">Study Abroad</a></li>
+                        <li><a class="dropdown-item" href="#work">Work Permit</a></li>
+                        <li><a class="dropdown-item" href="#visit">Tourist & Visit Visa</a></li>
+                        <li><a class="dropdown-item" href="#documents">Document Assistance</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html#country">Destinations</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="./business-support.html" id="businessDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Business Support
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="businessDropdown">
+                        <li><a class="dropdown-item" href="./business-support.html#registration">Business Registration</a></li>
+                        <li><a class="dropdown-item" href="./business-support.html#consultation">Business Consultation</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html#about">About Us</a>
+                </li>
+                <li class="nav-item d-lg-none mt-3">
+                    <a href="#contact" class="btn btn-contact w-100">Contact Us</a>
+                </li>
+            </ul>
+            <a href="#contact" class="btn btn-contact ms-lg-3 d-none d-lg-inline-flex">
+                <i class="bi bi-telephone me-2"></i>Contact Us
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="travel-hero">
+    <div class="container">
+        <h1 style="color: #ffa735;">Your Gateway to the World</h1>
+        <p class="lead">Discover seamless pathways to study, work, and explore abroad with our expert guidance and comprehensive support services.</p>
+    </div>
+</header>
+
+<!-- Services Icon Grid -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="mb-3">Explore Our Travel Services</h2>
+            <p class="lead text-muted">Comprehensive solutions for every step of your international journey.</p>
+        </div>
+        <div class="row g-4 service-icon-grid">
+            <div class="col-lg-3 col-md-6"><div class="card" onclick="location.href='#study';"><i class="bi bi-mortarboard-fill icon"></i><h5>Study Abroad</h5></div></div>
+            <div class="col-lg-3 col-md-6"><div class="card" onclick="location.href='#work';"><i class="bi bi-briefcase-fill icon"></i><h5>Work Permits</h5></div></div>
+            <div class="col-lg-3 col-md-6"><div class="card" onclick="location.href='#visit';"><i class="bi bi-airplane-fill icon"></i><h5>Tourist & Visit Visas</h5></div></div>
+            <div class="col-lg-3 col-md-6"><div class="card" onclick="location.href='#documents';"><i class="bi bi-file-earmark-text-fill icon"></i><h5>Document Assistance</h5></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- Study Abroad Section -->
+<div class="service-detail-section" id="study">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Students studying abroad">
+            </div>
+            <div class="col-lg-6">
+                <h2>Study Abroad Programs</h2>
+                <p class="text-muted">Unlock a world-class education and broaden your horizons. We partner with prestigious institutions worldwide to find the perfect fit for your academic and career goals.</p>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="bi bi-check-lg"></i> University & College Admissions Guidance</li>
+                    <li class="mb-2"><i class="bi bi-check-lg"></i> Student Visa Application & Interview Prep</li>
+                    <li class="mb-2"><i class="bi bi-check-lg"></i> Scholarship & Financial Aid Assistance</li>
+                    <li class="mb-2"><i class="bi bi-check-lg"></i> Pre-departure Briefings & Support</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Work Permit Section -->
+<div class="service-detail-section" id="work">
+    <div class="container">
+        <div class="row g-5 align-items-center flex-lg-row-reverse">
+            <div class="col-lg-6">
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Professional working abroad">
+            </div>
+            <div class="col-lg-6">
+                <h2>Work Permits & Job Placements</h2>
+                <p class="text-muted">Advance your career with international work experience. We connect you with verified employers and handle the complex work permit process, ensuring a smooth transition.</p>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="bi bi-check-lg"></i> Access to Vetted International Job Opportunities</li>
+                    <li class="mb-2"><i class="bi bi-check-lg"></i> End-to-End Work Permit & Visa Processing</li>
+                    <li class="mb-2"><i class="bi bi-check-lg"></i> Resume & Cover Letter Optimization</li>
+                    <li class="mb-2"><i class="bi bi-check-lg"></i> Relocation & Accommodation Assistance</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tourist & Visit Visa Section -->
+<div class="service-detail-section" id="visit">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+                <img src="https://images.unsplash.com/photo-1500835556837-99ac94a94552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Tourist enjoying a vacation">
+            </div>
+            <div class="col-lg-6">
+                <h2>Tourist, Visit & Schengen Visas</h2>
+                <p class="text-muted">Explore the world with confidence. Whether for leisure, family visits, or business trips, we ensure your visa application is complete, accurate, and submitted for the highest chance of success.</p>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="bi bi-check-lg"></i> Expert Handling of All Visa Categories</li>
+                    <li class="mb-2"><i class="bi bi-check-lg"></i> Specialized in Schengen Area Applications</li>
+                    <li class="mb-2"><i class="bi bi-check-lg"></i> Document Verification & Form Filling</li>
+                    <li class="mb-2"><i class="bi bi-check-lg"></i> Appointment Scheduling & Itinerary Planning</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Document Assistance Section -->
+<div class="service-detail-section document-assistance" id="documents">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="mb-3">Essential Document Assistance</h2>
+            <p class="lead">The foundation of any international application. We streamline the process of acquiring vital national documents.</p>
+        </div>
+        <div class="row g-4 text-center">
+            <div class="col-lg-6">
+                <div class="p-4 bg-light text-dark rounded h-100">
+                    <i class="bi bi-passport-fill icon fs-1 text-primary"></i>
+                    <h4 class="mt-3">Passport Acquisition</h4>
+                    <p class="mb-0">Fast-track your new passport or renewal application with our expert assistance, ensuring all requirements are met correctly the first time.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="p-4 bg-light text-dark rounded h-100">
+                    <i class="bi bi-person-vcard-fill icon fs-1 text-primary"></i>
+                    <h4 class="mt-3">Biometric Birth Certificates</h4>
+                    <p class="mb-0">We facilitate the acquisition of official biometric birth certificates, a crucial requirement for many international visa and residency applications.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action Section -->
+<section class="cta-section py-5 text-center">
+    <div class="container">
+        <h2 class="mb-4">Begin Your Journey Today</h2>
+        <p class="lead mb-5">Your international adventure is just a step away. Choose how you'd like to start your travel planning process.</p>
+        
+        <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+            <a href="./apply.html#guide" class="btn btn-light btn-lg px-4">
+                <i class="bi bi-calendar-check me-2"></i>Start Planning
+            </a>
+            <a href="./apply.html" class="btn btn-orange btn-lg px-4">
+                <i class="bi bi-pencil-square me-2"></i>Apply Now
+            </a>
+        </div>
+        
+        <p class="mt-4 small opacity-75">Free consultation available for all new clients</p>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-5 bg-dark text-white" id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <h5 style="color: #ffa735;">PLEROMA Travel Consult</h5>
+                <p>Your trusted partner for travel, work, and business opportunities worldwide.</p>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h5 style="color: #ffa735;">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="./index.html" class="text-white">Home</a></li>
+                    <li><a href="./abroad.html" class="text-white">Travel Services</a></li>
+                    <li><a href="./business-support.html" class="text-white">Business Services</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 style="color: #ffa735;">Support</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-white">FAQ</a></li>
+                    <li><a href="#contact" class="text-white">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 mb-4">
+                <h5 style="color: #ffa735;">Contact Us</h5>
+                <ul class="list-unstyled">
+                    <li><i class="bi bi-geo-alt me-2"></i> Sowutoum, Accra, Ghana</li>
+                    <li><i class="bi bi-telephone me-2"></i> +233 (0)558009078</li>
+                    <li><i class="bi bi-envelope me-2"></i> pleromatravelconsult@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        <hr class="my-4 bg-light">
+        <div class="text-center">
+            <p class="mb-0">&copy; 2023 Pleroma Travel. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+    <!-- Speed Dial Chat Widget -->
+    <div class="multi-channel-chatbot">
+        <!-- Main toggle button -->
+        <button class="chatbot-toggle pulse" aria-label="Open communication options">
+            <i class="bi bi-chat-dots-fill main-icon"></i>
+            <i class="bi bi-x-lg close-icon"></i>
+        </button>
+
+        <!-- Option buttons -->
+        <div class="chat-options">
+            <a href="https://wa.me/233558009078" target="_blank" class="chat-option" title="Chat on WhatsApp">
+                <i class="bi bi-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+            
+            <a href="mailto:pleromatravelconsult@gmail.com" class="chat-option" title="Send us an email">
+                <i class="bi bi-envelope"></i>
+                <span>Email</span>
+            </a>
+            
+            <a href="#calendly-booking" class="chat-option" title="Book a consultation">
+                <i class="bi bi-calendar-event"></i>
+                <span>Book Now</span>
+            </a>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatbot = document.querySelector('.multi-channel-chatbot');
+            const toggleButton = document.querySelector('.chatbot-toggle');
+            
+            toggleButton.addEventListener('click', function(e) {
+                e.stopPropagation();
+                chatbot.classList.toggle('active');
+                
+                // Stop pulse animation when expanded
+                if (chatbot.classList.contains('active')) {
+                    toggleButton.classList.remove('pulse');
+                } else {
+                    // Restart pulse animation when collapsed after a delay
+                    setTimeout(() => {
+                        toggleButton.classList.add('pulse');
+                    }, 300);
+                }
+            });
+            
+            // Close when clicking outside
+            document.addEventListener('click', function(event) {
+                if (chatbot.classList.contains('active') && 
+                    !chatbot.contains(event.target)) {
+                    chatbot.classList.remove('active');
+                    setTimeout(() => {
+                        toggleButton.classList.add('pulse');
+                    }, 300);
+                }
+            });
+            
+            // Prevent options from closing the menu when clicked
+            document.querySelectorAll('.chat-option').forEach(option => {
+                option.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    // Close the widget after clicking an option
+                    setTimeout(() => {
+                        chatbot.classList.remove('active');
+                        toggleButton.classList.add('pulse');
+                    }, 300);
+                });
+            });
+        });
+    </script>
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Navbar Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.getElementById('navbarNav');
+    const body = document.body;
+
+    const closeButton = document.createElement('button');
+    closeButton.className = 'mobile-close-btn';
+    closeButton.innerHTML = '&times;';
+    closeButton.setAttribute('aria-label', 'Close menu');
+    document.body.appendChild(closeButton);
+
+    const openNav = () => {
+        navbarCollapse.classList.add('show');
+        body.classList.add('mobile-nav-open');
+    };
+
+    const closeNav = () => {
+        navbarCollapse.classList.remove('show');
+        body.classList.remove('mobile-nav-open');
+    };
+
+    navbarToggler.addEventListener('click', openNav);
+    closeButton.addEventListener('click', closeNav);
+
+    document.querySelectorAll('#navbarNav .nav-link, #navbarNav .btn-contact, #navbarNav .dropdown-item').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            // Smooth scroll for anchor links on the same page
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                document.querySelector(href).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+            if (!link.classList.contains('dropdown-toggle')) {
+                closeNav();
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>
