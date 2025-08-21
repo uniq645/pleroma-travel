@@ -7,7 +7,7 @@
     <!-- Bootstrap 5 CSS and Icons-->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 	<!-- Custom Styles -->
@@ -28,7 +28,7 @@
         
         body {
             font-family: 'Poppins', sans-serif;
-            color: var(--dark-gray);
+            color: var(--bs-body-color);
             line-height: 1.6;
         }
         
@@ -42,13 +42,13 @@
         }
         
         .btn-primary {
-            background-color: var(--primary-blue);
-            border-color: var(--primary-blue);
+            background-color: var(--bs-primary);
+            border-color: var(--bs-primary);
         }
         
         .btn-primary:hover {
-            background-color: var(--secondary-blue);
-            border-color: var(--secondary-blue);
+            background-color: #a358d8;
+            border-color: #a358d8;
         }
         
         .btn-orange {
@@ -217,7 +217,30 @@
             }
         }
         
-        @media (max-width: 768px) {
+        /* This rule ensures the close button is hidden on desktop by default */
+        .mobile-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 2.5rem;
+            line-height: 1;
+            padding: 0;
+            cursor: pointer;
+            z-index: 1000;
+            display: none;
+        }
+        
+        /* Media query to show the close button only on mobile screens */
+        @media (max-width: 991.98px) {
+            body.mobile-nav-open .mobile-close-btn {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 991.98px) {
             .hero-section {
                 padding: 100px 0 60px;
             }
@@ -232,7 +255,7 @@
 </head>
 <body>
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark border-b-2 border-[#f7f4f6]">
+<nav class="navbar navbar-expand-lg fixed-top scrolled" id="mainNav">
     <div class="container">
         <a class="navbar-brand" href="./index.html" id="pleroma-logo">
             <img 
@@ -241,50 +264,60 @@
                 height="50" 
                 class="d-inline-block me-2"
             >
-            <div class="logo-text-stack">
-                <span class="pleroma-logo-text">Pleroma</span>
+            <div class="logo-text-stack d-none d-lg-flex">
+                <span class="travel-agency-text">PLEROMA</span>
                 <span class="travel-agency-text">Travel Consult</span>
             </div>
         </a>
 
         <button 
-            class="navbar-toggler" 
+            class="navbar-toggler d-lg-none" 
             type="button" 
             data-bs-toggle="collapse" 
             data-bs-target="#navbarNav"
+            aria-label="Toggle navigation"
         >
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" href="./index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./index.html#jobs">Jobs</a>
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="travelDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Travel
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="travelDropdown">
+                        <li><a class="dropdown-item" href="#">Study Abroad</a></li>
+                        <li><a class="dropdown-item" href="#">Work Permit</a></li>
+                        <li><a class="dropdown-item" href="#">Tourist (Visit) Visa</a></li>
+                        <li><a class="dropdown-item" href="#">Schengen Visa</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Passport Acquisition</a></li>
+                        <li><a class="dropdown-item" href="#">Birth Certificate</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./index.html#country">Destinations</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a 
-                        class="nav-link dropdown-toggle" 
-                        href="./about.html" 
-                        id="workingHolidayDropdown" 
-                        role="button" 
-                        data-bs-toggle="dropdown" 
-                        aria-expanded="false"
-                    >
-                        About
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html#how-it-works">How It Works</a>
+                </li>
+                 <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="./business-support.html" id="businessDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Business Support
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="workingHolidayDropdown">
-                        <li><a class="dropdown-item" href="./about.html">Company</a></li>
-                        <li><a class="dropdown-item" href="./about.html#">Team</a></li>
-                        <li><a class="dropdown-item" href="#">Careers</a></li>
+                    <ul class="dropdown-menu" aria-labelledby="businessDropdown">
+                        <li><a class="dropdown-item" href="./business-support.html#registration">Business Registration</a></li>
+                        <li><a class="dropdown-item" href="./business-support.html#consultation">Business Consultation</a></li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html#about">About Us</a>
+                </li>
+                <li class="nav-item d-lg-none mt-3">
+                    <a href="#contact" class="btn btn-contact w-100">Contact Us</a>
+                </li>
             </ul>
-            <a href="./index.html#contact" class="btn btn-contact ms-lg-3">
+            <a href="#contact" class="btn btn-contact ms-lg-3 d-none d-lg-inline-flex">
                 <i class="bi bi-telephone me-2"></i>Contact Us
             </a>
         </div>
@@ -333,9 +366,11 @@
                             <span class="badge bg-primary rounded-circle me-2 d-flex align-items-center justify-content-center" style="width: 24px; height: 24px;">1</span>
                             Before Your Appointment
                         </h4>
-                        <ul class="list-unstyled ps-4">
+                        <ul class="list-unstyled ps-4" style="color: #36454F;">
                             <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Prepare your questions in advance</li>
-                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Gather relevant documents (resume, certificates)</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> 
+							Gather relevant documents (Travelling assport, Passport picture, Ghana card and Birth certificate, Academic Certificate(If applicable)
+							</li>
                             <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Test your internet connection and webcam</li>
                         </ul>
                     </div>
@@ -345,7 +380,7 @@
                             <span class="badge bg-primary rounded-circle me-2 d-flex align-items-center justify-content-center" style="width: 24px; height: 24px;">2</span>
                             When Your Appointment Starts
                         </h4>
-                        <ul class="list-unstyled ps-4">
+                        <ul class="list-unstyled ps-4" style="color: #36454F;">
                             <li class="mb-2"><i class="bi bi-arrow-right-circle-fill text-primary me-2"></i> Join 5 minutes early using the Zoom link in your email</li>
                             <li class="mb-2"><i class="bi bi-arrow-right-circle-fill text-primary me-2"></i> Have a notepad ready for important notes</li>
                             <li class="mb-2"><i class="bi bi-arrow-right-circle-fill text-primary me-2"></i> Ensure you're in a quiet, well-lit space</li>
@@ -382,7 +417,7 @@
                                 What payment methods do you accept?
                             </button>
                             <div id="faq1" class="collapse" data-bs-parent="#faqAccordion">
-                                <div class="p-4">
+                                <div class="p-4" style="color: #36454F;">
                                     We accept all major credit cards (Visa, Mastercard, American Express), and mobile money payments(MTN, Telecel and AirtelTigo). Payment is required at the time of booking to secure your application.
                                 </div>
                             </div>
@@ -394,7 +429,7 @@
                                 How do the video consultations work?
                             </button>
                             <div id="faq2" class="collapse" data-bs-parent="#faqAccordion">
-                                <div class="p-4">
+                                <div class="p-4" style="color: #36454F;">
                                     After booking, you'll receive a confirmation email with a Zoom link for your consultation. At your scheduled time, simply click the link to join the video call. We recommend testing your audio and video beforehand and having any relevant documents ready to share.
                                 </div>
                             </div>
@@ -406,7 +441,7 @@
                                 Can I reschedule my consultation?
                             </button>
                             <div id="faq3" class="collapse" data-bs-parent="#faqAccordion">
-                                <div class="p-4">
+                                <div class="p-4" style="color: #36454F;">
                                     Yes, you can reschedule up to 24 hours before your appointment. Simply use the link in your confirmation email to choose a new time. Rescheduling within 24 hours may be subject to availability.
                                 </div>
                             </div>
@@ -418,7 +453,7 @@
                                 What if I need more help after my consultation?
                             </button>
                             <div id="faq4" class="collapse" data-bs-parent="#faqAccordion">
-                                <div class="p-4">
+                                <div class="p-4" style="color: #36454F;">
                                     Depending on your package, you may have follow-up email support. If you need additional help, you can book another session or upgrade to a higher-tier package. Many clients find the Premium package provides all the support they need throughout their job search and visa process.
                                 </div>
                             </div>
@@ -430,7 +465,7 @@
                                 Do you guarantee job placement or visa approval?
                             </button>
                             <div id="faq5" class="collapse" data-bs-parent="#faqAccordion">
-                                <div class="p-4">
+                                <div class="p-4" style="color: #36454F;">
                                     While we provide expert guidance to improve your chances, we cannot guarantee job placement or visa approval as these decisions are made by employers and government authorities. Our service is designed to give you the best possible preparation and strategy for your international job search and visa application.
                                 </div>
                             </div>
@@ -451,7 +486,7 @@
                 <div class="col-md-4">
                     <div class="testimonial-card">
                         <div class="quote">"</div>
-                        <p class="mb-3">The consultation was incredibly helpful. I got clear guidance on which countries would be best for my skills and how to approach the job search.</p>
+                        <p class="mb-3" style="color: #36454F;">The consultation was incredibly helpful. I got clear guidance on which countries would be best for my skills and how to approach the job search.</p>
                         <div class="d-flex align-items-center">
                             <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Client" class="rounded-circle me-3" width="50">
                             <div>
@@ -465,7 +500,7 @@
                 <div class="col-md-4">
                     <div class="testimonial-card">
                         <div class="quote">"</div>
-                        <p class="mb-3">The resume review was worth every penny. I landed 3 interviews within a month of implementing the consultant's suggestions.</p>
+                        <p class="mb-3" style="color: #36454F;">The resume review was worth every penny. I landed 3 interviews within a month of implementing the consultant's suggestions.</p>
                         <div class="d-flex align-items-center">
                             <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Client" class="rounded-circle me-3" width="50">
                             <div>
@@ -479,7 +514,7 @@
                 <div class="col-md-4">
                     <div class="testimonial-card">
                         <div class="quote">"</div>
-                        <p class="mb-3">I was overwhelmed by the visa process, but my consultant broke it down into manageable steps. I'm now happily working in Germany!</p>
+                        <p class="mb-3" style="color: #36454F;">I was overwhelmed by the visa process, but my consultant broke it down into manageable steps. I'm now happily working in Germany!</p>
                         <div class="d-flex align-items-center">
                             <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client" class="rounded-circle me-3" width="50">
                             <div>
@@ -552,16 +587,116 @@
             </div>
         </div>
     </footer>
-	
-	<div class="whatsapp-chatbot">
-  <a href="https://wa.me/233558009078" target="_blank" class="pulse" title="Chat with us on WhatsApp">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat">
-  </a>
-</div>
+
+    <!-- Speed Dial Chat Widget -->
+    <div class="multi-channel-chatbot">
+        <!-- Main toggle button -->
+        <button class="chatbot-toggle pulse" aria-label="Open communication options">
+            <i class="bi bi-chat-dots-fill main-icon"></i>
+            <i class="bi bi-x-lg close-icon"></i>
+        </button>
+
+        <!-- Option buttons -->
+        <div class="chat-options">
+            <a href="https://wa.me/233558009078" target="_blank" class="chat-option" title="Chat on WhatsApp">
+                <i class="bi bi-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+            
+            <a href="mailto:pleromatravelconsult@gmail.com" class="chat-option" title="Send us an email">
+                <i class="bi bi-envelope"></i>
+                <span>Email</span>
+            </a>
+            
+            <a href="#calendly-booking" class="chat-option" title="Book a consultation">
+                <i class="bi bi-calendar-event"></i>
+                <span>Book Now</span>
+            </a>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatbot = document.querySelector('.multi-channel-chatbot');
+            const toggleButton = document.querySelector('.chatbot-toggle');
+            
+            toggleButton.addEventListener('click', function(e) {
+                e.stopPropagation();
+                chatbot.classList.toggle('active');
+                
+                // Stop pulse animation when expanded
+                if (chatbot.classList.contains('active')) {
+                    toggleButton.classList.remove('pulse');
+                } else {
+                    // Restart pulse animation when collapsed after a delay
+                    setTimeout(() => {
+                        toggleButton.classList.add('pulse');
+                    }, 300);
+                }
+            });
+            
+            // Close when clicking outside
+            document.addEventListener('click', function(event) {
+                if (chatbot.classList.contains('active') && 
+                    !chatbot.contains(event.target)) {
+                    chatbot.classList.remove('active');
+                    setTimeout(() => {
+                        toggleButton.classList.add('pulse');
+                    }, 300);
+                }
+            });
+            
+            // Prevent options from closing the menu when clicked
+            document.querySelectorAll('.chat-option').forEach(option => {
+                option.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    // Close the widget after clicking an option
+                    setTimeout(() => {
+                        chatbot.classList.remove('active');
+                        toggleButton.classList.add('pulse');
+                    }, 300);
+                });
+            });
+        });
+    </script>
 
     <!-- Bootstrap 5 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.getElementById('navbarNav');
+    const body = document.body;
 
+    // --- Mobile Navigation Toggle ---
+    const closeButton = document.createElement('button');
+    closeButton.className = 'mobile-close-btn';
+    closeButton.innerHTML = '&times;';
+    closeButton.setAttribute('aria-label', 'Close menu');
+    // Appending the close button to the mobile menu
+    navbarCollapse.appendChild(closeButton);
+
+    const openNav = () => {
+        navbarCollapse.classList.add('show');
+        body.classList.add('mobile-nav-open');
+    };
+
+    const closeNav = () => {
+        navbarCollapse.classList.remove('show');
+        body.classList.remove('mobile-nav-open');
+    };
+
+    navbarToggler.addEventListener('click', openNav);
+    closeButton.addEventListener('click', closeNav);
+
+    document.querySelectorAll('#navbarNav .nav-link, #navbarNav .btn-contact, #navbarNav .dropdown-item').forEach(link => {
+        link.addEventListener('click', () => {
+            if (!link.classList.contains('dropdown-toggle')) {
+                closeNav();
+            }
+        });
+    });
+});
+</script>
 </body>
 </html>
