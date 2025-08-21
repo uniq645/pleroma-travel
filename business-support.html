@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Support - Pleroma Travel Consult</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    <style>
+		:root {
+            --primary-blue: #2563eb;
+            --primary-orange: #f97316;
+            --primary-violet: #7c3aed;
+            --secondary-blue: #1e40af;
+            --light-orange: #ffedd5;
+            --light-violet: #ede9fe;
+            --dark-gray: #1f2937;
+            --medium-gray: #6b7280;
+            --light-gray: #f3f4f6;
+        }
+	
+        /* Add a little padding to the top of the body to prevent content from being hidden by the fixed navbar */
+        body {
+            padding-top: 80px; 
+			font-family: 'Poppins', sans-serif;
+        }
+        /* Page-specific styles for Business Support */
+        .business-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80') no-repeat center center;
+            background-size: cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .business-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .business-hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 1rem auto 0;
+        }
+
+        .service-card {
+            background-color: #ffffff;
+            border-radius: var(--bs-border-radius);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+
+        .service-card .icon {
+            font-size: 3rem;
+            color: var(--bs-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            color: var(--bs-heading-color);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-list-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-list-item .bi {
+            color: var(--bs-secondary);
+            margin-right: 0.75rem;
+            margin-top: 0.25rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--bs-primary), var(--bs-secondary));
+            padding: 5rem 0;
+            color: white;
+        }
+        
+        .cta-section h2 {
+            font-weight: 700;
+        }
+
+        .btn-light-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+        
+        .btn-light-outline:hover {
+            background: white;
+            color: var(--bs-primary);
+        }
+        
+        @media (max-width: 768px) {
+            .business-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            /* New CSS to make the mobile menu full width */
+            .navbar-collapse.show {
+                width: 100%;
+                background-color: #fff; /* or any background color you prefer */
+            }
+        }
+
+        /* New CSS for the mobile close button */
+        .mobile-close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            border: none;
+            background: transparent;
+            color: #000000; /* Changed from #ffffff to black */
+            font-size: 2rem;
+            font-weight: 300;
+            z-index: 1051; /* Make sure it's above other elements */
+            display: none; /* Hidden by default */
+            visibility: hidden;
+        }
+        
+        /* You can also add a background to make it more visible */
+        .mobile-close-btn:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+        }
+
+        /* Show the close button when the mobile menu is open */
+        body.mobile-nav-open .mobile-close-btn {
+            display: block;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top scrolled" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="./index.html" id="pleroma-logo">
+            <img src="./images/ptc_logo.png" alt="Pleroma Travel Consult" height="50" class="d-inline-block me-2">
+            <div class="logo-text-stack d-none d-lg-flex">
+                <span class="travel-agency-text">PLEROMA</span>
+                <span class="travel-agency-text">Travel Consult</span>
+            </div>
+        </a>
+
+        <button class="navbar-toggler d-lg-none" type="button" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="travelDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Travel
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="travelDropdown">
+                        <li><a class="dropdown-item" href="./abroad.html#">Study Abroad</a></li>
+                        <li><a class="dropdown-item" href="#">Work Permit</a></li>
+                        <li><a class="dropdown-item" href="#">Tourist (Visit) Visa</a></li>
+                        <li><a class="dropdown-item" href="#">Schengen Visa</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Passport Acquisition</a></li>
+                        <li><a class="dropdown-item" href="#">Birth Certificate</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html#country">Destinations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html#how-it-works">How It Works</a>
+                </li>
+                 <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="./business-support.html" id="businessDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Business Support
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="businessDropdown">
+                        <li><a class="dropdown-item" href="./business-support.html#registration">Business Registration</a></li>
+                        <li><a class="dropdown-item" href="./business-support.html#consultation">Business Consultation</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html#about">About Us</a>
+                </li>
+                <li class="nav-item d-lg-none mt-3">
+                    <a href="index.html#contact" class="btn btn-contact w-100">Contact Us</a>
+                </li>
+            </ul>
+            <a href="index.html#contact" class="btn btn-contact ms-lg-3 d-none d-lg-inline-flex">
+                <i class="bi bi-telephone me-2"></i>Contact Us
+            </a>
+        </div>
+    </div>
+</nav>
+
+<header class="business-hero">
+    <div class="container">
+        <h1 style="color: #ffa735;">Access Expert Business Support and Guidance</h1>
+        <p class="lead">From local registration to international expansion, we provide the expert guidance your business needs to thrive.</p>
+    </div>
+</header>
+
+<!-- Services Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="mb-3">Our Core Business Services</h2>
+            <p class="lead text-muted">Tailored solutions to build, grow, and scale your enterprise.</p>
+        </div>
+        <div class="row g-4">
+            <!-- Business Registration Card -->
+            <div class="col-lg-6" id="registration">
+                <div class="service-card">
+                    <div class="icon"><i class="bi bi-building-check"></i></div>
+                    <h3>Business Registration</h3>
+                    <p class="text-muted mb-4">Navigate the complexities of business formation with ease. We handle the paperwork so you can focus on your vision.</p>
+                    <div class="feature-list">
+                        <div class="feature-list-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Sole Proprietorship, Partnership, & LLC Setup</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Tax Identification Number (TIN) Registration</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Statutory Compliance & Filings</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Business Consultation Card -->
+            <div class="col-lg-6" id="consultation">
+                <div class="service-card">
+                    <div class="icon"><i class="bi bi-people-fill"></i></div>
+                    <h3>Business Consultation</h3>
+                    <p class="text-muted mb-4">Leverage our expertise to overcome challenges and seize opportunities in the global marketplace.</p>
+                    <div class="feature-list">
+                        <div class="feature-list-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Market Entry Strategy & Research</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>International Trade & Compliance Guidance</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Strategic Planning & Growth Roadmaps</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="cta-section text-center">
+    <div class="container">
+        <h2 class="mb-4">Ready to Elevate Your Business?</h2>
+        <p class="lead mb-5">Let's discuss your goals. Schedule a quality, no-obligation consultation with our business experts today.</p>
+        <a href="index.html#contact" class="btn btn-light-outline">Get Business Support</a>
+    </div>
+</section>
+
+<!-- Footer -->
+    <footer class="py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 style="color: #ffa735;">PLEROMA Travel Consult</h5>
+                    <p>Helping individuals find verified international job opportunities since 2023.</p>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 style="color: #ffa735;">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="./index.html" class="text-white">Home</a></li>
+                        <li><a href="#jobs" class="text-white">Jobs</a></li>
+                        <li><a href="#country" class="text-white">Destinations</a></li>
+                        <li><a href="#about-section" class="text-white">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 style="color: #ffa735;">Support</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="./booking.html#faq" class="text-white">FAQ</a></li>
+                        <li><a href="./index.html#contact" class="text-white">Contact</a></li>
+                        <li><a href="./terms-privacy.html" class="text-white">Privacy Policy</a></li>
+                        <li><a href="./terms-privacy.html" class="text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mb-4" style="font-family: 'Inter', sans-serif;">
+                    <h5 style="color: #ffa735; font-size: 12px">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-geo-alt me-2"></i> Sowutoum, Accra, Ghana</li>
+                        <li><i class="bi bi-telephone me-2"></i> +233 (0)558009078</li>
+                        <li><i class="bi bi-envelope me-2"></i>pleromatravelconsult@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 Pleroma Travel.
+				<span style="font-size: smaller">version 1.0   
+				Made by 
+				<a href="https://fexadigital.com" 
+					target="_blank" 
+					style="color: #ff7f35f5;"
+					data-bs-toggle="tooltip" 
+					data-bs-placement="top"
+					title="Developed by Samuel at Fexa Digital">
+					Fexa Digital Solutions
+					</a>. All Rights Reserved.
+					</span>
+				</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Speed Dial Chat Widget -->
+    <div class="multi-channel-chatbot">
+        <!-- Main toggle button -->
+        <button class="chatbot-toggle pulse" aria-label="Open communication options">
+            <i class="bi bi-chat-dots-fill main-icon"></i>
+            <i class="bi bi-x-lg close-icon"></i>
+        </button>
+
+        <!-- Option buttons -->
+        <div class="chat-options">
+            <a href="https://wa.me/233558009078" target="_blank" class="chat-option" title="Chat on WhatsApp">
+                <i class="bi bi-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+            
+            <a href="mailto:pleromatravelconsult@gmail.com" class="chat-option" title="Send us an email">
+                <i class="bi bi-envelope"></i>
+                <span>Email</span>
+            </a>
+            
+            <a href="#calendly-booking" class="chat-option" title="Book a consultation">
+                <i class="bi bi-calendar-event"></i>
+                <span>Book Now</span>
+            </a>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatbot = document.querySelector('.multi-channel-chatbot');
+            const toggleButton = document.querySelector('.chatbot-toggle');
+            
+            toggleButton.addEventListener('click', function(e) {
+                e.stopPropagation();
+                chatbot.classList.toggle('active');
+                
+                // Stop pulse animation when expanded
+                if (chatbot.classList.contains('active')) {
+                    toggleButton.classList.remove('pulse');
+                } else {
+                    // Restart pulse animation when collapsed after a delay
+                    setTimeout(() => {
+                        toggleButton.classList.add('pulse');
+                    }, 300);
+                }
+            });
+            
+            // Close when clicking outside
+            document.addEventListener('click', function(event) {
+                if (chatbot.classList.contains('active') && 
+                    !chatbot.contains(event.target)) {
+                    chatbot.classList.remove('active');
+                    setTimeout(() => {
+                        toggleButton.classList.add('pulse');
+                    }, 300);
+                }
+            });
+            
+            // Prevent options from closing the menu when clicked
+            document.querySelectorAll('.chat-option').forEach(option => {
+                option.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    // Close the widget after clicking an option
+                    setTimeout(() => {
+                        chatbot.classList.remove('active');
+                        toggleButton.classList.add('pulse');
+                    }, 300);
+                });
+            });
+        });
+    </script>
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Navbar Script (Modified) -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.getElementById('navbarNav');
+    const body = document.body;
+
+    // --- Mobile Navigation Toggle ---
+    const closeButton = document.createElement('button');
+    closeButton.className = 'mobile-close-btn';
+    closeButton.innerHTML = '&times;';
+    closeButton.setAttribute('aria-label', 'Close menu');
+    // Appending the close button to the mobile menu
+    navbarCollapse.appendChild(closeButton);
+
+    const openNav = () => {
+        navbarCollapse.classList.add('show');
+        body.classList.add('mobile-nav-open');
+    };
+
+    const closeNav = () => {
+        navbarCollapse.classList.remove('show');
+        body.classList.remove('mobile-nav-open');
+    };
+
+    navbarToggler.addEventListener('click', openNav);
+    closeButton.addEventListener('click', closeNav);
+
+    document.querySelectorAll('#navbarNav .nav-link, #navbarNav .btn-contact, #navbarNav .dropdown-item').forEach(link => {
+        link.addEventListener('click', () => {
+            if (!link.classList.contains('dropdown-toggle')) {
+                closeNav();
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>
