@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pleroma Travel Consult</title>
     <!-- Bootstrap 5 CSS and Icons-->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- GSAP for animations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Custom Styles -->
-	<link rel="stylesheet" href="style.css">
-	<link rel="preload" href="./images/index-hero.avif" as="image">
+    <link rel="stylesheet" href="style.css">
+    <!-- Preload all hero images for smooth carousel transitions -->
+    <link rel="preload" href="./images/index-hero.webp" as="image">
+    <link rel="preload" href="./images/index-hero2.jpg" as="image">
+    <link rel="preload" href="./images/index-hero3.webp" as="image">
+    <link rel="preload" href="./images/hero-image3.avif" as="image">
     <style>
     /* Non-navbar styles remain here for component-specific adjustments */
     .google-rating-badge {
@@ -36,336 +39,242 @@
         font-size: 0.9rem;
     }
     
+    /* Updated Hero Section Styles */
+    .hero-section {
+        height: 100vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    /* Hero section carousel image styles */
+    .hero-carousel-item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      z-index: -1;
+    }
+
+    .hero-carousel-item.active {
+      opacity: 1;
+    }
+
+    .hero-title {
+		margin-top: 1.5rem;
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        color: #e6ccff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-title .text-accent {
+        color: var(--bs-accent);
+        position: relative;
+    }
+
+    .hero-title .text-accent::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: var(--bs-accent);
+        border-radius: 2px;
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 2.5rem;
+        opacity: 0.9;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Service highlights */
+    .service-highlights {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+    }
+
+    .service-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: transform 0.3s ease;
+    }
+
+    .service-item:hover {
+        transform: translateY(-5px);
+    }
+
+    .service-icon {
+        width: 70px;
+        height: 70px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0.75rem;
+        font-size: 1.75rem;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .service-item:hover .service-icon {
+        background: rgba(255, 255, 255, 0.25);
+        transform: scale(1.1);
+    }
+
+    .service-item span {
+        font-weight: 500;
+        font-size: 0.95rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    /* CTA Button */
+    .cta-btn {
+        background-color: var(--bs-accent);
+        color: white;
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        border: none;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+        text-decoration: none;
+        box-shadow: 0 4px 15px rgba(218, 165, 32, 0.3);
+    }
+
+    .cta-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        color: white;
+    }
+
+    .cta-btn:active {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    }
+
+    .cta-btn::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 50px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all 0.4s;
+        background-color: var(--bs-primary);
+    }
+
+    .cta-btn:hover::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+    }
+	
+	.final-cta-overlay {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./images/mates-uni.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 6rem 0;
+}
+
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+        .hero-title {
+            font-size: 2.8rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+        }
+        
+        .service-highlights {
+            gap: 1.5rem;
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+        }
+    }
+
     @media (max-width: 768px) {
         .google-rating-badge {
-            bottom: 20px;
-            right: 20px;
+            display: none; /* Hide Google rating on mobile */
         }
-        
-        .google-rating-badge .d-flex {
-            padding: 0.75rem;
+        .hero-section {
+            align-items: flex-start; /* Align content to the top */
+            padding-top: 120px; /* Add padding to push content below nav */
+            height: auto;
+            min-height: 100vh; /* Ensure it still feels full-screen */
+        }
+        .hero-title {
+            font-size: 2.2rem;
+        }
+        .hero-subtitle {
+            font-size: 1.1rem;
         }
     }
-      
-        /* Parallax Hero Section */
-        .hero-section {
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./images/index-hero.avif') no-repeat center center;
-            background-size: cover;
-            background-attachment: fixed;
+
+    @media (max-width: 576px) {
+        .hero-title {
+            font-size: 1.8rem;
+        }
+        .service-highlights {
             display: flex;
             justify-content: center;
-            align-items: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
+            gap: 1.5rem;
+            margin-bottom: 0.5rem;
         }
-        
-        .hero-content {
-            transform: translateY(20px);
-            opacity: 0;
-        }
-        
-        .hero-section h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            margin-bottom: 1.5rem;
-        }
-        
-        .hero-section p.lead {
-            font-size: 1.5rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-        }
-        
-        /* Floating animation for hero elements */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        /* CTA Button */
-        .cta-btn {
-            background-color: var(--bs-secondary);
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 0.03em;
-            border: none;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-        
-        .cta-btn:active {
-            transform: translateY(-1px);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-        }
-        
-        .cta-btn::after {
-            content: "";
-            display: inline-block;
-            height: 100%;
-            width: 100%;
-            border-radius: 50px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            transition: all 0.4s;
-            background-color: var(--bs-primary);
-        }
-        
-        .cta-btn:hover::after {
-            transform: scaleX(1.4) scaleY(1.6);
-            opacity: 0;
-        }
-        
-        /* Trust Badges */
-        .trust-badges img {
-            max-width: 150px;
-            margin: 0 15px;
-            filter: grayscale(100%);
-            transition: all 0.3s ease;
-            opacity: 0.7;
-        }
-        
-        .trust-badges img:hover {
-            filter: grayscale(0);
-            opacity: 1;
-        }
-        
-        /* Category Items */
-        .category-item {
-            text-align: center;
-            padding: 2rem;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-            margin-bottom: 30px;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        
-        .category-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .category-item img {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin-bottom: 1.5rem;
-            border: 3px solid var(--bs-primary);
-            padding: 5px;
-        }
-        
-        .category-item h4 {
-            margin-bottom: 1rem;
-            color: var(--bs-primary);
-        }
-        
-        .category-item p {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        /* Testimonials */
-        .testimonial-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            margin: 1rem;
-            opacity: 0;
-            transform: scale(0.9);
-        }
-        
-        .testimonial-card .quote {
-            font-size: 1.1rem;
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-        
-        .testimonial-card .quote::before {
-            content: '"';
-            font-size: 3rem;
-            color: var(--bs-primary);
-            opacity: 0.2;
-            position: absolute;
-            top: -20px;
-            left: -10px;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-        
-        .testimonial-author img {
+        .service-icon {
             width: 50px;
             height: 50px;
-            border-radius: 50%;
-            margin-right: 15px;
-            object-fit: cover;
+            font-size: 1.25rem;
         }
-        
-        /* Final CTA */
-        .final-cta {
-            background: linear-gradient(135deg, var(--bs-secondary), #e99a40);
-            color: white;
-            padding: 5rem 0;
-            position: relative;
-            overflow: hidden;
+        .service-item span {
+            font-size: 0.85rem;
         }
-        
-        .final-cta::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2560&q=80') no-repeat center center;
-            background-size: cover;
-            opacity: 0.1;
-            z-index: 0;
-        }
-        
-        .final-cta .container {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .final-cta h2 {
-            margin-bottom: 2rem;
-            font-weight: 700;
-        }
-        
-        .stat-item {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.6s ease;
     }
-    
-    .stat-item.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    .number {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: var(--bs-primary);
-        margin-bottom: 0.5rem;
-    }
-    
-    .label {
-        font-size: 1.1rem;
-        color: #666;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-        
-        /* How It Works */
-        .step-item {
-            position: relative;
-            padding-left: 100px;
-            margin-bottom: 3rem;
-            opacity: 0;
-            transform: translateX(-20px);
-        }
-        
-        .step-number {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 70px;
-            height: 70px;
-            background: var(--bs-secondary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: 700;
-        }
-        
-        /* Responsive Adjustments */
-        @media (max-width: 992px) {
-            .hero-section h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-section p.lead {
-                font-size: 1.2rem;
-            }
-            
-            .trust-badges img {
-                max-width: 120px;
-                margin: 0 10px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hero-section h1 {
-                font-size: 2rem;
-            }
-            
-            .hero-section p.lead {
-                font-size: 1rem;
-            }
-            
-            .trust-badges {
-                flex-wrap: wrap;
-            }
-            
-            .trust-badges img {
-                max-width: 100px;
-                margin: 10px;
-            }
-            
-            .step-item {
-                padding-left: 0;
-                padding-top: 80px;
-            }
-            
-            .step-number {
-                left: 50%;
-                transform: translateX(-50%);
-                top: 0;
-            }
-        }
-		
-
     </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
     <div class="container">
         <a class="navbar-brand" href="#" id="pleroma-logo">
-            <img src="./images/ptc_logo.png" alt="Pleroma Travel Consult" height="50" class="d-inline-block me-2">
+            <img src="./images/ptc_llogo.png" alt="Pleroma Travel Consult" height="50" class="d-inline-block me-2">
             <div class="logo-text-stack d-none d-lg-flex">
                 <span class="travel-agency-text">PLEROMA</span>
-                <span class="travel-agency-text">Travel Consult</span>
+                <span class="travel-agency-text" style="font-family: 'Oswald', sans-serif; !important">Travel Consult</span>
             </div>
         </a>
 
@@ -375,6 +284,9 @@
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto align-items-lg-center">
+				<li class="nav-item">
+                    <a class="nav-link" href="./index.html">Home</a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#services" id="workingHolidayDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Travel
@@ -383,23 +295,19 @@
                         <li><a class="dropdown-item" href="./abroad.html">Study Abroad</a></li>
                         <li><a class="dropdown-item" href="./abroad.html">Work Permit</a></li>
                         <li><a class="dropdown-item" href="./abroad.html">Tourist (Visit) Visa</a></li>
-						<li><a class="dropdown-item" href="./abroad.html">Schengen Visa</a></li>
-						<li><hr /><a class="dropdown-item" href="./abroad.html#pass-port">Passport Acquisition</a></li>
-						<li><a class="dropdown-item" href="./abroad.html#pass-port">Birth Certificate</a></li>
-                    </ul>	
+                        <li><a class="dropdown-item" href="./abroad.html">Schengen Visa</a></li>
+                        <li><hr /><a class="dropdown-item" href="./abroad.html#pass-port">Passport Acquisition</a></li>
+                        <li><a class="dropdown-item" href="./abroad.html#pass-port">Birth Certificate</a></li>
+                    </ul>    
                 </li>
-				</li>
                 <li class="nav-item">
                     <a class="nav-link" href="#country">Destinations</a>
                 </li>
-				<li class="nav-item">
-                    <a class="nav-link" href="#how-it-works">How It Works</a>
-                </li>
-				 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="./business-support.html" id="workingHolidayDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                 <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="./business-support.html" id="businessSupportDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Business Support
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="workingHolidayDropdown">
+                    <ul class="dropdown-menu" aria-labelledby="businessSupportDropdown">
                         <li><a class="dropdown-item" href="./business-support.html">Business Registration</a></li>
                         <li><a class="dropdown-item" href="./business-support.html">Business Consultation</a></li>
                     </ul>
@@ -419,17 +327,60 @@
 </nav>
 
 <!-- Hero Section -->
-<section class="hero-section text-center">
-    <div class="container hero-content floating">
-        <h1 class="mb-4" style="color: #ffa735;">Work Abroad the Right Way</h1>
-        <p class="lead mb-5">Get Access to Verified jobs, trusted support, and seamless relocation to your dream destination</p>
-        <a href="./apply.html">
-            <button class="cta-btn">Start Your Journey <i class="bi bi-arrow-right ms-2"></i></button>
+<section class="hero-section">
+    <!-- Image Carousel Items -->
+    <div class="hero-carousel-item active" style="background-image: url('./images/index-hero.webp');"></div>
+    <div class="hero-carousel-item" style="background-image: url('./images/index-hero1.avif');"></div>
+    <div class="hero-carousel-item" style="background-image: url('./images/index-hero2.jpg');"></div>
+    <div class="hero-carousel-item" style="background-image: url('./images/index-hero3.webp');"></div>
+
+    <div class="container text-center">
+        <!-- Main headline -->
+        <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">
+            Your Journey <span class="text-accent">Abroad</span> Starts Here
+        </h1>
+        
+        <!-- Subtitle showing all services -->
+        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300">
+            Study, Work, Travel, or Relocate – We Make International Dreams a Reality
+        </p>
+        
+        <!-- Service icons with labels -->
+        <div class="service-highlights" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item">
+                <div class="service-icon">
+                    <i class="bi bi-mortarboard"></i>
+                </div>
+                <span>Study</span>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">
+                    <i class="bi bi-briefcase"></i>
+                </div>
+                <span>Work</span>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">
+                    <i class="bi bi-airplane"></i>
+                </div>
+                <span>Travel</span>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">
+                    <i class="bi bi-building"></i>
+                </div>
+                <span>Relocate</span>
+            </div>
+        </div>
+        
+        <!-- CTA Button -->
+        <a href="./apply.html" class="cta-btn" data-aos="fade-up" data-aos-delay="500">
+            Apply Here <i class="bi bi-arrow-right ms-2"></i>
         </a>
     </div>
     
     <!-- Google Rating Badge -->
-    <div class="google-rating-badge position-absolute">
+    <div class="google-rating-badge position-absolute" data-aos="fade-left" data-aos-delay="600">
         <div class="d-flex align-items-center bg-white p-3 rounded shadow-sm">
             <div class="google-icon me-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -447,14 +398,36 @@
                     </div>
                     <span class="fw-bold">5.0</span>
                 </div>
-                <div class="text-nowrap" style="font-size: 0.8rem;">
-                    <span class="text-muted">Based on </span>
-                    <span class="fw-semibold" style="color: #843ef5;">25 reviews</span>
-                </div>
             </div>
         </div>
     </div>
-</section>
+</section><!-- End Hero Section -->
+
+<script>
+
+    // Simple auto-fading image carousel for the hero section
+    document.addEventListener('DOMContentLoaded', () => {
+        const carouselItems = document.querySelectorAll('.hero-carousel-item');
+        let currentIndex = 0;
+        const fadeDuration = 5000; // Time each image is visible
+
+        function showNextImage() {
+            // Remove active class from current image
+            carouselItems[currentIndex].classList.remove('active');
+
+            // Move to the next index, or loop back to the start
+            currentIndex = (currentIndex + 1) % carouselItems.length;
+
+            // Add active class to the next image
+            carouselItems[currentIndex].classList.add('active');
+        }
+
+        // Start the carousel
+        setInterval(showNextImage, fadeDuration);
+    });
+</script>
+
+
 <!-- Quick Services Section -->
 <section class="quick-services-section">
   <div class="container">
@@ -466,7 +439,7 @@
     <div class="quick-services-grid">
       <!-- Study Visa -->
       <div class="quick-service-card">
-        <div class="quick-service-image" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80')">
+        <div class="quick-service-image" style="background-image: url('./images/study-abroad.jpg')">
           <div class="quick-image-overlay"></div>
           <div class="quick-service-content">
             <div class="quick-service-icon">
@@ -491,7 +464,7 @@
             </div>
             <h3 class="quick-service-name">Work Permit</h3>
             <p class="quick-service-desc">Verified international job placements with legal authorization</p>
-            <a href="#" class="quick-service-link">
+            <a href="./abroad.html"  class="quick-service-link">
               Find Opportunities <i class="bi bi-arrow-right"></i>
             </a>
           </div>
@@ -517,7 +490,7 @@
       
       <!-- Passport Application -->
       <div class="quick-service-card">
-        <div class="quick-service-image" style="background-image: url('https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80')">
+        <div class="quick-service-image" style="background-image: url('./images/passport.jpg')">
           <div class="quick-image-overlay"></div>
           <div class="quick-service-content">
             <div class="quick-service-icon">
@@ -534,7 +507,7 @@
       
       <!-- Business Registration -->
       <div class="quick-service-card">
-        <div class="quick-service-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80')">
+        <div class="quick-service-image" style="background-image: url('./images/bizreg.jpg')">
           <div class="quick-image-overlay"></div>
           <div class="quick-service-content">
             <div class="quick-service-icon">
@@ -549,21 +522,22 @@
         </div>
       </div>
       
-      <!-- Additional Service -->
+	  <!-- Birth Certificate -->
       <div class="quick-service-card">
-        <div class="quick-service-image" style="background-image: url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80')">
+        <div class="quick-service-image" style="background-image: url('./images/birth.jpg')">
           <div class="quick-image-overlay"></div>
           <div class="quick-service-content">
             <div class="quick-service-icon">
-              <i class="bi bi-people-fill"></i>
+              <i class="bi bi-building"></i>
             </div>
-            <h3 class="quick-service-name">Family Relocation</h3>
-            <p class="quick-service-desc">Complete support for family visas and settlement</p>
-            <a href="#" class="quick-service-link">
-              Learn More <i class="bi bi-arrow-right"></i>
+            <h3 class="quick-service-name">Birth Certificate</h3>
+            <p class="quick-service-desc">Application, replacement & legalization services</p>
+            <a href="./business-support.html" class="quick-service-link">
+              Get Yours <i class="bi bi-arrow-right"></i>
             </a>
           </div>
         </div>
+      </div>
       </div>
     </div>
   </div>
@@ -754,7 +728,7 @@
       <!-- Benefit 4 -->
       <div class="benefit-card">
         <div class="card-icon">
-          <i class="bi bi-passport"></i>
+          <i class="bi bi-file-earmark-person"></i>
         </div>
         <h3>Visa Expertise</h3>
         <p>98% approval rate for work, study, and business visas with fastest processing in Ghana.</p>
@@ -931,11 +905,9 @@ color: var(--bs-info);
 <section class="about-section" id="about">
   <div class="container">
     <div class="about-wrapper">
-	
       <!-- Image Column with Modern Frame -->
-	  
-      <div class="about-image-col">
-	  <div class="about-tag">About Us</div>
+      <div class="about-image-col" data-aos="fade-right">
+        <div class="about-tag">About Us</div>
         <h2 class="about-title">Your Trusted Partner in Global Opportunities</h2>
         <div class="image-container">
           <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
@@ -944,32 +916,30 @@ color: var(--bs-info);
           <div class="image-decoration"></div>
           
           <!-- Floating Stats Card -->
-          <div class="floating-stats-card">
-            <div class="stat-item">
-              <div class="stat-number">5+</div>
+          <div class="floating-stats-card" data-aos="fade-up" data-aos-delay="300">
+            <div>
+              <div class="stat-number">3+</div>
               <div class="stat-label">Years Experience</div>
             </div>
-            <div class="stat-item">
+            <div>
               <div class="stat-number">98%</div>
               <div class="stat-label">Success Rate</div>
             </div>
-			<div class="stat-item">
-              <div class="stat-number">98%</div>
-              <div class="stat-label">Success Rate</div>
+            <div>
+              <div class="stat-number">122+</div>
+              <div class="stat-label">Clients Served</div>
             </div>
           </div>
         </div>
       </div>
       
       <!-- Content Column -->
-      <div class="about-content-col">
-        
-        
+      <div class="about-content-col" data-aos="fade-left" data-aos-delay="200">
         <div class="about-content">
           <p class="lead">At Pleroma Travel Consult, we're revolutionizing how Ghanaians access international work and travel opportunities.</p>
           
           <div class="about-points">
-            <div class="about-point">
+            <div class="about-point" data-aos="fade-up" data-aos-delay="300">
               <div class="point-icon">
                 <i class="bi bi-globe2"></i>
               </div>
@@ -979,7 +949,7 @@ color: var(--bs-info);
               </div>
             </div>
             
-            <div class="about-point">
+            <div class="about-point" data-aos="fade-up" data-aos-delay="400">
               <div class="point-icon">
                 <i class="bi bi-shield-check"></i>
               </div>
@@ -989,7 +959,7 @@ color: var(--bs-info);
               </div>
             </div>
             
-            <div class="about-point">
+            <div class="about-point" data-aos="fade-up" data-aos-delay="500">
               <div class="point-icon">
                 <i class="bi bi-people-fill"></i>
               </div>
@@ -1001,8 +971,8 @@ color: var(--bs-info);
           </div>
           
           <div class="about-cta">
-            <a href="./about.html" class="btn btn-primary">Our Full Story</a>
-            <a href="about.html#team" class="btn btn-outline">Meet Our Team</a>
+            <a href="./about.html" class="btn btn-primary" data-aos="fade-right" data-aos-delay="600">Our Full Story</a>
+            <a href="about.html#team" class="btn btn-outline" data-aos="fade-left" data-aos-delay="600">Meet Our Team</a>
           </div>
         </div>
       </div>
@@ -1079,10 +1049,6 @@ color: var(--bs-info);
   display: flex;
   gap: 1.5rem;
   z-index: 2;
-}
-
-.stat-item {
-  text-align: center;
 }
 
 .stat-number {
@@ -2418,16 +2384,14 @@ color: var(--bs-info);
   }
 </style>
 
-    <!-- Final CTA Section -->
-    <section class="final-cta">
-        <div class="container text-center">
-            <h2 class="text-white">Ready for Your International Career?</h2>
-            <p class="lead text-white mb-5">Join thousands who've successfully relocated with our support</p>
-            <a href="./booking.html">
-			<button class="cta-btn btn-lg" style="background-color: #5480df;">Book a Free Consultation</button>
-			</a>
-		</div>
-    </section>
+<!-- Final CTA Section -->
+<section class="final-cta-overlay py-5">
+    <div class="container text-center" data-aos="fade-up">
+        <h2 class="text-white fw-bold">Ready for Your International Career?</h2>
+        <p class="lead text-white-50 mb-5">Join thousands who've successfully relocated with our support.</p>
+        <a href="./booking.html" class="btn btn-light btn-lg rounded-pill px-5">Book a Free Consultation</a>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer class="py-5 bg-dark text-white">
@@ -2435,7 +2399,7 @@ color: var(--bs-info);
             <div class="row">
                 <div class="col-lg-4 mb-4">
                     <h5 style="color: #ffa735;">PLEROMA Travel Consult</h5>
-                    <p>Helping individuals find verified international job opportunities since 2023.</p>
+                    <p>Helping individuals acquire successful VISAs and prepare towards their journey abroad.</p>
                     <div class="social-icons">
                         <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
                         <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
@@ -2560,11 +2524,23 @@ color: var(--bs-info);
         });
     </script>
 
-    <!-- Bootstrap 5 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 	
-    <!-- UPDATED SCRIPT for Navbar and Mobile Menu -->
-    <script>
+<script>
+    // Initialize AOS animations when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+    });
+</script>	
+	
+  <!-- UPDATED SCRIPT for Navbar and Mobile Menu -->
+  <script>
     document.addEventListener('DOMContentLoaded', function() {
         const navbar = document.getElementById('mainNav');
         const navbarToggler = document.querySelector('.navbar-toggler');
@@ -2616,160 +2592,6 @@ color: var(--bs-info);
             });
         });
     });
-    </script>
-	
-    <!-- Animation Scripts -->
-    <script>
-        // Initialize GSAP animations when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            // Hero content animation
-            gsap.to('.hero-content', {
-                duration: 1,
-                y: 0,
-                opacity: 1,
-                ease: 'power3.out'
-            });
-            
-            // Animate category items
-            gsap.utils.toArray('.category-item').forEach((item, i) => {
-                ScrollTrigger.create({
-                    trigger: item,
-                    start: 'top 80%',
-                    onEnter: () => {
-                        gsap.to(item, {
-                            duration: 0.8,
-                            opacity: 1,
-                            y: 0,
-                            delay: i * 0.1,
-                            ease: 'back.out(1)'
-                        });
-                    }
-                });
-            });
-            
-            // Animate stats
-            gsap.utils.toArray('.stat-item').forEach((item, i) => {
-                ScrollTrigger.create({
-                    trigger: item,
-                    start: 'top 80%',
-                    onEnter: () => {
-                        gsap.to(item, {
-                            duration: 0.8,
-                            opacity: 1,
-                            delay: i * 0.15,
-                            ease: 'power2.out'
-                        });
-                    }
-                });
-            });
-            
-            // Animate how it works steps
-            gsap.utils.toArray('.step-item').forEach((item, i) => {
-                ScrollTrigger.create({
-                    trigger: item,
-                    start: 'top 80%',
-                    onEnter: () => {
-                        gsap.to(item, {
-                            duration: 0.8,
-                            opacity: 1,
-                            x: 0,
-                            delay: i * 0.1,
-                            ease: 'power2.out'
-                        });
-                    }
-                });
-            });
-            
-            // Animate testimonials
-            gsap.utils.toArray('.testimonial-card').forEach((item, i) => {
-                ScrollTrigger.create({
-                    trigger: item,
-                    start: 'top 80%',
-                    onEnter: () => {
-                        gsap.to(item, {
-                            duration: 0.8,
-                            opacity: 1,
-                            scale: 1,
-                            delay: i * 0.1,
-                            ease: 'back.out(1)'
-                        });
-                    }
-                });
-            });
-            
-            // Floating animation for elements with .floating class
-            gsap.to('.floating', {
-                y: 10,
-                duration: 2,
-                repeat: -1,
-                yoyo: true,
-                ease: 'sine.inOut'
-            });
-            
-            // Parallax effect for hero section
-            gsap.to('.hero-section', {
-                scrollTrigger: {
-                    trigger: '.hero-section',
-                    start: 'top top',
-                    scrub: true
-                },
-                y: 100,
-                ease: 'none'
-            });
-        });
-		
-		  // Scroll animation for reason cards
-      document.addEventListener('DOMContentLoaded', function() {
-        const reasonCards = document.querySelectorAll('.reason-card');
-        
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-            }
-          });
-        }, { threshold: 0.1 });
-        
-        reasonCards.forEach(card => {
-          observer.observe(card);
-        });
-      });
-  
-      document.addEventListener('DOMContentLoaded', function() {
-            // Animate stats when scrolled into view
-            const statItems = document.querySelectorAll('.stat-item');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        animateCounters();
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            statItems.forEach(item => {
-                observer.observe(item);
-            });
-            
-            // Counter animation function
-            function animateCounters() {
-                const counters = document.querySelectorAll('.number');
-                const speed = 400; // Lower is faster
-                
-                counters.forEach(counter => {
-                    const target = +counter.getAttribute('data-target');
-                    const count = +counter.innerText;
-                    const increment = target / speed;
-                    
-                    if (count < target) {
-                        counter.innerText = Math.ceil(count + increment);
-                        setTimeout(animateCounters, 1);
-                    } else {
-                        counter.innerText = target === 98 ? target + '%' : target.toLocaleString() + '+';
-                    }
-                });
-            }
-        });
-    </script>
+  </script>
 </body>
 </html>
