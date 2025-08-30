@@ -195,11 +195,11 @@
 <!-- Navigation (same as business-support.html) -->
 <nav class="navbar navbar-expand-lg fixed-top scrolled" id="mainNav">
     <div class="container">
-        <a class="navbar-brand" href="./index.html" id="pleroma-logo">
-            <img src="./images/ptc_logo.png" alt="Pleroma Travel Consult" height="50" class="d-inline-block me-2">
+        <a class="navbar-brand" href="#" id="pleroma-logo">
+            <img src="./images/ptc_llogo.png" alt="Pleroma Travel Consult" height="50" class="d-inline-block me-2">
             <div class="logo-text-stack d-none d-lg-flex">
                 <span class="travel-agency-text">PLEROMA</span>
-                <span class="travel-agency-text">Travel Consult</span>
+                <span class="travel-agency-text" style="font-family: 'Oswald', sans-serif; !important">Travel Consult</span>
             </div>
         </a>
 
@@ -209,37 +209,36 @@
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto align-items-lg-center">
+				<li class="nav-item">
+                    <a class="nav-link" href="./index.html">Home</a>
+                </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="travelDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#services" id="workingHolidayDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Travel
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="travelDropdown">
-                        <li><a class="dropdown-item" href="#">Study Abroad</a></li>
-                        <li><a class="dropdown-item" href="#">Work Permit</a></li>
-                        <li><a class="dropdown-item" href="#">Tourist (Visit) Visa</a></li>
-                        <li><a class="dropdown-item" href="#">Schengen Visa</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Passport Acquisition</a></li>
-                        <li><a class="dropdown-item" href="#">Birth Certificate</a></li>
-                    </ul>
+                    <ul class="dropdown-menu" aria-labelledby="workingHolidayDropdown">
+                        <li><a class="dropdown-item" href="./abroad.html">Study Abroad</a></li>
+                        <li><a class="dropdown-item" href="./abroad.html">Work Permit</a></li>
+                        <li><a class="dropdown-item" href="./abroad.html">Tourist (Visit) Visa</a></li>
+                        <li><a class="dropdown-item" href="./abroad.html">Schengen Visa</a></li>
+                        <li><hr /><a class="dropdown-item" href="./abroad.html#pass-port">Passport Acquisition</a></li>
+                        <li><a class="dropdown-item" href="./abroad.html#pass-port">Birth Certificate</a></li>
+                    </ul>    
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./index.html#country">Destinations</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./index.html#how-it-works">How It Works</a>
+                    <a class="nav-link" href="#country">Destinations</a>
                 </li>
                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="./business-support.html" id="businessDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="./business-support.html" id="businessSupportDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Business Support
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="businessDropdown">
-                        <li><a class="dropdown-item" href="./business-support.html#registration">Business Registration</a></li>
-                        <li><a class="dropdown-item" href="./business-support.html#consultation">Business Consultation</a></li>
+                    <ul class="dropdown-menu" aria-labelledby="businessSupportDropdown">
+                        <li><a class="dropdown-item" href="./business-support.html">Business Registration</a></li>
+                        <li><a class="dropdown-item" href="./business-support.html">Business Consultation</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="./about.html">About Us</a>
+                    <a class="nav-link" href="./about.html">About Us</a>
                 </li>
                 <li class="nav-item d-lg-none mt-3">
                     <a href="#contact" class="btn btn-contact w-100">Contact Us</a>
@@ -355,7 +354,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="team-card">
                     <div class="team-img-wrapper">
-                        <img src="./images/founder.jpg" alt="Apostle Emmanuel Siayor">
+                        <img src="./images/pleroma-ceo.jpg" alt="Apostle Emmanuel Siayor">
                     </div>
                     <div class="card-body p-4 text-center">
                         <h4 class="h5 fw-bold">Apostle Emmanuel Siayor</h4>
@@ -379,7 +378,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="team-card">
                     <div class="team-img-wrapper">
-                       <img src="./images/mark-mgr.png" alt="Hephzibah Asare">
+                       <img src="./images/team1.jpeg" alt="Hephzibah Asare">
                     </div>
                     <div class="card-body p-4 text-center">
                         <h4 class="h5 fw-bold">Hephzibah Asare</h4>
@@ -470,7 +469,7 @@
                 <h5 style="color: #ffa735;">Contact Us</h5>
                 <ul class="list-unstyled">
                     <li><i class="bi bi-geo-alt me-2"></i> Sowutoum, Accra, Ghana</li>
-                    <li><i class="bi bi-telephone me-2"></i> +233 (0)558009078</li>
+                    <li><i class="bi bi-telephone me-2"></i> 03058009078</li>
                     <li><i class="bi bi-envelope me-2"></i> pleromatravelconsult@gmail.com</li>
                 </ul>
             </div>
@@ -607,4 +606,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </body>
 </html>
-
