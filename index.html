@@ -18,27 +18,39 @@
     <link rel="preload" href="./images/hero-image3.avif" as="image">
     <style>
     /* Non-navbar styles remain here for component-specific adjustments */
-    .google-rating-badge {
-        bottom: 30px;
-        right: 30px;
-        z-index: 10;
-        animation: float 4s ease-in-out infinite;
-    }
-    
-    .google-icon {
-        width: 32px;
-        height: 32px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: white;
-        border-radius: 50%;
-    }
-    
-    .stars i {
-        font-size: 0.9rem;
-    }
-    
+.google-rating-badge {
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 10;
+    animation: float 4s ease-in-out infinite;
+}
+
+.google-logo-wrapper {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.google-g-logo {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.rating-content .stars i {
+    font-size: 0.8rem;
+    color: #fbbc05; /* Google's gold color */
+}
+
+.rating-content .review-count {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.rating-content .text-muted {
+    font-size: 0.75rem;
+}
     /* Updated Hero Section Styles */
     .hero-section {
         height: 100vh;
@@ -380,27 +392,30 @@
     </div>
     
     <!-- Google Rating Badge -->
-    <div class="google-rating-badge position-absolute" data-aos="fade-left" data-aos-delay="600">
-        <div class="d-flex align-items-center bg-white p-3 rounded shadow-sm">
-            <div class="google-icon me-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+<div class="google-rating-badge position-absolute" data-aos="fade-left" data-aos-delay="600">
+    <div class="d-flex align-items-center bg-white py-2 px-3 rounded shadow-sm">
+        <a href="#" class="text-decoration-none d-flex align-items-center">
+            <div class="google-logo-wrapper me-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="google-g-logo">
                     <path fill="#4285F4" d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
                 </svg>
             </div>
-            <div class="rating-content">
-                <div class="d-flex align-items-center">
-                    <div class="stars me-1">
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
+            <div class="rating-content d-flex align-items-center">
+                <div class="d-flex flex-column align-items-start me-2">
+                    <div class="stars mb-0">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
                     </div>
-                    <span class="fw-bold" style="color: black !important;">5.0</span>
-                </div>
+                    <span class="review-count" style="color: blue !important;">5.0 <span class="text-muted">(121)</span>
+					<span class="fs-8 text-nowrap" style="color: black !important;">Reviews</span>
+				</div>
             </div>
-        </div>
+        </a>
     </div>
+</div>
 </section><!-- End Hero Section -->
 
 <script>
