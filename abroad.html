@@ -10,23 +10,6 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="style.css">
     <style>
-	    :root {
-            --primary-blue: #2563eb;
-            --primary-orange: #f97316;
-            --primary-violet: #7c3aed;
-            --secondary-blue: #1e40af;
-            --light-orange: #ffedd5;
-            --light-violet: #ede9fe;
-            --dark-gray: #1f2937;
-            --medium-gray: #6b7280;
-            --light-gray: #f3f4f6;
-        }
-	
-        /* Add padding to the top of the body to prevent content from being hidden by the fixed navbar */
-        body {
-			font-family: 'Poppins', sans-serif;
-        }
-
         /* Page-specific styles for Abroad Services */
         .travel-hero {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1512100356356-de1b84283e18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1075&q=80') no-repeat center center;
@@ -121,19 +104,29 @@
         .cta-section h2 {
             font-weight: 700;
         }
-
-        .btn-light-outline {
-            background: transparent;
-            border: 2px solid white;
-            color: white;
-            padding: 0.75rem 2rem;
-            border-radius: 50px;
+        .cta-section .btn {
             font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border-radius: 50px;
         }
-        
-        .btn-light-outline:hover {
+        .btn-light {
             background: white;
             color: var(--bs-primary);
+        }
+        .btn-light:hover {
+            background: #e9ecef;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        .btn-orange {
+            background: var(--primary-orange);
+            color: white;
+        }
+        .btn-orange:hover {
+            background: #e86a07;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
     </style>
 </head>
@@ -142,43 +135,50 @@
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg fixed-top scrolled" id="mainNav">
     <div class="container">
-        <a class="navbar-brand" href="./index.html" id="pleroma-logo">
-            <img src="./images/ptc_logo.png" alt="Pleroma Travel Consult" height="50" class="d-inline-block me-2">
+        <a class="navbar-brand" href="#" id="pleroma-logo">
+            <img src="./images/ptc_llogo.png" alt="Pleroma Travel Consult" height="50" class="d-inline-block me-2">
             <div class="logo-text-stack d-none d-lg-flex">
                 <span class="travel-agency-text">PLEROMA</span>
-                <span class="travel-agency-text">Travel Consult</span>
+                <span class="travel-agency-text" style="font-family: 'Oswald', sans-serif; !important">Travel Consult</span>
             </div>
         </a>
+
         <button class="navbar-toggler d-lg-none" type="button" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto align-items-lg-center">
+				<li class="nav-item">
+                    <a class="nav-link" href="./index.html">Home</a>
+                </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" href="./abroad.html" id="travelDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#services" id="workingHolidayDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Travel
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="travelDropdown">
-                        <li><a class="dropdown-item" href="#study">Study Abroad</a></li>
-                        <li><a class="dropdown-item" href="#work">Work Permit</a></li>
-                        <li><a class="dropdown-item" href="#visit">Tourist & Visit Visa</a></li>
-                        <li><a class="dropdown-item" href="#documents">Document Assistance</a></li>
-                    </ul>
+                    <ul class="dropdown-menu" aria-labelledby="workingHolidayDropdown">
+                        <li><a class="dropdown-item" href="./abroad.html">Study Abroad</a></li>
+                        <li><a class="dropdown-item" href="./abroad.html">Work Permit</a></li>
+                        <li><a class="dropdown-item" href="./abroad.html">Tourist (Visit) Visa</a></li>
+                        <li><a class="dropdown-item" href="./abroad.html">Schengen Visa</a></li>
+                        <li><hr /><a class="dropdown-item" href="./abroad.html#pass-port">Passport Acquisition</a></li>
+                        <li><a class="dropdown-item" href="./abroad.html#pass-port">Birth Certificate</a></li>
+                    </ul>    
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./index.html#country">Destinations</a>
+                    <a class="nav-link" href="#country">Destinations</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="./business-support.html" id="businessDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                 <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="./business-support.html" id="businessSupportDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Business Support
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="businessDropdown">
-                        <li><a class="dropdown-item" href="./business-support.html#registration">Business Registration</a></li>
-                        <li><a class="dropdown-item" href="./business-support.html#consultation">Business Consultation</a></li>
+                    <ul class="dropdown-menu" aria-labelledby="businessSupportDropdown">
+                        <li><a class="dropdown-item" href="./business-support.html">Business Registration</a></li>
+                        <li><a class="dropdown-item" href="./business-support.html">Business Consultation</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./index.html#about">About Us</a>
+                    <a class="nav-link" href="./about.html">About Us</a>
                 </li>
                 <li class="nav-item d-lg-none mt-3">
                     <a href="#contact" class="btn btn-contact w-100">Contact Us</a>
@@ -257,52 +257,102 @@
     </div>
 </div>
 
-<!-- Tourist & Visit Visa Section -->
-<div class="service-detail-section" id="visit">
+<div class="service-bg-overlay" id="visit">
     <div class="container">
-        <div class="row g-5 align-items-center">
-            <div class="col-lg-6">
-                <img src="https://images.unsplash.com/photo-1500835556837-99ac94a94552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Tourist enjoying a vacation">
-            </div>
-            <div class="col-lg-6">
-                <h2>Tourist, Visit & Schengen Visas</h2>
-                <p class="text-muted">Explore the world with confidence. Whether for leisure, family visits, or business trips, we ensure your visa application is complete, accurate, and submitted for the highest chance of success.</p>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><i class="bi bi-check-lg"></i> Expert Handling of All Visa Categories</li>
-                    <li class="mb-2"><i class="bi bi-check-lg"></i> Specialized in Schengen Area Applications</li>
-                    <li class="mb-2"><i class="bi bi-check-lg"></i> Document Verification & Form Filling</li>
-                    <li class="mb-2"><i class="bi bi-check-lg"></i> Appointment Scheduling & Itinerary Planning</li>
-                </ul>
+        <div class="row align-items-center justify-content-center text-center text-white" data-aos="fade-up" data-aos-duration="1200">
+            <div class="col-lg-10">
+                <h2 class="display-5 fw-bold mb-4" style="color: white !important">Your Next Adventure Awaits</h2>
+                <p class="lead mb-4">Whether it’s for leisure, family visits, or business trips, we ensure your visa application is complete, accurate, and submitted for the highest chance of success.</p>
+                <div class="row text-start mt-5 g-4">
+                    <div class="col-md-6" data-aos="fade-right" data-aos-delay="200">
+                        <div class="feature-box">
+                            <i class="bi bi-geo-alt-fill icon-circle"></i>
+                            <p class="fw-bold mb-1">Global & Schengen Expertise</p>
+                            <small class="text-white-50">Expert handling of all visa categories, with a specialty in Schengen applications.</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6" data-aos="fade-left" data-aos-delay="400">
+                        <div class="feature-box">
+                            <i class="bi bi-file-earmark-check-fill icon-circle"></i>
+                            <p class="fw-bold mb-1">Seamless Documentation</p>
+                            <small class="text-white-50">Full-service document verification, and processing</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-5 pt-3">
+                    <a href="#contact" class="btn btn-outline-light btn-lg rounded-pill" data-aos="zoom-in" data-aos-delay="600">Start Your Application</a>
+                </div>
             </div>
         </div>
     </div>
 </div>
+<style>
+.service-bg-overlay {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1500835556837-99ac94a94552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1075&q=80') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 8rem 0;
+    color: white;
+}
 
-<!-- Document Assistance Section -->
-<div class="service-detail-section document-assistance" id="documents">
+.feature-box {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.feature-box .icon-circle {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    color: #fff;
+    flex-shrink: 0;
+}
+</style>
+
+<section class="py-5" id="documents">
     <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="mb-3">Essential Document Assistance</h2>
-            <p class="lead">The foundation of any international application. We streamline the process of acquiring vital national documents.</p>
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="fw-bold mb-3">Essential Document Assistance</h2>
+            <p class="lead text-muted">The foundation of any international application. We streamline the process of acquiring vital national documents.</p>
         </div>
         <div class="row g-4 text-center">
-            <div class="col-lg-6">
-                <div class="p-4 bg-light text-dark rounded h-100">
-                    <i class="bi bi-passport-fill icon fs-1 text-primary"></i>
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="document-card p-4 rounded-3 h-100">
+                    <i class="bi bi-passport-fill icon"></i>
                     <h4 class="mt-3">Passport Acquisition</h4>
-                    <p class="mb-0">Fast-track your new passport or renewal application with our expert assistance, ensuring all requirements are met correctly the first time.</p>
+                    <p class="mb-0 text-muted">Fast-track your new passport or renewal application with our expert assistance, ensuring all requirements are met correctly the first time.</p>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="p-4 bg-light text-dark rounded h-100">
-                    <i class="bi bi-person-vcard-fill icon fs-1 text-primary"></i>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="document-card p-4 rounded-3 h-100">
+                    <i class="bi bi-person-vcard-fill icon"></i>
                     <h4 class="mt-3">Biometric Birth Certificates</h4>
-                    <p class="mb-0">We facilitate the acquisition of official biometric birth certificates, a crucial requirement for many international visa and residency applications.</p>
+                    <p class="mb-0 text-muted">We facilitate the acquisition of official biometric birth certificates, a crucial requirement for many international visa and residency applications.</p>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
+<style>
+.document-card {
+    background: white;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease-in-out;
+}
+
+.document-card:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+}
+
+.document-card .icon {
+    font-size: 3.5rem;
+    color: var(--bs-primary);
+}
+</style>
+
 
 <!-- Call to Action Section -->
 <section class="cta-section py-5 text-center">
