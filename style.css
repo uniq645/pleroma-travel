@@ -1,5 +1,7 @@
 /* === Brand Font Imports === */
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@600;700&family=Josefin+Sans:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 
 /* === Bootstrap 5 CSS Variable Overrides === */
 :root {
@@ -22,9 +24,10 @@
   --bs-light: #ffffff;
   --bs-dark: #121212;         /* Dark Background */
   
+  /* --font-heading: 'Josefin Sans', sans-serif; 'Oswald', sans-serif; 'Lora', serif; [Headng; Cabin, JSans]*/
   /* --- NEW: Typography System --- */
-  --font-heading: 'Poppins', sans-serif;
-  --font-body: 'Lato', sans-serif;
+--font-heading: 'Cabin', sans-serif; 
+--font-body: 'Poppins', sans-serif;
   --bs-body-font-family: var(--font-body);
   --bs-body-font-size: 1rem;
   --bs-body-color: #36454F;   /* Charcoal text */
@@ -59,7 +62,9 @@ NAVBAR STYLES
 /* --- Base Navbar State (Transparent on Hero) --- */
 #mainNav {
     background-color: transparent !important;
-    transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px); /* Add this line */
+    -webkit-backdrop-filter: blur(10px); /* Add this line for Safari */
+    transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease; /* Update this line */
     padding: 1rem 0;
 }
 
@@ -145,7 +150,7 @@ NAVBAR STYLES
 }
 
 .travel-agency-text {
-  font-family: var(--font-heading); /* Poppins for logo text */
+  font-family: 'Josefin Sans', sans-serif; 
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 1px;
