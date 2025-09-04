@@ -9,6 +9,20 @@
     <link rel="stylesheet" href="style.css">
     <style>
         /* Page-specific styles */
+        :root {
+            --primary-blue: #2563eb;
+            --primary-orange: #f97316;
+            --primary-violet: #7c3aed;
+            --secondary-blue: #1e40af;
+            --light-orange: #ffedd5;
+            --light-violet: #ede9fe;
+            --dark-gray: #1f2937;
+            --medium-gray: #6b7280;
+            --light-gray: #f3f4f6;
+            --bs-primary: #ba6bf1;
+            --bs-accent: #DAA520;
+        }
+
         body {
             padding-top: 80px;
             font-family: 'Poppins', sans-serif;
@@ -22,21 +36,33 @@
             color: #212529; /* Darker heading color */
         }
         
-        .hero-image {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/about-hero.avif');
+        /* New Hero Section styles from apply.html */
+        .hero-section {
+            position: relative;
+            padding: 120px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url('./images/about-hero.avif') no-repeat center center;
             background-size: cover;
-            background-position: center 70%;
+            color: white;
             height: 65vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            color: white;
         }
-
-        .hero-image h1 {
-            color: white;
+        
+        .hero-title {
+            font-size: 2.8rem;
             font-weight: 700;
+			color: #e6ccff; /* Text color from apply.html */
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .section-title {
@@ -159,7 +185,7 @@
 
         /* Mobile menu adjustments */
         @media (max-width: 768px) {
-            .hero-image h1 {
+            .hero-title {
                 font-size: 2.5rem;
             }
         }
@@ -252,14 +278,19 @@
 </nav>
 
 <!-- Hero Section -->
-<section class="hero-image">
-    <div class="container">
-        <h1 class="display-3 fw-bold mb-4">Connecting You to the World</h1>
-        <p class="lead fs-4" style="max-width: 700px; margin: auto;">
-            We are Pleroma Travel Consult, a team of passionate experts dedicated to crafting your perfect journey.
-        </p>
+<section class="hero-section position-relative overflow-hidden">
+    <div class="container position-relative z-index-2 h-100">
+        <div class="row align-items-center h-100">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="hero-title mb-4">Connecting You to the World</h1>
+                <p class="hero-subtitle">
+                    We are Pleroma Travel Consult, a team of passionate experts dedicated to crafting your perfect journey.
+                </p>
+            </div>
+        </div>
     </div>
 </section>
+
 
 <!-- Our Story Section -->
 <section class="py-5" id="company">
@@ -332,11 +363,7 @@
                 <p class="lead text-muted">We are proud to be honored for our dedication to creating outstanding travel experiences. This award reflects our team's hard work and our clients' invaluable trust.</p>
             </div>
             <div class="col-lg-7 d-flex justify-content-center">
-                 <div class="achievement-badge">
-                    <div class="icon"><i class="bi bi-trophy-fill"></i></div>
-                    <div class="year">2024</div>
-                    <div class="text">Best Tour Operator</div>
-                </div>
+                 <img src="./images/tour-badge.jpg" alt="Best Tour Operator 2024 Award Badge" class="img-fluid" style="max-width: 250px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
             </div>
         </div>
     </div>
@@ -513,7 +540,7 @@
                 <span>Email</span>
             </a>
             
-            <a href="booking.html" class="chat-option" title="Book a consultation">
+            <a href="#calendly-booking" class="chat-option" title="Book a consultation">
                 <i class="bi bi-calendar-event"></i>
                 <span>Book Now</span>
             </a>
