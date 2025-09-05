@@ -8,35 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Page-specific styles */
-        :root {
-            --primary-blue: #2563eb;
-            --primary-orange: #f97316;
-            --primary-violet: #7c3aed;
-            --secondary-blue: #1e40af;
-            --light-orange: #ffedd5;
-            --light-violet: #ede9fe;
-            --dark-gray: #1f2937;
-            --medium-gray: #6b7280;
-            --light-gray: #f3f4f6;
-            --bs-primary: #ba6bf1;
-            --bs-accent: #DAA520;
-        }
-
-        body {
-            padding-top: 80px;
-            font-family: 'Poppins', sans-serif;
-            color: #495057; /* Softer black */
-            background-color: #f8f9fa; /* Lighter gray */
-        }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            color: #212529; /* Darker heading color */
-        }
-        
-        /* New Hero Section styles from apply.html */
+        /* Page-specific styles only */
         .hero-section {
             position: relative;
             padding: 120px 0;
@@ -52,7 +24,7 @@
         .hero-title {
             font-size: 2.8rem;
             font-weight: 700;
-			color: #e6ccff; /* Text color from apply.html */
+            color: #ffccff;
             margin-bottom: 1.5rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
@@ -114,7 +86,6 @@
             object-fit: cover;
         }
 
-        /* New Achievement Badge */
         .achievement-badge {
             position: relative;
             width: 220px;
@@ -129,14 +100,17 @@
             box-shadow: 0 10px 25px rgba(186, 107, 241, 0.4);
             border: 5px solid white;
         }
+        
         .achievement-badge .icon {
             font-size: 3.5rem;
         }
+        
         .achievement-badge .year {
             font-size: 1.5rem;
             font-weight: 700;
             line-height: 1;
         }
+        
         .achievement-badge .text {
             font-size: 0.8rem;
             text-transform: uppercase;
@@ -152,10 +126,12 @@
             transition: all 0.3s ease;
             height: 100%;
         }
+        
         .why-choose-card:hover {
             border-color: var(--bs-primary);
             box-shadow: 0 10px 25px rgba(0,0,0,0.07);
         }
+        
         .why-choose-icon {
             font-size: 3rem;
             color: var(--bs-secondary);
@@ -183,7 +159,80 @@
             color: var(--bs-primary);
         }
 
-        /* Mobile menu adjustments */
+        /* Our Story Section Revamp */
+        .story-section {
+            position: relative;
+            padding: 5rem 0;
+            overflow: hidden;
+        }
+        
+        .story-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .story-image {
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transition: all 0.5s ease;
+        }
+        
+        .story-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+        
+        .story-highlight {
+            background: linear-gradient(135deg, var(--bs-primary), var(--bs-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .story-timeline {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 3px solid var(--bs-primary);
+            margin: 2rem 0;
+        }
+        
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background: var(--bs-primary);
+        }
+        
+        .timeline-year {
+            font-weight: 700;
+            color: var(--bs-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .story-timeline {
+                padding-left: 1.5rem;
+            }
+            
+            .timeline-item:before {
+                left: -1.8rem;
+            }
+        }
+		
+		/* Mobile menu adjustments */
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
@@ -222,7 +271,7 @@
 <nav class="navbar navbar-expand-lg fixed-top scrolled" id="mainNav">
     <div class="container">
         <a class="navbar-brand" href="#" id="pleroma-logo">
-            <img src="./images/ptc_llogo.png" alt="Pleroma Travel Consult" height="50" class="d-inline-block me-2">
+            <img src="./images/ptc_llogo.png" alt="Pleroma Travel Consult" height class="d-inline-block me-2">
             <div class="logo-text-stack d-none d-lg-flex">
                 <span class="travel-agency-text">PLEROMA</span>
                 <span class="travel-agency-text" style="font-family: 'Oswald', sans-serif; !important">Travel Consult</span>
@@ -267,94 +316,514 @@
                     <a class="nav-link" href="./about.html">About Us</a>
                 </li>
                 <li class="nav-item d-lg-none mt-3">
-                    <a href="#contact" class="btn btn-contact w-100">Contact Us</a>
+                    <a href="index.html#contact" class="btn btn-contact w-100">Contact Us</a>
                 </li>
             </ul>
-            <a href="#contact" class="btn btn-contact ms-lg-3 d-none d-lg-inline-flex">
+            <a href="index.html#contact" class="btn btn-contact ms-lg-3 d-none d-lg-inline-flex">
                 <i class="bi bi-telephone me-2"></i>Contact Us
             </a>
         </div>
     </div>
 </nav>
 
-<!-- Hero Section -->
+<!-- Hero Section - Revamped -->
 <section class="hero-section position-relative overflow-hidden">
     <div class="container position-relative z-index-2 h-100">
         <div class="row align-items-center h-100">
             <div class="col-lg-8 mx-auto text-center">
-                <h1 class="hero-title mb-4">Connecting You to the World</h1>
-                <p class="hero-subtitle">
-                    We are Pleroma Travel Consult, a team of passionate experts dedicated to crafting your perfect journey.
+                <h1 class="hero-title mb-4 animate__animated animate__fadeInDown">Your Journey, Our Story</h1>
+                <p class="hero-subtitle animate__animated animate__fadeIn animate__delay-1s">
+                    At Pleroma Travel Consult, we facilitate travel experiences that transform lives and create lasting memories.
                 </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- Our Story Section -->
-<section class="py-5" id="company">
-    <div class="container">
-        <div class="row align-items-center g-5">
-            <div class="col-lg-6">
-                <h2 class="section-title mb-3">Our Story</h2>
-                <h3 class="h1 mb-4">Forging Paths, Fulfilling Dreams</h3>
-                <p class="lead text-muted mb-4">
-                    Pleroma Travel Consult was born from a simple idea: travel should be transformative, not transactional. Founded in 2023 by Apostle Emmanuel Siayor, we saw a need for a more personalized, fulfilling approach to travel.
-                </p>
-                <p>
-                    Starting with a small, dedicated team, we've grown into a trusted consultancy known for our commitment to excellence. Our journey is defined by the countless travelers we've guided and the unforgettable experiences we've created together. We continue to innovate while staying true to our core mission: to fulfill your travel dreams.
-                </p>
-            </div>
-            <div class="col-lg-6">
-                <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1633&q=80" alt="World map with travel pins" class="img-fluid rounded-3 shadow">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Core Values Section -->
-<section class="py-5 bg-white">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="section-title mb-3">Our Core Values</h2>
-            <h3 class="h1">The Principles That Guide Us</h3>
-        </div>
-        <div class="row g-4">
-            <div class="col-md-6 col-lg-3">
-                <div class="value-card text-center">
-                    <div class="value-icon"><i class="bi bi-heart-fill"></i></div>
-                    <h4 class="h5 fw-bold mb-2">Client-Centric</h4>
-                    <p class="small text-muted">Your journey is our priority. We listen, we understand, and we craft experiences that exceed your expectations.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="value-card text-center">
-                    <div class="value-icon"><i class="bi bi-lightbulb-fill"></i></div>
-                    <h4 class="h5 fw-bold mb-2">Innovation</h4>
-                    <p class="small text-muted">We continuously seek new ways to enhance your travel experience, from cutting-edge tech to unique destinations.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="value-card text-center">
-                    <div class="value-icon"><i class="bi bi-shield-check"></i></div>
-                    <h4 class="h5 fw-bold mb-2">Integrity</h4>
-                    <p class="small text-muted">We operate with transparency and honesty, ensuring you have a seamless and trustworthy travel partner.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="value-card text-center">
-                    <div class="value-icon"><i class="bi bi-gem"></i></div>
-                    <h4 class="h5 fw-bold mb-2">Excellence</h4>
-                    <p class="small text-muted">We are committed to the highest standards of service, paying meticulous attention to every detail of your trip.</p>
+                <div class="mt-4 animate__animated animate__fadeInUp animate__delay-2s">
+                    <a href="#company" class="btn btn-primary me-3">Discover Our Story</a>
+                    <a href="#team" class="btn btn-outline-light">Meet Our Team</a>
                 </div>
             </div>
         </div>
     </div>
+    <div class="hero-shape-divider">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+        </svg>
+    </div>
 </section>
+
+<!-- Our Story Section - Modern Design -->
+<section class="modern-story-section py-5" id="company">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-8 text-center">
+        <span class="story-badge">OUR JOURNEY</span>
+        <h2 class="display-4 fw-bold mb-3">Simplifying Travel process, <span class="text-gradient">Fulfilling Dreams</span></h2>
+        <p class="lead">We're redefining what it means to travel with purpose and passion.</p>
+      </div>
+    </div>
+
+    <!-- Timeline Style Story -->
+    <div class="row align-items-center story-timeline">
+      <!-- Left Content -->
+      <div class="col-lg-6">
+        <div class="story-content">
+          <div class="story-item" data-year="2023">
+            <h3>Our Humble Beginnings</h3>
+            <p>Founded by Apostle Emmanuel Siayor with a vision to make international travel accessible and meaningful for everyone.</p>
+          </div>
+          
+          <div class="story-item" data-year="2024">
+            <h3>Recognition & Growth</h3>
+            <p>Awarded Best Tour Operator and expanded our services to include business support solutions across multiple countries.</p>
+          </div>
+          
+          <div class="story-item" data-year="Present">
+            <h3>Continuing The Mission</h3>
+            <p>Helping hundreds of clients achieve their travel dreams with personalized service and expert guidance.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right Visual -->
+      <div class="col-lg-6">
+        <div class="story-visual">
+          <div class="floating-card card-1">
+            <div class="card-icon">
+              <i class="bi bi-globe"></i>
+            </div>
+            <h4>Global Reach</h4>
+            <p>20+ countries</p>
+          </div>
+          
+          <div class="floating-card card-2">
+            <div class="card-icon">
+              <i class="bi bi-people"></i>
+            </div>
+            <h4>Clients Served</h4>
+            <p>122+ and counting</p>
+          </div>
+          
+          <div class="floating-card card-3">
+            <div class="card-icon">
+              <i class="bi bi-award"></i>
+            </div>
+            <h4>Recognition</h4>
+            <p>Best Tour Operator 2024</p>
+          </div>
+          
+          <div class="main-image">
+            <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
+                 alt="Pleroma Travel Journey" class="img-fluid">
+            <div class="image-overlay"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Modern Story Section Styles */
+  .modern-story-section {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #f8fafc 0%, #ffffff 100%);
+  }
+  
+  .story-badge {
+    display: inline-block;
+    background: rgba(108, 99, 255, 0.1);
+    color: var(--bs-primary);
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, var(--bs-primary), var(--bs-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Timeline Style Layout */
+  .story-timeline {
+    position: relative;
+  }
+  
+  .story-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent 0%, var(--bs-primary) 15%, var(--bs-primary) 85%, transparent 100%);
+    transform: translateX(-50%);
+  }
+  
+  .story-content {
+    position: relative;
+    padding-right: 2rem;
+  }
+  
+  .story-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 2rem;
+  }
+  
+  .story-item::before {
+    content: attr(data-year);
+    position: absolute;
+    left: -4.5rem;
+    top: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--bs-primary);
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--bs-primary);
+  }
+  
+  .story-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #1e293b;
+  }
+  
+  .story-item p {
+    color: #64748b;
+    line-height: 1.6;
+  }
+  
+  /* Visual Elements */
+  .story-visual {
+    position: relative;
+    height: 100%;
+    min-height: 500px;
+  }
+  
+  .main-image {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    height: 400px;
+  }
+  
+  .main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .main-image:hover img {
+    transform: scale(1.05);
+  }
+  
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 100%);
+  }
+  
+  .floating-card {
+    position: absolute;
+    background: white;
+    padding: 1.25rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 180px;
+    z-index: 2;
+    transition: all 0.4s ease;
+  }
+  
+  .floating-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-1 {
+    top: 10%;
+    right: -30px;
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .card-2 {
+    top: 50%;
+    right: -60px;
+    animation: float 7s ease-in-out infinite 1s;
+  }
+  
+  .card-3 {
+    bottom: 20%;
+    right: -30px;
+    animation: float 5s ease-in-out infinite 0.5s;
+  }
+  
+  .card-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(108, 99, 255, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: var(--bs-primary);
+  }
+  
+  .floating-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #1e293b;
+  }
+  
+  .floating-card p {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-bottom: 0;
+  }
+  
+  
+  /* Animations */
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 992px) {
+    .story-timeline::before {
+      left: 30px;
+    }
+    
+    .story-content {
+      padding-right: 0;
+      padding-left: 4rem;
+    }
+    
+    .story-item::before {
+      left: -4rem;
+    }
+    
+    .floating-card {
+      position: relative;
+      margin-bottom: 1.5rem;
+      right: 0 !important;
+      top: 0 !important;
+      bottom: 0 !important;
+      width: 100%;
+      max-width: 250px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .story-visual {
+      min-height: auto;
+      margin-top: 3rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .story-timeline::before {
+      display: none;
+    }
+    
+    .story-content {
+      padding-left: 0;
+    }
+    
+    .story-item {
+      padding-left: 0;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    
+    .story-item::before {
+      position: relative;
+      left: 0;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+    
+    .display-4 {
+      font-size: 2.5rem;
+    }
+  }
+</style>
+
+<!-- Core Values Section with Gradient Background -->
+<section class="core-values-section-gradient py-5">
+  <div class="background-overlay">
+    <div class="pattern-layer"></div>
+  </div>
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-tag">Our Core Values</span>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="value-card text-center">
+          <div class="value-icon"><i class="bi bi-heart-fill"></i></div>
+          <h4 class="h5 fw-bold mb-2">Client-Centric</h4>
+          <p class="small">Your journey is our priority. We listen, we understand, and we deliver results that exceed your expectations.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="value-card text-center">
+          <div class="value-icon"><i class="bi bi-lightbulb-fill"></i></div>
+          <h4 class="h5 fw-bold mb-2">Innovation</h4>
+          <p class="small">We continuously seek new ways to enhance your travel experience, from cutting-edge tech to unique destinations.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="value-card text-center">
+          <div class="value-icon"><i class="bi bi-shield-check"></i></div>
+          <h4 class="h5 fw-bold mb-2">Integrity</h4>
+          <p class="small">We operate with transparency and honesty, ensuring you have a seamless and trustworthy travel partner.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="value-card text-center">
+          <div class="value-icon"><i class="bi bi-gem"></i></div>
+          <h4 class="h5 fw-bold mb-2">Excellence</h4>
+          <p class="small">We are committed to the highest standards of service, paying meticulous attention to every detail of your travel process.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Core Values Section with Gradient Background */
+  .core-values-section-gradient {
+    position: relative;
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .core-values-section-gradient .background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #311B92 0%, #512DA8 50%, #9575CD 100%);
+    z-index: -2;
+  }
+
+  .core-values-section-gradient .pattern-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+    opacity: 0.6;
+    z-index: -1;
+  }
+
+  .core-values-section-gradient .section-tag {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .core-values-section-gradient .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .core-values-section-gradient .section-subtitle {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+  }
+
+  .core-values-section-gradient .value-card {
+    background-color: white;
+    border: 1px solid #e9ecef;
+    border-radius: var(--bs-border-radius);
+    transition: all 0.3s ease;
+    height: 100%;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  }
+  
+  .core-values-section-gradient .value-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  .core-values-section-gradient .value-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--bs-primary);
+  }
+
+  .core-values-section-gradient .value-card h4 {
+    color: #1e293b;
+  }
+
+  .core-values-section-gradient .value-card p {
+    color: #64748b;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 992px) {
+    .core-values-section-gradient .section-title {
+      font-size: 2rem;
+    }
+    
+    .core-values-section-gradient .section-subtitle {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .core-values-section-gradient .section-title {
+      font-size: 1.75rem;
+    }
+    
+    .core-values-section-gradient .section-subtitle {
+      font-size: 1.3rem;
+    }
+  }
+</style>
 
 <!-- Achievements Section -->
-<section class="py-5">
+<section class="py-5" id="achievements">
     <div class="container">
         <div class="row align-items-center g-5">
             <div class="col-lg-5 text-center text-lg-start">
@@ -397,8 +866,8 @@
                     </div>
                     <div class="card-body p-4 text-center">
                         <h4 class="h5 fw-bold">Otchere Andrew</h4>
-                        <p class="text-primary fw-medium mb-2">General Manager</p>
-                        <p class="small text-muted">With over 15 years of industry experience, Otchere ensures every operation runs with precision and care.</p>
+                        <p class="text-primary fw-medium mb-2">Marketing Manager</p>
+                        <p class="small text-muted">With over 7 years of industry experience, Otchere ensures every operation runs with precision and care.</p>
                     </div>
                 </div>
             </div>
@@ -408,43 +877,42 @@
                        <img src="./images/team1.jpeg" alt="Hephzibah Asare">
                     </div>
                     <div class="card-body p-4 text-center">
-                        <h4 class="h5 fw-bold">Hephzibah Asare</h4>
-                        <p class="text-primary fw-medium mb-2">Marketing Manager</p>
-                        <p class="small text-muted">A creative storyteller who brings our unique travel experiences to life across all our platforms.</p>
+                        <h4 class="h5 fw-bold">Ruth Asare</h4>
+                        <p class="text-primary fw-medium mb-2">General Secretary</p>
+                        <p class="small text-muted">An expert at managing communication and documentation to keep us running efficiently.
+						</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-<!-- Why Choose Us Section -->
 <section class="py-5">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="section-title mb-3">Why Choose Us?</h2>
-            <h3 class="h1">The Pleroma Difference</h3>
+            <h2 class="section-title mb-3">Why Choose PTC?</h2>
+            <h3 class="h1">Your Journey, Our Expertise</h3>
         </div>
         <div class="row g-4">
             <div class="col-md-6 col-lg-4">
                 <div class="why-choose-card">
-                    <div class="why-choose-icon"><i class="bi bi-magic"></i></div>
-                    <h4 class="h5 fw-bold mb-3">Tailor-Made Itineraries</h4>
-                    <p class="text-muted">We craft unique journeys that reflect your personal travel style, interests, and dreams.</p>
+                    <div class="why-choose-icon"><i class="bi bi-globe"></i></div>
+                    <h4 class="h5 fw-bold mb-3">Global Network</h4>
+                    <p class="text-muted">We leverage our extensive connections and partnerships to unlock travel, work, and you opportunities for you around the world.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="why-choose-card">
                     <div class="why-choose-icon"><i class="bi bi-person-check-fill"></i></div>
-                    <h4 class="h5 fw-bold mb-3">Expert Guidance</h4>
-                    <p class="text-muted">Our team of seasoned travel experts provides invaluable insights and support every step of the way.</p>
+                    <h4 class="h5 fw-bold mb-3">Expert Service</h4>
+                    <p class="text-muted">Our team provides professional, up-to-date guidance, handling every detail regarding visa processing and flight arrangements.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="why-choose-card">
-                    <div class="why-choose-icon"><i class="bi bi-globe-americas"></i></div>
-                    <h4 class="h5 fw-bold mb-3">Authentic Experiences</h4>
-                    <p class="text-muted">We connect you with local cultures and hidden gems for a truly immersive and memorable adventure.</p>
+                    <div class="why-choose-icon"><i class="bi bi-shield-fill-check"></i></div>
+                    <h4 class="h5 fw-bold mb-3">Trusted Support</h4>
+                    <p class="text-muted">From your initial application to your final relocation, we provide trusted, end-to-end support every step of your journey.</p>
                 </div>
             </div>
         </div>
@@ -452,13 +920,198 @@
 </section>
 
 <!-- CTA Section -->
-<section class="cta-section text-center">
+<style>
+    /* Custom styles for the new CTA gallery section */
+    .cta-gallery-section {
+        background: linear-gradient(135deg, var(--bs-primary), var(--bs-secondary));
+        padding: 5rem 0;
+        color: white;
+    }
+
+    .cta-gallery-section .subtitle {
+        font-family: var(--font-heading);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .travel-gallery {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 200px; /* Control row height */
+        gap: 1rem;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .gallery-item {
+        overflow: hidden;
+        border-radius: var(--bs-border-radius);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .gallery-item:hover {
+        transform: scale(1.03);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+    }
+    
+    .gallery-item:hover img {
+        transform: scale(1.1);
+    }
+
+    /* Spanning items for collage effect */
+    .gallery-item-1 {
+        grid-column: 1 / 3;
+        grid-row: 1 / 3;
+    }
+    .gallery-item-6 {
+        grid-column: 3 / 4;
+        grid-row: 2 / 3;
+    }
+    .gallery-item-7 {
+        grid-column: 4 / 5;
+        grid-row: 2 / 3;
+    }
+
+    /* Social media card */
+    .social-card {
+        background-color: #ff9933; /* A vibrant orange */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        text-align: center;
+        grid-column: 4 / 5;
+        grid-row: 1 / 2;
+    }
+
+    .social-card .main-icon {
+        font-size: 3rem;
+    }
+    
+    .social-card .handle {
+        font-weight: 600;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .social-card .social-links a {
+        color: white;
+        font-size: 1.25rem;
+        margin: 0 0.5rem;
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+    }
+
+    .social-card .social-links a:hover {
+        opacity: 1;
+    }
+
+    .btn-light-outline {
+        background: transparent;
+        border: 2px solid white;
+        color: white;
+        padding: 0.75rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-light-outline:hover {
+        background: white;
+        color: var(--bs-primary);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 991.98px) {
+        .travel-gallery {
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: 220px;
+        }
+
+        /* Reset spans for a simpler mobile grid */
+        .gallery-item-1,
+        .gallery-item-6,
+        .gallery-item-7,
+        .social-card {
+            grid-column: auto;
+            grid-row: auto;
+        }
+        
+        /* Make the first image full-width on mobile */
+        .gallery-item-1 {
+           grid-column: 1 / -1; /* Span all columns */
+           grid-row: auto; /* Reset row span */
+        }
+    }
+    
+    @media (max-width: 576px) {
+         .travel-gallery {
+            grid-auto-rows: 180px;
+        }
+    }
+</style>
+
+<section class="cta-gallery-section text-center">
     <div class="container">
-        <h2 class="display-5 fw-bold mb-4">Ready for Your Next Adventure?</h2>
-        <p class="lead mb-5 mx-auto" style="max-width: 600px;">Let's turn your travel dreams into reality. Contact our experts today to start planning a journey you'll never forget.</p>
-        <a href="./index.html#contact" class="btn btn-light-outline">Start Planning Today</a>
+        <h2 class="display-5 fw-bold mb-3">Ready for Your Next Adventure?</h2>
+        <p class="subtitle">Let's Travel Together</p>
+
+        <div class="travel-gallery">
+            <!-- Item 1 (Spanning) -->
+            <div class="gallery-item gallery-item-1">
+                <img src="https://images.unsplash.com/photo-1509233732442-82a4b4836a51?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Two friends looking at a vast canyon landscape">
+            </div>
+            <!-- Item 2 -->
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Vibrant city street in Japan at night">
+            </div>
+            <!-- Item 3 -->
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1502602898657-3e91760c0337?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Eiffel Tower in Paris">
+            </div>
+            <!-- Item 4 (Social Card) -->
+            <div class="gallery-item social-card">
+                <i class="bi bi-instagram main-icon"></i>
+                <p class="handle">@plerotravel.consult</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+                    <a href="#" aria-label="Whatsapp"><i class="bi bi-whatsapp"></i></a>
+                </div>
+            </div>
+            <!-- Item 5 -->
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Person on a swing over a lush jungle valley in Bali">
+            </div>
+             <!-- Item 6 -->
+            <div class="gallery-item gallery-item-6">
+                <img src="https://images.unsplash.com/photo-1516496636080-14fb876e029d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Clear blue water and white sand beach">
+            </div>
+            <!-- Item 7 -->
+            <div class="gallery-item gallery-item-7">
+                <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Canoe on a calm, turquoise mountain lake">
+            </div>
+        </div>
+
+        <p class="lead mb-4 mx-auto" style="max-width: 600px;">Let's turn your travel dreams into reality. Contact our experts today to start planning a journey you'll never forget.</p>
+        <a href="./index.html#contact" class="btn btn-light-outline">Start Today</a>
     </div>
 </section>
+
+
 
 <!-- Footer (same as business-support.html) -->
 <footer class="py-5 bg-dark text-white" id="contact">
