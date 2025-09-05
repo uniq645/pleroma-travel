@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="style.css">
     <!-- Preload all hero images for smooth carousel transitions -->
     <link rel="preload" href="./images/index-hero.webp" as="image">
-    <link rel="preload" href="./images/index-hero2.jpg" as="image">
+    <link rel="preload" href="./images/index-hero2.jpeg" as="image">
     <link rel="preload" href="./images/index-hero3.webp" as="image">
-    <link rel="preload" href="./images/hero-image3.avif" as="image">
+    <link rel="preload" href="./images/hero-image1.jpg" as="image">
     <style>
     /* Non-navbar styles remain here for component-specific adjustments */
 .google-rating-badge {
@@ -342,8 +342,8 @@
 <section class="hero-section">
     <!-- Image Carousel Items -->
     <div class="hero-carousel-item active" style="background-image: url('./images/index-hero.webp');"></div>
-    <div class="hero-carousel-item" style="background-image: url('./images/index-hero1.avif');"></div>
-    <div class="hero-carousel-item" style="background-image: url('./images/index-hero2.jpg');"></div>
+    <div class="hero-carousel-item" style="background-image: url('./images/index-hero1.jpg');"></div>
+    <div class="hero-carousel-item" style="background-image: url('./images/index-hero2.jpeg');"></div>
     <div class="hero-carousel-item" style="background-image: url('./images/index-hero3.webp');"></div>
 
     <div class="container text-center">
@@ -719,7 +719,7 @@
           <i class="bi bi-shield-lock"></i>
         </div>
         <h3>Verified Opportunities</h3>
-        <p>Every job, visa, and business connection is thoroughly vetted for your security and success.</p>
+        <p>Every job, visa, and tour connection is thoroughly vetted for your security and success.</p>
       </div>
       
       <!-- Benefit 2 -->
@@ -728,7 +728,7 @@
           <i class="bi bi-globe2"></i>
         </div>
         <h3>Global Network</h3>
-        <p>Direct partnerships with employers and governments in 25+ countries across 5 continents.</p>
+        <p>Direct connections with employers and governments in 20+ countries across 5 continents.</p>
       </div>
       
       <!-- Benefit 3 -->
@@ -737,7 +737,7 @@
           <i class="bi bi-building-check"></i>
         </div>
         <h3>Business Trust</h3>
-        <p>Certified by international trade bodies with A+ rating for corporate services since 2018.</p>
+        <p>Certified by international trade bodies with A+ rating for corporate services since 2023.</p>
       </div>
       
       <!-- Benefit 4 -->
@@ -746,7 +746,7 @@
           <i class="bi bi-file-earmark-person"></i>
         </div>
         <h3>Visa Expertise</h3>
-        <p>98% approval rate for work, study, and business visas with fastest processing in Ghana.</p>
+        <p>98% approval rate for work, study, and visit visas with fastest processing in Ghana.</p>
       </div>
       
       <!-- Benefit 5 -->
@@ -764,7 +764,7 @@
           <i class="bi bi-headset"></i>
         </div>
         <h3>Dedicated Support</h3>
-        <p>24/7 assistance in 8 languages from application to relocation and beyond.</p>
+        <p>24/7 assistance in 3 languages from application to relocation and beyond.</p>
       </div>
     </div>
   </div>
@@ -1360,585 +1360,351 @@ color: var(--bs-info);
 </style>
 
 <!-- Popular Programs Section -->
-<section class="popular-programs py-5">
+<section class="popular-programs py-5 bg-light">
   <div class="container">
-    <!-- Section title -->
-    <div class="text-center mb-5">
-      <h2 class="mb-3">Popular Programs</h2>
-      <div class="title-divider mx-auto mb-4" style="height: 3px; width: 80px; background: var(--bs-primary);"></div>
+    <!-- Section Header -->
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-tagline text-primary fw-semibold">OPPORTUNITIES</span>
+      <h2 class="display-5 fw-bold mb-3">Popular International Programs</h2>
+      <p class="lead text-muted mx-auto" style="max-width: 700px;">Launch your global career with our verified opportunities in high-demand fields worldwide</p>
     </div>
     
-    <!-- Programs grid -->
+    <!-- Programs Grid -->
     <div class="row g-4" id="jobs">
       <!-- Program 1 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="program-card h-100">
-          <div class="program-image" style="background-image: url('./images/reception.avif');">
-            <div class="image-overlay"></div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="program-card h-100 shadow-sm border-0 rounded-3 overflow-hidden transition-all">
+          <div class="program-image position-relative" style="background-image: url('./images/reception.avif'); height: 200px;">
+            <div class="image-overlay position-absolute w-100 h-100 bg-dark opacity-25"></div>
+            <div class="program-badge position-absolute top-0 end-0 m-3 bg-primary text-white px-3 py-1 rounded-pill small fw-semibold">High Demand</div>
           </div>
           <div class="program-content p-4">
-            <h3>Hospitality Internship</h3>
-            <p class="mb-3">Gain international experience in luxury hotels and resorts with our comprehensive training program.
-			<span class="bold">Work as maid, servant or receptionist</span>
-			</p>
-            <hr class="program-divider" style="border-top: 1px solid #e5e7eb; margin: 1rem 0;">
-            <div class="program-details d-flex justify-content-between">
+            <h3 class="h5 fw-bold mb-3">Hospitality Internship</h3>
+            <p class="mb-3 text-secondary">Gain international experience in luxury hotels and resorts with our comprehensive training program. <span class="fw-bold text-dark">Work as maid, servant or receptionist</span></p>
+            <hr class="my-3">
+            <div class="program-details d-flex justify-content-between align-items-center">
               <div class="d-flex align-items-center">
-                <i class="bi bi-globe me-2" style="color: var(--bs-primary);"></i>
-                <span>Canada, Dubai, Ireland</span>
+                <i class="bi bi-geo-alt text-primary me-2"></i>
+                <span class="small">Canada, Dubai, Ireland</span>
               </div>
               <div class="d-flex align-items-center">
-                <i class="bi bi-clock me-2" style="color: var(--bs-primary);"></i>
-                <span>6-12 months</span>
+                <i class="bi bi-clock-history text-primary me-2"></i>
+                <span class="small">6-12 months</span>
               </div>
+            </div>
+            <div class="text-center mt-4">
+              <a href="./apply.html" class="btn btn-sm btn-outline-primary rounded-pill px-4">Apply Now</a>
             </div>
           </div>
         </div>
       </div>
       
       <!-- Program 2 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="program-card h-100">
-          <div class="program-image" style="background-image: url('./images/teach.jpg');">
-            <div class="image-overlay"></div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="program-card h-100 shadow-sm border-0 rounded-3 overflow-hidden transition-all">
+          <div class="program-image position-relative" style="background-image: url('./images/teach.jpg'); height: 200px;">
+            <div class="image-overlay position-absolute w-100 h-100 bg-dark opacity-25"></div>
+            <div class="program-badge position-absolute top-0 end-0 m-3 bg-success text-white px-3 py-1 rounded-pill small fw-semibold">Teaching</div>
           </div>
           <div class="program-content p-4">
-            <h3>Education</h3>
-            <p class="mb-3">Contribute to the growt of upcoming children by teaching language and basic school subjects. Work as a teacher, or in administrative side.</p>
-            <hr class="program-divider" style="border-top: 1px solid #e5e7eb; margin: 1rem 0;">
-            <div class="program-details d-flex justify-content-between">
+            <h3 class="h5 fw-bold mb-3">Education Programs</h3>
+            <p class="mb-3 text-secondary">Contribute to the growth of upcoming children by teaching language and basic school subjects. Work as a teacher, or in administrative roles.</p>
+            <hr class="my-3">
+            <div class="program-details d-flex justify-content-between align-items-center">
               <div class="d-flex align-items-center">
-                <i class="bi bi-globe me-2" style="color: var(--bs-primary);"></i>
-                <span>Australia, Germany </span>
+                <i class="bi bi-geo-alt text-primary me-2"></i>
+                <span class="small">Australia, Germany</span>
               </div>
               <div class="d-flex align-items-center">
-                <i class="bi bi-clock me-2" style="color: var(--bs-primary);"></i>
-                <span>3-24 months</span>
+                <i class="bi bi-clock-history text-primary me-2"></i>
+                <span class="small">3-24 months</span>
               </div>
+            </div>
+            <div class="text-center mt-4">
+              <a href="./apply.html" class="btn btn-sm btn-outline-primary rounded-pill px-4">Apply Now</a>
             </div>
           </div>
         </div>
       </div>
       
       <!-- Program 3 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="program-card h-100">
-          <div class="program-image" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');">
-            <div class="image-overlay"></div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="program-card h-100 shadow-sm border-0 rounded-3 overflow-hidden transition-all">
+          <div class="program-image position-relative" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'); height: 200px;">
+            <div class="image-overlay position-absolute w-100 h-100 bg-dark opacity-25"></div>
+            <div class="program-badge position-absolute top-0 end-0 m-3 bg-info text-white px-3 py-1 rounded-pill small fw-semibold">Healthcare</div>
           </div>
           <div class="program-content p-4">
-            <h3>Healthcare Placement</h3>
-            <p class="mb-3">Work in top healthcare facilities as nurse or doctor while experiencing a new culture and healthcare system.
-			</p>
-            <hr class="program-divider" style="border-top: 1px solid #e5e7eb; margin: 1rem 0;">
-            <div class="program-details d-flex justify-content-between">
+            <h3 class="h5 fw-bold mb-3">Healthcare Placement</h3>
+            <p class="mb-3 text-secondary">Work in top healthcare facilities as nurse or doctor while experiencing a new culture and healthcare system.</p>
+            <hr class="my-3">
+            <div class="program-details d-flex justify-content-between align-items-center">
               <div class="d-flex align-items-center">
-                <i class="bi bi-globe me-2" style="color: var(--bs-primary);"></i>
-                <span>South Africa, USA</span>
+                <i class="bi bi-geo-alt text-primary me-2"></i>
+                <span class="small">South Africa, USA</span>
               </div>
               <div class="d-flex align-items-center">
-                <i class="bi bi-clock me-2" style="color: var(--bs-primary);"></i>
-                <span>12-36 months</span>
+                <i class="bi bi-clock-history text-primary me-2"></i>
+                <span class="small">12-36 months</span>
               </div>
+            </div>
+            <div class="text-center mt-4">
+              <a href="./apply.html" class="btn btn-sm btn-outline-primary rounded-pill px-4">Apply Now</a>
             </div>
           </div>
         </div>
       </div>
     </div>
+    
+    <!-- View All Programs CTA -->
+    <div class="text-center mt-5" data-aos="fade-up">
+      <a href="./abroad.html" class="btn btn-primary btn-lg rounded-pill px-5">
+        View All Programs <i class="bi bi-arrow-right ms-2"></i>
+      </a>
+    </div>
   </div>
 </section>
 
 <style>
-  /* Popular Programs Section Specific Styles */
-  .popular-programs {
-    background-color: #9999ff;
-    position: relative;
-  }
-  
-  .popular-programs h2 {
-    color: var(--bs-dark);
-    font-size: 2.5rem;
-    font-weight: 700;
-  }
-  
-  .program-card {
-    background: white;
-    border-radius: var(--bs-border-radius);
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
-  }
-  
-  .program-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-  }
-  
-  .program-image {
-    height: 200px;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    border-bottom: 3px solid var(--bs-primary);
-  }
-  
-  .image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.3);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  .program-card:hover .image-overlay {
-    opacity: 1;
-  }
-  
-  .program-content h3 {
-    color: var(--bs-dark);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .program-content p {
-    color: #4b5563;
-    margin-bottom: 1.5rem;
-  }
-  
-  .program-details {
-    font-size: 0.9rem;
-    color: #6b7280;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .popular-programs h2 {
-      font-size: 2rem;
-    }
-    
-    .program-image {
-      height: 180px;
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .program-image {
-      height: 160px;
-    }
-    
-    .program-content {
-      padding: 1.5rem;
-    }
-    
-    .program-content h3 {
-      font-size: 1.3rem;
-    }
-  }
-</style>
+/* Popular Programs Section Styles */
+.popular-programs {
+  background: linear-gradient(to bottom, #f8fafc 0%, #ffffff 100%);
+}
 
+.program-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+}
+
+.program-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+.program-image {
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
+}
+
+.program-card:hover .program-image {
+  transform: scale(1.05);
+}
+
+.section-tagline {
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .program-details {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 0.5rem;
+  }
+}
+</style>
 <!-- How It Works Section -->
-<section class="ptc-process-section">
+<section class="process-section py-5 bg-white">
   <div class="container">
     <!-- Section Header -->
-    <div class="ptc-section-header">
-      <h2 class="ptc-section-title">Our Simple Process</h2>
-      <p class="ptc-section-description">Get started on your international journey in just a few easy steps</p>
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-tagline text-primary fw-semibold">OUR PROCESS</span>
+      <h2 class="display-5 fw-bold mb-3">Your Journey In 5 Simple Steps</h2>
+      <p class="lead text-muted mx-auto" style="max-width: 700px;">From application to relocation, we guide you through every step of your international journey</p>
     </div>
     
-    <!-- Travel Services Process -->
-    <div class="ptc-process-container ptc-travel-process">
-      <h3 class="ptc-process-main-title">
-        <i class="bi bi-airplane ptc-process-icon"></i> Travel Services Process
-      </h3>
+    <!-- Process Timeline -->
+    <div class="process-timeline position-relative">
+      <!-- Connector Line -->
+      <div class="timeline-connector position-absolute top-0 start-0 h-100 d-none d-md-block" style="left: 50px; width: 3px; background: linear-gradient(to bottom, var(--bs-primary), var(--bs-secondary));"></div>
       
-      <div class="ptc-timeline">
-        <!-- Step 1 -->
-        <div class="ptc-timeline-step">
-          <div class="ptc-step-number">1</div>
-          <div class="ptc-step-content">
-            <h4 class="ptc-step-title">Free Consultation</h4>
-            <p class="ptc-step-text">Contact us via Phone, WhatsApp, or Email to discuss your travel goals.</p>
+      <!-- Step 1 -->
+      <div class="process-step row align-items-center mb-5 position-relative" data-aos="fade-right">
+        <div class="col-md-2 text-center">
+          <div class="step-number bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 70px; height: 70px; position: relative; z-index: 2;">
+            <span class="fs-4 fw-bold">1</span>
           </div>
         </div>
-        
-        <!-- Step 2 -->
-        <div class="ptc-timeline-step">
-          <div class="ptc-step-number">2</div>
-          <div class="ptc-step-content">
-            <h4 class="ptc-step-title">Document Review</h4>
-            <p class="ptc-step-text">Share your documents for eligibility assessment and recommendations.</p>
-          </div>
-        </div>
-        
-        <!-- Step 3 -->
-        <div class="ptc-timeline-step">
-          <div class="ptc-step-number">3</div>
-          <div class="ptc-step-content">
-            <h4 class="ptc-step-title">Application Process</h4>
-            <p class="ptc-step-text">We handle VISA application, processing and appointments.</p>
-          </div>
-        </div>
-        
-        <!-- Step 4 -->
-        <div class="ptc-timeline-step">
-          <div class="ptc-step-number">4</div>
-          <div class="ptc-step-content">
-            <h4 class="ptc-step-title">Approval & Updates</h4>
-            <p class="ptc-step-text">Regular updates and interview preparation support.</p>
-          </div>
-        </div>
-        
-        <!-- Step 5 -->
-        <div class="ptc-timeline-step">
-          <div class="ptc-step-number">5</div>
-          <div class="ptc-step-content">
-            <h4 class="ptc-step-title">Travel Made Easy</h4>
-            <p class="ptc-step-text">We assist with relevant travel arrangements.</p>
+        <div class="col-md-10">
+          <div class="step-content p-4 shadow-sm rounded-3 bg-light">
+            <div class="d-flex align-items-center mb-3">
+              <div class="step-icon bg-primary bg-opacity-10 text-primary p-3 rounded-circle me-3">
+                <i class="bi bi-chat-dots fs-4"></i>
+              </div>
+              <h3 class="h4 mb-0">Free Consultation</h3>
+            </div>
+            <p class="mb-0 text-secondary">Contact us via Phone, WhatsApp, or Email to discuss your travel goals and eligibility for various programs.</p>
           </div>
         </div>
       </div>
       
-      <div class="ptc-main-cta">
-        <a href="./apply.html" class="ptc-primary-btn">
-          Start My Application <i class="bi bi-arrow-right ptc-btn-icon"></i>
-        </a>
-      </div>
-    </div>
-    
-    <!-- Other Services -->
-    <div class="ptc-other-services">
-      <h3 class="ptc-services-subtitle">Other Services We Provide</h3>
-      
-      <div class="ptc-services-grid">
-        <!-- Business Registration -->
-        <div class="ptc-service-card">
-          <div class="ptc-service-header">
-            <i class="bi bi-building ptc-service-icon"></i>
-            <h4 class="ptc-service-name">Business Registration</h4>
+      <!-- Step 2 -->
+      <div class="process-step row align-items-center mb-5 position-relative" data-aos="fade-left">
+        <div class="col-md-2 text-center order-md-2">
+          <div class="step-number bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 70px; height: 70px; position: relative; z-index: 2;">
+            <span class="fs-4 fw-bold">2</span>
           </div>
-          <div class="ptc-service-steps">
-            <div class="ptc-service-step">
-              <span class="ptc-step-indicator">1</span>
-              <span class="ptc-step-label">Consultation</span>
-            </div>
-            <div class="ptc-service-step">
-              <span class="ptc-step-indicator">2</span>
-              <span class="ptc-step-label">Document Submission</span>
-            </div>
-            <div class="ptc-service-step">
-              <span class="ptc-step-indicator">3</span>
-              <span class="ptc-step-label">Registration Filing</span>
-            </div>
-            <div class="ptc-service-step">
-              <span class="ptc-step-indicator">4</span>
-              <span class="ptc-step-label">Certificate Issued</span>
-            </div>
-          </div>
-          <a href="./business-support#lead" class="ptc-service-link">Get Started</a>
         </div>
-        
-        <!-- Passport & Birth Certificate -->
-        <div class="ptc-service-card">
-          <div class="ptc-service-header">
-            <i class="bi bi-passport ptc-service-icon"></i>
-            <h4 class="ptc-service-name">Passport & Birth Certificate</h4>
+        <div class="col-md-10 order-md-1">
+          <div class="step-content p-4 shadow-sm rounded-3 bg-light">
+            <div class="d-flex align-items-center mb-3">
+              <div class="step-icon bg-primary bg-opacity-10 text-primary p-3 rounded-circle me-3">
+                <i class="bi bi-folder-check fs-4"></i>
+              </div>
+              <h3 class="h4 mb-0">Document Review</h3>
+            </div>
+            <p class="mb-0 text-secondary">Share your documents for eligibility assessment and personalized program recommendations.</p>
           </div>
-          <div class="ptc-service-steps">
-            <div class="ptc-service-step">
-              <span class="ptc-step-indicator">1</span>
-              <span class="ptc-step-label">Document Preparation</span>
-            </div>
-            <div class="ptc-service-step">
-              <span class="ptc-step-indicator">2</span>
-              <span class="ptc-step-label">Application Submission</span>
-            </div>
-            <div class="ptc-service-step">
-              <span class="ptc-step-indicator">3</span>
-              <span class="ptc-step-label">Biometrics (passport)</span>
-            </div>
-            <div class="ptc-service-step">
-              <span class="ptc-step-indicator">4</span>
-              <span class="ptc-step-label">Document Issued</span>
-            </div>
+        </div>
+      </div>
+      
+      <!-- Step 3 -->
+      <div class="process-step row align-items-center mb-5 position-relative" data-aos="fade-right">
+        <div class="col-md-2 text-center">
+          <div class="step-number bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 70px; height: 70px; position: relative; z-index: 2;">
+            <span class="fs-4 fw-bold">3</span>
           </div>
-          <a href="#contact" class="ptc-service-link">Get Started</a>
+        </div>
+        <div class="col-md-10">
+          <div class="step-content p-4 shadow-sm rounded-3 bg-light">
+            <div class="d-flex align-items-center mb-3">
+              <div class="step-icon bg-primary bg-opacity-10 text-primary p-3 rounded-circle me-3">
+                <i class="bi bi-file-earmark-text fs-4"></i>
+              </div>
+              <h3 class="h4 mb-0">Application Process</h3>
+            </div>
+            <p class="mb-0 text-secondary">We handle VISA applications, processing, and appointments with meticulous attention to detail.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Step 4 -->
+      <div class="process-step row align-items-center mb-5 position-relative" data-aos="fade-left">
+        <div class="col-md-2 text-center order-md-2">
+          <div class="step-number bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 70px; height: 70px; position: relative; z-index: 2;">
+            <span class="fs-4 fw-bold">4</span>
+          </div>
+        </div>
+        <div class="col-md-10 order-md-1">
+          <div class="step-content p-4 shadow-sm rounded-3 bg-light">
+            <div class="d-flex align-items-center mb-3">
+              <div class="step-icon bg-primary bg-opacity-10 text-primary p-3 rounded-circle me-3">
+                <i class="bi bi-check-circle fs-4"></i>
+              </div>
+              <h3 class="h4 mb-0">Approval & Updates</h3>
+            </div>
+            <p class="mb-0 text-secondary">Regular updates and interview preparation support to ensure your success at every stage.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Step 5 -->
+      <div class="process-step row align-items-center position-relative" data-aos="fade-right">
+        <div class="col-md-2 text-center">
+          <div class="step-number bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 70px; height: 70px; position: relative; z-index: 2;">
+            <span class="fs-4 fw-bold">5</span>
+          </div>
+        </div>
+        <div class="col-md-10">
+          <div class="step-content p-4 shadow-sm rounded-3 bg-light">
+            <div class="d-flex align-items-center mb-3">
+              <div class="step-icon bg-primary bg-opacity-10 text-primary p-3 rounded-circle me-3">
+                <i class="bi bi-airplane fs-4"></i>
+              </div>
+              <h3 class="h4 mb-0">Travel Made Easy</h3>
+            </div>
+            <p class="mb-0 text-secondary">We assist with all relevant travel arrangements for a smooth transition to your new destination.</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
 <style>
-/* How It Works Section - Pleroma Travel Consult */
-.ptc-process-section {
-  padding: 5rem 0;
-  background-color: #f8fafc;
-  font-family: var(--font-body);
+/* Process Section Styles */
+.process-section {
+  position: relative;
+  overflow: hidden;
 }
 
-.ptc-section-header {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 3rem;
+.process-step {
+  position: relative;
 }
 
-.ptc-section-title {
-  font-size: 2.25rem;
-  color: #1e293b;
-  margin-bottom: 1rem;
-  font-weight: 700;
-}
-
-.ptc-section-description {
-  color: #64748b;
-  font-size: 1.125rem;
-}
-
-/* Travel Process */
-.ptc-process-container {
-  background: white;
-  border-radius: 16px;
-  padding: 3rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  margin-bottom: 3rem;
-}
-
-.ptc-travel-process {
-  border-left: 4px solid var(--bs-primary);
-}
-
-.ptc-process-main-title {
+.step-number {
   font-size: 1.5rem;
-  color: var(--bs-primary);
-  margin-bottom: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  box-shadow: 0 0 0 6px #f8f9fa;
+  transition: all 0.3s ease;
 }
 
-.ptc-process-icon {
-  font-size: 2rem;
+.process-step:hover .step-number {
+  transform: scale(1.1);
+  box-shadow: 0 0 0 6px #f8f9fa, 0 0 20px rgba(106, 13, 173, 0.3);
 }
 
-.ptc-timeline {
-  position: relative;
-  padding-left: 3rem;
+.step-content {
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
 }
 
-.ptc-timeline::before {
-  content: '';
-  position: absolute;
-  left: 2.25rem;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, var(--bs-primary), #a78bfa);
+.process-step:nth-child(odd) .step-content {
+  border-left-color: var(--bs-primary);
 }
 
-.ptc-timeline-step {
-  position: relative;
-  padding-bottom: 2.5rem;
+.process-step:nth-child(even) .step-content {
+  border-right-color: var(--bs-primary);
+  border-left: none;
+  border-right: 4px solid var(--bs-primary);
 }
 
-.ptc-step-number {
-  position: absolute;
-  left: -3.75rem;
-  top: 0;
-  width: 3rem;
-  height: 3rem;
-  background: var(--bs-primary);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 1.25rem;
-  z-index: 2;
+.process-step:hover .step-content {
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
-.ptc-step-content {
-  padding-left: 2rem;
+.process-step:nth-child(even):hover .step-content {
+  transform: translateX(-5px);
 }
 
-.ptc-step-title {
-  font-size: 1.25rem;
-  color: #1e293b;
-  margin-bottom: 0.75rem;
-  font-weight: 600;
-}
-
-.ptc-step-text {
-  color: #64748b;
-  line-height: 1.6;
-}
-
-.ptc-main-cta {
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.ptc-primary-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--bs-primary);
-  color: white;
-  padding: 0.75rem 1.75rem;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.ptc-primary-btn:hover {
-  background: #5a52e0;
-  transform: translateY(-2px);
-}
-
-.ptc-btn-icon {
-  transition: transform 0.2s ease;
-}
-
-.ptc-primary-btn:hover .ptc-btn-icon {
-  transform: translateX(3px);
-}
-
-/* Other Services */
-.ptc-other-services {
-  text-align: center;
-}
-
-.ptc-services-subtitle {
-  font-size: 1.25rem;
-  color: #1e293b;
-  margin-bottom: 2rem;
-}
-
-.ptc-services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.ptc-service-card {
-  background: white;
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  border-top: 3px solid var(--bs-secondary);
-}
-
-.ptc-service-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.ptc-service-icon {
-  font-size: 1.75rem;
-  color: var(--bs-secondary);
-}
-
-.ptc-service-name {
-  font-size: 1.25rem;
-  color: #1e293b;
-  margin: 0;
-  font-weight: 600;
-}
-
-.ptc-service-steps {
-  display: grid;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.ptc-service-step {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.75rem;
-  background: #f8fafc;
-  border-radius: 8px;
-}
-
-.ptc-step-indicator {
-  width: 24px;
-  height: 24px;
-  background: var(--bs-secondary);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-.ptc-step-label {
-  font-size: 0.875rem;
-}
-
-.ptc-service-link {
-  display: inline-block;
-  width: 100%;
-  padding: 0.75rem;
-  background: rgba(58, 134, 255, 0.1);
-  color: var(--bs-secondary);
-  border-radius: 8px;
-  text-align: center;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.ptc-service-link:hover {
-  background: rgba(58, 134, 255, 0.2);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .ptc-process-container {
-    padding: 2rem 1.5rem;
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  .process-step .step-content {
+    border-left: 4px solid var(--bs-primary) !important;
+    border-right: none !important;
   }
   
-  .ptc-timeline {
-    padding-left: 2rem;
+  .process-step:hover .step-content {
+    transform: translateX(3px) !important;
   }
   
-  .ptc-timeline::before {
-    left: 1.25rem;
+  .timeline-connector {
+    display: none !important;
   }
   
-  .ptc-step-number {
-    left: -2.75rem;
-    width: 2.5rem;
-    height: 2.5rem;
+  .step-number {
+    margin-bottom: 1.5rem;
   }
 }
+</style>
 
-@media (max-width: 576px) {
-  .ptc-section-title {
-    font-size: 1.75rem;
-  }
-  
-  .ptc-services-grid {
-    grid-template-columns: 1fr;
-  }
-}</style>
-
-<!-- Modern Testimonials Carousel -->
-<section class="ptc-testimonials-section">
+<!-- Testimonials Section with Gradient Background -->
+<section class="ptc-testimonials-section-gradient">
+  <div class="background-overlay">
+    <div class="pattern-layer"></div>
+  </div>
   <div class="container">
     <div class="ptc-testimonials-header">
-      <span class="ptc-testimonials-subtitle">Client Experiences</span>
-      <h2 class="ptc-testimonials-title">Success Stories</h2>
-      <p class="ptc-testimonials-description">Hear from people who transformed their lives with our services</p>
+      <span class="section-tag">Client Experiences</span>
+      <h2 class="section-title">Success Stories</h2>
+      <p class="section-description">Hear from people who transformed their lives with our services</p>
     </div>
 
     <div class="ptc-testimonials-carousel">
@@ -2064,45 +1830,72 @@ color: var(--bs-info);
     </div>
   </div>
 </section>
+
 <style>
-/* Testimonials Section */
-.ptc-testimonials-section {
-  padding: 5rem 0;
-  background-color: #f8fafc;
+/* Testimonials Section with Gradient Background */
+.ptc-testimonials-section-gradient {
   position: relative;
+  padding: 5rem 0;
+  color: #fff;
+  overflow: hidden;
 }
 
-.ptc-testimonials-header {
+.ptc-testimonials-section-gradient .background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #311B92 0%, #512DA8 50%, #9575CD 100%);
+  z-index: -2;
+}
+
+.ptc-testimonials-section-gradient .pattern-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+  opacity: 0.6;
+  z-index: -1;
+}
+
+.ptc-testimonials-section-gradient .ptc-testimonials-header {
   text-align: center;
   max-width: 700px;
   margin: 0 auto 3rem;
 }
 
-.ptc-testimonials-subtitle {
+.ptc-testimonials-section-gradient .section-tag {
   display: inline-block;
-  background: rgba(108, 99, 255, 0.1);
-  color: var(--bs-primary);
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
   padding: 0.5rem 1.25rem;
   border-radius: 50px;
   font-weight: 600;
   font-size: 0.875rem;
   margin-bottom: 1rem;
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.ptc-testimonials-title {
-  font-size: 2.25rem;
-  color: #1e293b;
+.ptc-testimonials-section-gradient .section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
   margin-bottom: 1rem;
+  line-height: 1.2;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.ptc-testimonials-description {
-  color: #64748b;
+.ptc-testimonials-section-gradient .section-description {
+  color: rgba(255, 255, 255, 0.85);
   font-size: 1.125rem;
 }
 
 /* Testimonial Carousel */
-.ptc-testimonials-carousel {
+.ptc-testimonials-section-gradient .ptc-testimonials-carousel {
   display: flex;
   gap: 2rem;
   overflow-x: auto;
@@ -2112,11 +1905,11 @@ color: var(--bs-info);
   scrollbar-width: none; /* Firefox */
 }
 
-.ptc-testimonials-carousel::-webkit-scrollbar {
+.ptc-testimonials-section-gradient .ptc-testimonials-carousel::-webkit-scrollbar {
   display: none; /* Chrome/Safari */
 }
 
-.ptc-testimonial-card {
+.ptc-testimonials-section-gradient .ptc-testimonial-card {
   flex: 0 0 calc(100% - 2rem);
   scroll-snap-align: start;
   background: white;
@@ -2128,24 +1921,24 @@ color: var(--bs-info);
 }
 
 @media (min-width: 768px) {
-  .ptc-testimonial-card {
+  .ptc-testimonials-section-gradient .ptc-testimonial-card {
     flex: 0 0 calc(50% - 2rem);
   }
 }
 
 @media (min-width: 992px) {
-  .ptc-testimonial-card {
+  .ptc-testimonials-section-gradient .ptc-testimonial-card {
     flex: 0 0 calc(33.333% - 2rem);
   }
 }
 
-.ptc-testimonial-rating {
+.ptc-testimonials-section-gradient .ptc-testimonial-rating {
   color: #fbbf24;
   font-size: 1.25rem;
   margin-bottom: 1rem;
 }
 
-.ptc-testimonial-quote {
+.ptc-testimonials-section-gradient .ptc-testimonial-quote {
   font-size: 1rem;
   line-height: 1.6;
   color: #475569;
@@ -2154,7 +1947,7 @@ color: var(--bs-info);
   padding-left: 1.5rem;
 }
 
-.ptc-testimonial-quote::before {
+.ptc-testimonials-section-gradient .ptc-testimonial-quote::before {
   content: '"';
   position: absolute;
   left: 0;
@@ -2164,13 +1957,13 @@ color: var(--bs-info);
   line-height: 1;
 }
 
-.ptc-testimonial-author {
+.ptc-testimonials-section-gradient .ptc-testimonial-author {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.ptc-testimonial-author img {
+.ptc-testimonials-section-gradient .ptc-testimonial-author img {
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -2178,24 +1971,24 @@ color: var(--bs-info);
   border: 3px solid rgba(108, 99, 255, 0.1);
 }
 
-.ptc-author-info {
+.ptc-testimonials-section-gradient .ptc-author-info {
   flex: 1;
 }
 
-.ptc-author-info h4 {
+.ptc-testimonials-section-gradient .ptc-author-info h4 {
   font-size: 1.125rem;
   color: #1e293b;
   margin-bottom: 0.25rem;
 }
 
-.ptc-author-info span {
+.ptc-testimonials-section-gradient .ptc-author-info span {
   display: block;
   font-size: 0.875rem;
   color: #64748b;
   margin-bottom: 0.25rem;
 }
 
-.ptc-verified-badge {
+.ptc-testimonials-section-gradient .ptc-verified-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
@@ -2206,36 +1999,34 @@ color: var(--bs-info);
   border-radius: 50px;
 }
 
-.ptc-testimonials-cta {
-  text-align: center;
-  margin-top: 3rem;
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .ptc-testimonials-section-gradient .section-title {
+    font-size: 2rem;
+  }
 }
 
-.ptc-testimonials-cta p {
-  color: #64748b;
-  margin-bottom: 1rem;
+@media (max-width: 768px) {
+  .ptc-testimonials-section-gradient .ptc-testimonials-carousel {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-.ptc-testimonial-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--bs-primary);
-  color: white;
-  padding: 0.75rem 1.75rem;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.2s ease;
+@media (max-width: 576px) {
+  .ptc-testimonials-section-gradient .ptc-testimonials-carousel {
+    grid-template-columns: 1fr;
+  }
+  
+  .ptc-testimonials-section-gradient .section-title {
+    font-size: 1.75rem;
+  }
+  
+  .ptc-testimonials-section-gradient .ptc-testimonial-card {
+    padding: 1.5rem;
+  }
 }
+</style>
 
-.ptc-testimonial-btn:hover {
-  background: #5a52e0;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}</style>
-
-<!-- Contact & Map Section -->
 <!-- Contact & Map Section -->
 <section class="contact-map-section py-5 bg-light" id="contact">
   <div class="container">
@@ -2426,7 +2217,7 @@ color: var(--bs-info);
                     <h5 style="color: #ffa735;">Quick Links</h5>
                     <ul class="list-unstyled">
                         <li><a href="./index.html" class="text-white">Home</a></li>
-                        <li><a href="#services" class="text-white">Services</a></li>
+                        <li><a href="#jobs" class="text-white">Jobs</a></li>
                         <li><a href="#country" class="text-white">Destinations</a></li>
                         <li><a href="#about-section" class="text-white">About Us</a></li>
                     </ul>
