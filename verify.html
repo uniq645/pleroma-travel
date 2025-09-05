@@ -129,6 +129,28 @@
             display: none;
             margin-top: 1rem;
         }
+        
+        .nav-tabs .nav-link {
+            color: #6c757d;
+            font-weight: 500;
+            padding: 0.75rem 1.25rem;
+        }
+        
+        .nav-tabs .nav-link.active {
+            color: var(--bs-primary);
+            background-color: transparent;
+            border-color: #dee2e6 #dee2e6 #fff;
+            border-bottom: 3px solid var(--bs-primary);
+        }
+        
+        .nav-tabs {
+            border-bottom: 1px solid #dee2e6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tab-content {
+            padding: 0 0.5rem;
+        }
     </style>
 </head>
 <body>
@@ -180,7 +202,7 @@
                     <a class="nav-link" href="./about.html">About Us</a>
                 </li>
                 <li class="nav-item d-lg-none mt-3">
-                    <a href="#contact" class="btn btn-contact w-100">Contact Us</a>
+                    <a href="index.html#contact" class="btn btn-contact w-100">Contact Us</a>
                 </li>
             </ul>
             <a href="./index.html#contact" class="btn btn-contact ms-lg-3 d-none d-lg-inline-flex">
@@ -198,25 +220,64 @@
                 <div class="verify-card">
                     <div class="verify-header">
                         <h2 style="color: white !important"><i class="bi bi-credit-card me-2"></i>Payment Verification</h2>
-                        <p class="mb-0">Check payment status by email address</p>
+                        <p class="mb-0">Check payment status by email or transaction ID</p>
                     </div>
                     
                     <div class="verify-body">
-                        <form id="verifyForm">
-                            <div class="mb-4">
-                                <label for="emailInput" class="form-label fw-semibold">Email Address</label>
-                                <input type="email" class="form-control form-control-lg" id="emailInput" 
-                                       placeholder="Enter client's email address" required>
-                                <div class="form-text">Enter the email address used for the payment</div>
+                        <!-- Tab Navigation -->
+                        <ul class="nav nav-tabs" id="verifyTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="email-tab" data-bs-toggle="tab" data-bs-target="#email-tab-pane" type="button" role="tab" aria-controls="email-tab-pane" aria-selected="true">
+                                    <i class="bi bi-envelope me-1"></i>Verify by Email
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="transaction-tab" data-bs-toggle="tab" data-bs-target="#transaction-tab-pane" type="button" role="tab" aria-controls="transaction-tab-pane" aria-selected="false">
+                                    <i class="bi bi-receipt me-1"></i>Verify by Transaction ID
+                                </button>
+                            </li>
+                        </ul>
+                        
+                        <!-- Tab Content -->
+                        <div class="tab-content" id="verifyTabsContent">
+                            <!-- Email Verification Tab -->
+                            <div class="tab-pane fade show active" id="email-tab-pane" role="tabpanel" aria-labelledby="email-tab" tabindex="0">
+                                <form id="verifyEmailForm">
+                                    <div class="mb-4">
+                                        <label for="emailInput" class="form-label fw-semibold">Email Address</label>
+                                        <input type="email" class="form-control form-control-lg" id="emailInput" 
+                                               placeholder="Enter client's email address" required>
+                                        <div class="form-text">Enter the email address used for the payment</div>
+                                    </div>
+                                    
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-verify btn-lg">
+                                            <span class="button-text">Verify Payment</span>
+                                            <div class="loading-spinner email-spinner"></div>
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                             
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-verify btn-lg">
-                                    <span id="buttonText">Verify Payment</span>
-                                    <div class="loading-spinner" id="loadingSpinner"></div>
-                                </button>
+                            <!-- Transaction ID Verification Tab -->
+                            <div class="tab-pane fade" id="transaction-tab-pane" role="tabpanel" aria-labelledby="transaction-tab" tabindex="0">
+                                <form id="verifyTransactionForm">
+                                    <div class="mb-4">
+                                        <label for="transactionInput" class="form-label fw-semibold">Transaction ID</label>
+                                        <input type="text" class="form-control form-control-lg" id="transactionInput" 
+                                               placeholder="Enter transaction reference ID" required>
+                                        <div class="form-text">Enter the transaction reference ID received after payment</div>
+                                    </div>
+                                    
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-verify btn-lg">
+                                            <span class="button-text">Verify Payment</span>
+                                            <div class="loading-spinner transaction-spinner"></div>
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
+                        </div>
                         
                         <div class="alert alert-danger error-alert" id="errorAlert" role="alert">
                             <i class="bi bi-exclamation-triangle-fill me-2"></i>
@@ -282,7 +343,7 @@
                 <h5 style="color: #ffa735;">Quick Links</h5>
                 <ul class="list-unstyled">
                     <li><a href="./index.html" class="text-white">Home</a></li>
-                    <li><a href="./index.html#jobs" class="text-white">Jobs</a></li>
+                    <li><a href="./index.html#services" class="text-white">Services</a></li>
                     <li><a href="./index.html#country" class="text-white">Destinations</a></li>
                     <li><a href="./about.html" class="text-white">About Us</a></li>
                 </ul>
@@ -329,19 +390,19 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const verifyForm = document.getElementById('verifyForm');
+        const verifyEmailForm = document.getElementById('verifyEmailForm');
+        const verifyTransactionForm = document.getElementById('verifyTransactionForm');
         const emailInput = document.getElementById('emailInput');
+        const transactionInput = document.getElementById('transactionInput');
         const resultCard = document.getElementById('resultCard');
-        const loadingSpinner = document.getElementById('loadingSpinner');
-        const buttonText = document.getElementById('buttonText');
         const errorAlert = document.getElementById('errorAlert');
         const errorMessage = document.getElementById('errorMessage');
         
         // Your Google Apps Script Web App URL
-        const scriptUrl = 'https://script.google.com/macros/s/AKfycbzqC0-N5eaB_C1zalrAeokB1Hb2gA5P-COfGazCBWZWCeleNZi8elG-oxFWyYpGotmN/exec';
-		
+        const scriptUrl = 'https://script.google.com/macros/s/AKfycbzP7sB8tpKJj_oSFXQ53fraDPTBre7Du-2BrbCVAuS2n2CpSqf9oS5IVUA1kccLoxpT/exec';
         
-        verifyForm.addEventListener('submit', async function(e) {
+        // Email verification form submission
+        verifyEmailForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
             const email = emailInput.value.trim();
@@ -352,7 +413,7 @@
             }
             
             // Show loading state
-            setLoadingState(true);
+            setLoadingState('email', true);
             hideError();
             hideResult();
             
@@ -368,7 +429,7 @@
                 });
                 
                 const data = await response.json();
-			
+                console.log(data);
                 
                 if (data.success) {
                     if (data.found) {
@@ -383,19 +444,77 @@
                 console.error('Error:', error);
                 showError('Network error. Please check your connection and try again.');
             } finally {
-                setLoadingState(false);
+                setLoadingState('email', false);
             }
         });
         
-        function setLoadingState(isLoading) {
+        // Transaction ID verification form submission
+        verifyTransactionForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const transactionId = transactionInput.value.trim();
+            
+            if (!transactionId) {
+                showError('Please enter a valid transaction ID');
+                return;
+            }
+            
+            // Show loading state
+            setLoadingState('transaction', true);
+            hideError();
+            hideResult();
+            
+            try {
+                // Using POST method with form data
+                const formData = new FormData();
+                formData.append('action', 'verifyPaymentbyID');
+                formData.append('transactionId', transactionId);
+                
+                const response = await fetch(scriptUrl, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                console.log(data);
+                
+                if (data.success) {
+                    if (data.found) {
+                        displayResult(data);
+                    } else {
+                        showError('No payment found with this transaction ID');
+                    }
+                } else {
+                    showError(data.message || 'An error occurred while verifying payment');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showError('Network error. Please check your connection and try again.');
+            } finally {
+                setLoadingState('transaction', false);
+            }
+        });
+        
+        function setLoadingState(type, isLoading) {
+            const spinner = document.querySelector(`.${type}-spinner`);
+            const buttonText = spinner.previousElementSibling;
+            
             if (isLoading) {
-                loadingSpinner.style.display = 'block';
+                spinner.style.display = 'block';
                 buttonText.style.display = 'none';
-                verifyForm.querySelector('button').disabled = true;
+                if (type === 'email') {
+                    verifyEmailForm.querySelector('button').disabled = true;
+                } else {
+                    verifyTransactionForm.querySelector('button').disabled = true;
+                }
             } else {
-                loadingSpinner.style.display = 'none';
+                spinner.style.display = 'none';
                 buttonText.style.display = 'block';
-                verifyForm.querySelector('button').disabled = false;
+                if (type === 'email') {
+                    verifyEmailForm.querySelector('button').disabled = false;
+                } else {
+                    verifyTransactionForm.querySelector('button').disabled = false;
+                }
             }
         }
         
@@ -428,7 +547,7 @@
             resultCard.className = 'result-card';
             statusBadge.className = 'status-badge';
             
-            if (data.status === 'Verified') {
+            if (data.status === 'Verified' || data.status === 'success') {
                 resultCard.classList.add('result-verified');
                 statusBadge.classList.add('status-verified');
             } else if (data.status === 'Pending' || data.status === 'Processing') {
