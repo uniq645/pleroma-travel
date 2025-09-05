@@ -10,7 +10,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-	<link rel="preload" href="./images/apply-hero.jpg" as="image">
+	<link rel="preload" href="./images/student.webp" as="image">
 	<style>
         :root {
             --primary-blue: #2563eb;
@@ -37,7 +37,7 @@
         .hero-section {
             position: relative;
             padding: 120px 0;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1499678329028-101435549a4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80') no-repeat center center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url('./images/student.webp') no-repeat center center;
             background-size: cover;
             color: white;
         }
@@ -57,7 +57,10 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
+       
+.gradient-edge-top {
+    background: linear-gradient(to bottom, #f8fafc 0%, #ffffff 20px, #ffffff 100%);
+}	
         .btn-cta {
             background: linear-gradient(135deg, var(--bs-primary) 0%, var(--primary-blue) 100%);
             border: none;
@@ -453,46 +456,99 @@
     
     <!-- Application Process Section -->
     <section id="application-process" class="application-process py-5">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title">Begin Your Travel Journey</h2>
-                <div class="title-divider"></div>
-                <p class="lead">
-                    This page is dedicated to travel visa applications. For other services like business registration or consultation, 
-                    please contact us directly via our company line.
-                </p>
-            </div>
-            
-            <div class="row process-steps">
-                <div class="col-md-4 mb-4">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <h3 class="step-title">Free Consultation</h3>
-                        <p>Call us directly or use our WhatsApp line to discuss your travel goals and determine the best visa options for your needs.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 mb-4">
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <h3 class="step-title">Document Review & Preparation</h3>
-                        <p>Share your documents for eligibility assessment and receive personalized recommendations for your application.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 mb-4">
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <h3 class="step-title">Application Process</h3>
-                        <p>Purchase the appropriate application form and begin your journey with our guidance every step of the way.</p>
-                    </div>
-                </div>
-            </div>
-<div class="text-center mt-5">
-    <p class="mb-3"><strong>Have your Ghanaian passport ready and fill out the appropriate application form.</strong></p>
-    <p>The process typically takes about 5 minutes if you have all required information prepared.</p>
-    <p>Once you've completed your payment, your application process will be officially started!</p>
+<div class="row process-steps">
+    <div class="col-md-4 mb-4">
+        <div class="step-card step-card-1">
+            <div class="step-number">1</div>
+            <h3 class="step-title">Free Consultation</h3>
+            <p>Call us directly or use our WhatsApp line to discuss your travel goals and determine the best visa options for your needs.</p>
+        </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+        <div class="step-card step-card-2">
+            <div class="step-number">2</div>
+            <h3 class="step-title">Document Review & Preparation</h3>
+            <p>Share your documents for eligibility assessment and receive personalized recommendations for your application.</p>
+        </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+        <div class="step-card step-card-3">
+            <div class="step-number">3</div>
+            <h3 class="step-title">Application Process</h3>
+            <p>Purchase the appropriate application form and begin your journey with our guidance every step of the way.</p>
+        </div>
+    </div>
 </div>
+
+<style>
+/* Step Card Colors */
+.step-card-1 {
+    border-left: 4px solid var(--bs-primary) !important; /* Purple */
+}
+
+.step-card-1 .step-number {
+    background: var(--bs-primary) !important; /* Purple */
+}
+
+.step-card-2 {
+    border-left: 4px solid #DAA520 !important; /* Goldenrod/Yellow */
+}
+
+.step-card-2 .step-number {
+    background: #DAA520 !important; /* Goldenrod/Yellow */
+}
+
+.step-card-3 {
+    border-left: 4px solid #28a745 !important; /* Green */
+}
+
+.step-card-3 .step-number {
+    background: #28a745 !important; /* Green */
+}
+
+/* Optional: Add hover effects to match colors */
+.step-card-1:hover {
+    box-shadow: 0 10px 25px rgba(186, 107, 241, 0.15) !important;
+}
+
+.step-card-2:hover {
+    box-shadow: 0 10px 25px rgba(218, 165, 32, 0.15) !important;
+}
+
+.step-card-3:hover {
+    box-shadow: 0 10px 25px rgba(40, 167, 69, 0.15) !important;
+}
+</style>
+<!-- Gradient Background Information Section -->
+<div class="gradient-info-section mt-5 p-4 rounded-3">
+    <div class="text-center text-white">
+        <p class="mb-3"><strong>Have your Ghanaian passport ready and fill out the appropriate application form.</strong></p>
+        <p>The process typically takes about 5 minutes if you have all required information prepared.</p>
+        <p>Once you've completed your payment, your application process will be officially started!</p>
+    </div>
+</div>
+
+<style>
+.gradient-info-section {
+    background: linear-gradient(135deg, #311B92 0%, #512DA8 50%, #9575CD 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.gradient-info-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+    opacity: 0.6;
+    z-index: 0;
+}
+</style>
 			
 <!-- Payment & Application Section -->
 <section class="payment-application py-5" style="background-color: #f8f0ff;">
@@ -597,8 +653,8 @@
     </div>
   </div>
  <!-- Simplified Payment Methods Section -->
-<div class="payment-methods-section my-5">
-  <div class="container">
+<div class="payment-methods-section my-5 gradient-edge-top">
+  <div class="container gradient-edge-top">
     <div class="payment-methods-wrapper p-3 p-md-4">
       <h6 class="text-muted text-center mb-4 fw-normal">SECURE PAYMENT METHODS</h6>
       <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 gap-md-5">
@@ -719,28 +775,317 @@ document.getElementById('downloadFormBtn').addEventListener('click', function(e)
 });
 </script>
             
-            <div class="service-note">
-                <h3 class="mb-3">Need Assistance?</h3>
-                <p>
-                    You can book an appointment to get expert help during the application process. 
-                    For simple enquiries, contact us directly via phone or WhatsApp. For other services 
-                    like business registration, study abroad, or work permits, please reach out to us for 
-                    personalized assistance.
-                </p>
+			
+			<!-- Compact Requirements Section -->
+<section class="compact-requirements py-3" id="guide">
+    <div class="container">
+        <div class="compact-req-card">
+            <div class="compact-req-header">
+                <h4 class="compact-req-title">Application Requirements</h4>
+                <p class="compact-req-subtitle">Have these documents ready for processing</p>
+            </div>
+            
+            <div class="compact-req-grid">
+                <div class="compact-req-item">
+                    <i class="bi bi-person-badge"></i>
+                    <div class="compact-req-text">
+                        <span class="compact-req-name">Ghana Card</span>
+                        <span class="compact-req-desc">ECOWAS ID (PDF/hardcopy)</span>
+                    </div>
+                </div>
                 
-                <div class="contact-methods">
-                    <a href="https://wa.me/233558009078" target="_blank" class="contact-btn whatsapp">
-                        <i class="bi bi-whatsapp me-2"></i> WhatsApp Us
-                    </a>
-                    <a href="tel:+233558009078" class="contact-btn phone">
-                        <i class="bi bi-telephone me-2"></i> Call Us
-                    </a>
-                    <a href="./booking.html" class="contact-btn" style="background: var(--bs-primary); color: white;">
-                        <i class="bi bi-calendar-event me-2"></i> Book Appointment
-                    </a>
+                <div class="compact-req-item">
+                    <i class="bi bi-passport"></i>
+                    <div class="compact-req-text">
+                        <span class="compact-req-name">International Passport</span>
+                        <span class="compact-req-desc">Valid passport (PDF/hardcopy)</span>
+                    </div>
+                </div>
+                
+                <div class="compact-req-item">
+                    <i class="bi bi-file-earmark-person"></i>
+                    <div class="compact-req-text">
+                        <span class="compact-req-name">Curriculum Vitae</span>
+                        <span class="compact-req-desc">Updated CV (PDF/hardcopy)</span>
+                    </div>
+                </div>
+                
+                <div class="compact-req-item">
+                    <i class="bi bi-image"></i>
+                    <div class="compact-req-text">
+                        <span class="compact-req-name">Passport Photo</span>
+                        <span class="compact-req-desc">JPEG + 2 physical copies</span>
+                    </div>
+                </div>
+                
+                <div class="compact-req-item">
+                    <i class="bi bi-journal-text"></i>
+                    <div class="compact-req-text">
+                        <span class="compact-req-name">Academic Transcript</span>
+                        <span class="compact-req-desc">For study visa (PDF/hardcopy)</span>
+                    </div>
+                </div>
+                
+                <div class="compact-req-item">
+                    <i class="bi bi-file-earmark-medical"></i>
+                    <div class="compact-req-text">
+                        <span class="compact-req-name">Supporting Documents</span>
+                        <span class="compact-req-desc">Land, car, business certificates</span>
+                    </div>
+                </div>
+                
+                <div class="compact-req-item">
+                    <i class="bi bi-bank"></i>
+                    <div class="compact-req-text">
+                        <span class="compact-req-name">Bank Statement</span>
+                        <span class="compact-req-desc">Financial statement (PDF/hardcopy)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="compact-req-footer">
+                <div class="compact-contact-info">
+                    <span><i class="bi bi-geo-alt"></i> Sowutuom-Accra</span>
+                    <span><i class="bi bi-telephone"></i> 0304027192</span>
                 </div>
             </div>
         </div>
+    </div>
+</section>
+
+<style>
+    /* Compact Requirements Section */
+    .compact-requirements {
+        background-color: #f8fafc;
+        font-family: var(--bs-body-font-family);
+    }
+    
+    .compact-req-card {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        padding: 1.25rem;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    
+    .compact-req-header {
+        text-align: center;
+        margin-bottom: 1.25rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #e9ecef;
+    }
+    
+    .compact-req-title {
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 0.25rem;
+        font-size: 1.1rem;
+    }
+    
+    .compact-req-subtitle {
+        color: #64748b;
+        margin-bottom: 0;
+        font-size: 0.8rem;
+    }
+    
+    .compact-req-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .compact-req-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem;
+        background: #f8fafc;
+        border-radius: 6px;
+    }
+    
+    .compact-req-item i {
+        font-size: 1rem;
+        color: var(--bs-primary);
+        width: 24px;
+        text-align: center;
+        flex-shrink: 0;
+    }
+    
+    .compact-req-text {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .compact-req-name {
+        font-weight: 500;
+        color: #1e293b;
+        font-size: 0.85rem;
+        line-height: 1.3;
+    }
+    
+    .compact-req-desc {
+        color: #64748b;
+        font-size: 0.75rem;
+        line-height: 1.3;
+    }
+    
+    .compact-req-footer {
+        border-top: 1px solid #e9ecef;
+        padding-top: 1rem;
+    }
+    
+    .compact-contact-info {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+    
+    .compact-contact-info span {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #64748b;
+        font-size: 0.8rem;
+    }
+    
+    .compact-contact-info i {
+        font-size: 0.9rem;
+        color: var(--bs-primary);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .compact-req-card {
+            padding: 1rem;
+        }
+        
+        .compact-req-grid {
+            grid-template-columns: 1fr;
+            gap: 0.6rem;
+        }
+        
+        .compact-contact-info {
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: center;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .compact-req-title {
+            font-size: 1rem;
+        }
+        
+        .compact-req-item {
+            padding: 0.6rem;
+        }
+    }
+</style>
+			
+			
+            <div class="service-note">
+    <h3 class="mb-3 service-note-title">Need Assistance?</h3>
+    <p class="texture-noise service-note-text">
+        You can book an appointment to get expert help during the application process. 
+        For simple enquiries, contact us directly via phone or WhatsApp. For other services 
+        like business registration, study abroad, or work permits, please reach out to us for 
+        personalized assistance.
+    </p>
+    
+    <div class="contact-methods">
+        <a href="https://wa.me/233558009078" target="_blank" class="contact-btn whatsapp">
+            <i class="bi bi-whatsapp me-2"></i> WhatsApp Us
+        </a>
+        <a href="tel:+233558009078" class="contact-btn phone">
+            <i class="bi bi-telephone me-2"></i> Call Us
+        </a>
+        <a href="./booking.html" class="contact-btn" style="background: var(--bs-primary); color: white;">
+            <i class="bi bi-calendar-event me-2"></i> Book Appointment
+        </a>
+    </div>
+</div>
+
+<style>
+    .service-note-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+    
+    .service-note-text {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+    }
+    
+    .contact-methods {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+    
+    .contact-btn {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.6rem 1.2rem;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.9rem;
+        transition: all 0.2s ease;
+    }
+    
+    .contact-btn.whatsapp {
+        background: #25D366;
+        color: white;
+    }
+    
+    .contact-btn.phone {
+        background: #f8f9fa;
+        color: #495057;
+        border: 1px solid #dee2e6;
+    }
+    
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+        .service-note-title {
+            font-size: 1.1rem;
+        }
+        
+        .service-note-text {
+            font-size: 0.85rem;
+            margin-bottom: 1.25rem;
+        }
+        
+        .contact-methods {
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        
+        .contact-btn {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            justify-content: center;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .service-note-title {
+            font-size: 1rem;
+        }
+        
+        .service-note-text {
+            font-size: 0.8rem;
+        }
+        
+        .contact-btn {
+            padding: 0.45rem 0.9rem;
+            font-size: 0.8rem;
+        }
+    }
+</style>
     </section>
 
    	<!-- Footer -->
